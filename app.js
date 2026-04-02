@@ -1,0 +1,573 @@
+/**
+ * app.js
+ * Core application logic. Reads from CURRICULUM (curriculum.js).
+ * Uses localStorage for progress. Falls back to browser TTS if
+ * audio files are missing, and emoji if image files are missing.
+ */
+
+/* ── State ─────────────────────────────────────────────────── */
+let progress       = JSON.parse(localStorage.getItem("phonics_progress") || "{}");
+let currentSet     = null;   // reference to a CURRICULUM entry
+let currentStepIdx = 0;
+let dndDragging    = null;
+let dndState       = {};
+let fwAnimId       = null;
+
+/* ── Persistence ────────────────────────────────────────────── */
+function saveProgress() {
+  localStorage.setItem("phonics_progress", JSON.stringify(progress));
+}
+function markStep(setId, idx) {
+  if (!progress[setId]) progress[setId] = {};
+  progress[setId][idx] = true;
+  saveProgress();
+}
+function isStepDone(setId, idx) {
+  return !!(progress[setId] && progress[setId][idx]);
+}
+function isSetComplete(c) {
+  return c.steps.length > 0 && c.steps.every((_, i) => isStepDone(c.id, i));
+}
+function stepsCompleted(c) {
+  return c.steps.filter((_, i) => isStepDone(c.id, i)).length;
+}
+
+/* ── Audio ──────────────────────────────────────────────────── */
+function playAudioFile(src, onEnd) {
+  const audio = new Audio(src);
+  audio.onended = onEnd || null;
+  audio.onerror = () => {
+    // File missing — fall back to TTS using the filename stem
+    const word = src.split("/").pop().replace(/\.[^.]+$/, "");
+    speakTTS(word, 0.85, onEnd);
+  };
+  audio.play().catch(() => {
+    const word = src.split("/").pop().replace(/\.[^.]+$/, "");
+    speakTTS(word, 0.85, onEnd);
+  });
+}
+
+function speakTTS(text, rate, onEnd) {
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.rate  = rate || 1;
+  u.lang  = "en-GB";
+  if (onEnd) u.onend = onEnd;
+  window.speechSynthesis.speak(u);
+}
+
+function playPhonemeSequence(audioFiles, index) {
+  if (index >= audioFiles.length) return;
+  playAudioFile(audioFiles[index], () => {
+    setTimeout(() => playPhonemeSequence(audioFiles, index + 1), 300);
+  });
+}
+
+/* ── Image helper ───────────────────────────────────────────── */
+/**
+ * Returns an <img> tag if src is provided, otherwise an emoji span.
+ * The image silently falls back to the emoji on load error.
+ */
+function imgOrEmoji(src, emoji, cls) {
+  if (!src) return `<span>${emoji}</span>`;
+  return `<img src="${src}" alt="" class="${cls || ""}"
+    onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${emoji}'}))"/>`;
+}
+
+/* ── SVG helpers ────────────────────────────────────────────── */
+const SVG = {
+  audio: (s, c) => {
+    const sz = s || 22, cl = c || "#378ADD";
+    return `<svg width="${sz}" height="${sz}" viewBox="0 0 22 22" fill="none">
+      <circle cx="11" cy="11" r="10.25" stroke="${cl}" stroke-width="1"/>
+      <polygon points="8,7 16,11 8,15" fill="${cl}"/>
+    </svg>`;
+  },
+  bubble: () => `<svg width="34" height="30" viewBox="0 0 34 30" fill="none">
+    <rect x="1" y="1" width="32" height="22" rx="7" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/>
+    <path d="M9 23 L7 29 L15 23" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1" stroke-linejoin="round"/>
+  </svg>`,
+  arrowRight: () => `<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <path d="M4 10H16M11 5L16 10L11 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`,
+  arrowLeft: () => `<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <path d="M16 10H4M9 5L4 10L9 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`,
+  home: () => `<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <path d="M3 9.5L10 3L17 9.5V17H13V13H7V17H3V9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" fill="none"/>
+  </svg>`,
+  tick: (s) => { const n = s || 28; return `<svg width="${n}" height="${n}" viewBox="0 0 28 28">
+    <circle cx="14" cy="14" r="13" fill="#1D9E75"/>
+    <polyline points="8,14 12,18 20,10" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`; },
+  cross: (s) => { const n = s || 28; return `<svg width="${n}" height="${n}" viewBox="0 0 28 28">
+    <circle cx="14" cy="14" r="13" fill="#D85A30"/>
+    <line x1="9" y1="9" x2="19" y2="19" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="19" y1="9" x2="9" y2="19" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>`; },
+};
+
+/* ── Navigation helpers ─────────────────────────────────────── */
+function navRow(nextHidden) {
+  const isFirst = currentStepIdx === 0;
+  const backBtn = `<button class="icon-only-btn" onclick="goBack()" ${isFirst ? "disabled" : ""}>${SVG.arrowLeft()}</button>`;
+  const nextBtn = nextHidden
+    ? `<button class="btn" id="next-btn" style="display:none;padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>`
+    : `<button class="btn" style="padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>`;
+  return `<div class="nav-row">${backBtn}${nextBtn}</div>`;
+}
+
+/* ── Screen switching ───────────────────────────────────────── */
+function showScreen(id) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+function goHome() {
+  stopFireworks();
+  showScreen("screen-home");
+  renderHome();
+}
+
+function goBack() {
+  if (currentStepIdx > 0) {
+    currentStepIdx--;
+    renderSetHeader();
+    renderStepIndicator();
+    renderCurrentStep();
+  }
+}
+
+function advanceStep() {
+  markStep(currentSet.id, currentStepIdx);
+  const next = currentStepIdx + 1;
+  if (next >= currentSet.steps.length) {
+    renderSetHeader();
+    const nextSet = CURRICULUM.find(c => c.id !== currentSet.id && c.steps.length > 0);
+    launchFireworks(currentSet.homeLabel, nextSet ? nextSet.homeLabel : null);
+  } else {
+    currentStepIdx = next;
+    renderSetHeader();
+    renderStepIndicator();
+    renderCurrentStep();
+  }
+}
+
+/* ── Home screen ────────────────────────────────────────────── */
+function renderHome() {
+  const g = document.getElementById("set-grid");
+  g.innerHTML = "";
+  CURRICULUM.forEach((c, ci) => {
+    const done   = isSetComplete(c);
+    const prevOk = ci === 0 || isSetComplete(CURRICULUM[ci - 1]);
+    const locked = c.locked && !prevOk;
+    const el     = document.createElement("div");
+    el.className = "set-card" + (locked ? " locked-card" : "");
+    el.innerHTML = `<div class="set-number">${c.homeLabel}${done ? " ✓" : ""}</div>
+                    <div class="set-sounds">${c.homeSounds}</div>`;
+    if (!locked) el.onclick = () => openSet(c.id, 0);
+    g.appendChild(el);
+  });
+}
+
+/* ── Set screen ─────────────────────────────────────────────── */
+function openSet(id, stepIdx) {
+  currentSet     = CURRICULUM.find(c => c.id === id);
+  currentStepIdx = stepIdx || 0;
+  showScreen("screen-set");
+  renderSetHeader();
+  renderStepIndicator();
+  renderCurrentStep();
+}
+
+function renderSetHeader() {
+  document.getElementById("set-title").textContent    = currentSet.homeLabel;
+  document.getElementById("set-subtitle").textContent = currentSet.homeSounds;
+  const pct = (stepsCompleted(currentSet) / currentSet.steps.length * 100) + "%";
+  document.getElementById("set-progress").style.width = pct;
+}
+
+function renderStepIndicator() {
+  const ind = document.getElementById("step-indicator");
+  ind.innerHTML = "";
+  const seen = new Map();
+  currentSet.steps.forEach((s, i) => { if (!seen.has(s.label)) seen.set(s.label, i); });
+
+  seen.forEach((firstIdx, label) => {
+    const matching = currentSet.steps.map((s, i) => ({ ...s, i })).filter(s => s.label === label);
+    const isActive = matching.some(s => s.i === currentStepIdx);
+    const allDone  = matching.every(s => isStepDone(currentSet.id, s.i));
+    const anyDone  = matching.some(s => isStepDone(currentSet.id, s.i));
+    const isLocked = !anyDone && !isActive && firstIdx > 0 && !isStepDone(currentSet.id, firstIdx - 1);
+
+    const pill = document.createElement("span");
+    pill.className = "step-pill" + (isActive ? " active" : allDone ? " done" : isLocked ? " locked" : "");
+    pill.textContent = label;
+    if (!isLocked) {
+      pill.onclick = () => {
+        if (isStepDone(currentSet.id, firstIdx) || isActive) {
+          currentStepIdx = firstIdx;
+          renderStepIndicator();
+          renderCurrentStep();
+        }
+      };
+    }
+    ind.appendChild(pill);
+  });
+}
+
+/* ── Activity router ────────────────────────────────────────── */
+function renderCurrentStep() {
+  const step = currentSet.steps[currentStepIdx];
+  const container = document.getElementById("activity-container");
+  const map = { listen: renderListen, say: renderSay, spell: renderSpell, match: renderMatch };
+  if (map[step.type]) map[step.type](container, step);
+}
+
+/* ── Activity 1: Listen ─────────────────────────────────────── */
+function renderListen(c, step) {
+  let html = `<div class="card"><div class="sound-grid">`;
+  step.sounds.forEach(s => {
+    html += `<button class="sound-btn" id="sb-${s.letter}" onclick="playSound('${s.audio}','${s.letter}')">
+      <span>${s.letter}</span>${SVG.audio(22, "#378ADD")}
+    </button>`;
+  });
+  html += `</div>${navRow(false)}</div>`;
+  c.innerHTML = html;
+}
+
+function playSound(audioSrc, letter) {
+  document.querySelectorAll(".sound-btn").forEach(b => b.classList.remove("playing"));
+  const btn = document.getElementById("sb-" + letter);
+  if (btn) btn.classList.add("playing");
+  playAudioFile(audioSrc, () => {
+    if (btn) btn.classList.remove("playing");
+  });
+  // Ensure button un-highlights even if audio event doesn't fire
+  setTimeout(() => { if (btn) btn.classList.remove("playing"); }, 1200);
+}
+
+/* ── Activity 2: Say ────────────────────────────────────────── */
+function renderSay(c, step) {
+  let html = `<div class="card">
+  <table class="blend-table">
+    <colgroup>
+      <col style="width:36%"/>
+      <col style="width:14%"/>
+      <col style="width:36%"/>
+      <col style="width:14%"/>
+    </colgroup>
+    <thead><tr>
+      <th class="listen-h">Listen</th>
+      <th class="say-h">Say</th>
+      <th class="listen-h col-divider">Listen</th>
+      <th class="say-h">Say</th>
+    </tr></thead>
+    <tbody>`;
+
+  step.rows.forEach((row, ri) => {
+    html += `<tr>
+      <td>
+        <div class="blend-listen-cell">
+          <span class="phoneme-text">${row.phonemes}</span>
+          <button class="icon-btn-round" onclick="playPhonemeSequence(${JSON.stringify(row.phonemeAudio)}, 0)">
+            ${SVG.audio(22, "#378ADD")}
+          </button>
+        </div>
+      </td>
+      <td><div class="blend-say-cell">${SVG.bubble()}</div></td>
+      <td class="col-divider">
+        <div class="blend-listen-cell">
+          <span class="word-text">${row.word}</span>
+          <button class="icon-btn-round" onclick="playAudioFile('${row.audio}')">
+            ${SVG.audio(22, "#378ADD")}
+          </button>
+        </div>
+      </td>
+      <td><div class="blend-say-cell">${SVG.bubble()}</div></td>
+    </tr>`;
+  });
+
+  html += `</tbody></table>${navRow(false)}</div>`;
+  c.innerHTML = html;
+}
+
+/* ── Activity 3: Spell ──────────────────────────────────────── */
+function renderSpell(c, step) {
+  let html = `<div class="card"><div class="spell-container">`;
+
+  step.words.forEach((item, idx) => {
+    const pic = item.image
+      ? `<img src="${item.image}" alt="${item.word}"
+           onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${item.emoji}',style:'font-size:26px'}))">`
+      : `<span style="font-size:26px">${item.emoji}</span>`;
+    html += `<div class="spell-item">
+      <div class="spell-pic">${pic}</div>
+      <button class="icon-btn-round" onclick="playAudioFile('${item.audio}')">
+        ${SVG.audio(24, "#378ADD")}
+      </button>
+      <input class="spell-input" id="sp-${idx}" type="text"
+        autocomplete="off" autocorrect="off" spellcheck="false" />
+      <div class="result-icon" id="sr-${idx}"></div>
+    </div>`;
+  });
+
+  html += `</div>${navRow(true)}</div>`;
+  c.innerHTML = html;
+
+  step.words.forEach((item, idx) => {
+    const inp = document.getElementById("sp-" + idx);
+    if (!inp) return;
+
+    function checkSpelling() {
+      const val = inp.value.trim().toLowerCase();
+      if (!val) return;
+      const ok = val === item.word;
+      inp.className = "spell-input " + (ok ? "correct-input" : "wrong-input");
+      const iconEl = document.getElementById("sr-" + idx);
+      if (ok) {
+        iconEl.innerHTML = SVG.tick();
+      } else {
+        iconEl.innerHTML = SVG.cross();
+        setTimeout(() => {
+          inp.value = "";
+          inp.className = "spell-input";
+          iconEl.innerHTML = "";
+          inp.focus();
+        }, 900);
+      }
+      // Show next arrow when all correct
+      const allOk = step.words.every((_, i) => {
+        const el = document.getElementById("sp-" + i);
+        return el && el.classList.contains("correct-input");
+      });
+      if (allOk) {
+        const nb = document.getElementById("next-btn");
+        if (nb) nb.style.display = "inline-flex";
+      }
+    }
+
+    inp.addEventListener("blur", checkSpelling);
+    inp.addEventListener("keydown", e => { if (e.key === "Enter") inp.blur(); });
+  });
+}
+
+/* ── Activity 4: Match (drag & drop) ───────────────────────── */
+function renderMatch(c, step) {
+  const items = step.items;
+  dndState    = {};
+  items.forEach(it => { dndState[it.word] = null; });
+  dndDragging = null;
+
+  c.innerHTML = `<div class="card">
+    <div class="dnd-grid">
+      <div class="dnd-drag-col" id="drag-col"></div>
+      <div class="dnd-drop-col" id="drop-col"></div>
+    </div>
+    <div class="nav-row" style="margin-top:1rem;">
+      <button class="icon-only-btn" onclick="goBack()" ${currentStepIdx === 0 ? "disabled" : ""}>${SVG.arrowLeft()}</button>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button class="icon-only-btn" onclick="goHome()">${SVG.home()}</button>
+        <button class="btn" id="match-next" style="display:none;padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>
+      </div>
+    </div>
+  </div>`;
+
+  const shuffledPics  = [...items].sort(() => Math.random() - 0.5);
+  const shuffledWords = [...items].sort(() => Math.random() - 0.5);
+
+  // Drag (picture) column
+  const dragCol = document.getElementById("drag-col");
+  shuffledPics.forEach(it => {
+    const el = document.createElement("div");
+    el.className = "drag-chip";
+    el.id        = "chip-" + it.word;
+    el.draggable = true;
+    el.innerHTML = it.image
+      ? `<img src="${it.image}" alt="${it.word}"
+           onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${it.emoji}',style:'font-size:28px'}))">`
+      : `<span style="font-size:28px">${it.emoji}</span>`;
+
+    el.addEventListener("dragstart", e => {
+      dndDragging = it.word;
+      el.classList.add("dragging");
+      e.dataTransfer.effectAllowed = "move";
+    });
+    el.addEventListener("dragend", () => {
+      el.classList.remove("dragging");
+      dndDragging = null;
+    });
+    dragCol.appendChild(el);
+  });
+
+  // Drop (word) column
+  const dropCol = document.getElementById("drop-col");
+  shuffledWords.forEach(it => {
+    const el = document.createElement("div");
+    el.className = "drop-slot";
+    el.id        = "slot-" + it.word;
+    el.innerHTML = `<span class="slot-word">${it.word}</span>
+                    <span class="slot-img"  id="si-${it.word}"></span>
+                    <span class="slot-result" id="sr2-${it.word}"></span>`;
+
+    el.addEventListener("dragover",  e => { e.preventDefault(); el.classList.add("over"); });
+    el.addEventListener("dragleave", ()  => el.classList.remove("over"));
+    el.addEventListener("drop", e => {
+      e.preventDefault();
+      el.classList.remove("over");
+      if (!dndDragging || el.classList.contains("correct-slot")) return;
+
+      // Remove from previous slot if already placed
+      const prevSlotKey = Object.keys(dndState).find(k => dndState[k] === dndDragging);
+      if (prevSlotKey) {
+        dndState[prevSlotKey] = null;
+        const ps = document.getElementById("slot-" + prevSlotKey);
+        if (ps && !ps.classList.contains("correct-slot")) {
+          ps.classList.remove("correct-slot", "wrong-slot");
+          document.getElementById("si-" + prevSlotKey).innerHTML   = "";
+          document.getElementById("sr2-" + prevSlotKey).innerHTML = "";
+        }
+        const prevChip = document.getElementById("chip-" + dndDragging);
+        if (prevChip) prevChip.classList.remove("used");
+      }
+
+      // Place in new slot
+      const correct = dndDragging === it.word;
+      dndState[it.word] = dndDragging;
+
+      const src     = items.find(x => x.word === dndDragging);
+      const slotImg = document.getElementById("si-" + it.word);
+      slotImg.innerHTML = src
+        ? (src.image
+            ? `<img src="${src.image}" alt="${src.word}"
+                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${src.emoji}',style:'font-size:24px'}))">`
+            : `<span style="font-size:24px">${src.emoji}</span>`)
+        : "";
+
+      const chip   = document.getElementById("chip-" + dndDragging);
+      const resEl  = document.getElementById("sr2-" + it.word);
+
+      if (correct) {
+        el.classList.add("correct-slot");
+        if (chip)  chip.classList.add("used");
+        if (resEl) resEl.innerHTML = SVG.tick(22);
+      } else {
+        el.classList.add("wrong-slot");
+        if (resEl) resEl.innerHTML = SVG.cross(22);
+        setTimeout(() => {
+          el.classList.remove("wrong-slot");
+          slotImg.innerHTML = "";
+          if (resEl) resEl.innerHTML = "";
+          dndState[it.word] = null;
+          if (chip) chip.classList.remove("used");
+        }, 900);
+      }
+
+      // Check all correct
+      if (items.every(x => dndState[x.word] === x.word)) {
+        const nb = document.getElementById("match-next");
+        if (nb) nb.style.display = "inline-flex";
+      }
+    });
+
+    dropCol.appendChild(el);
+  });
+}
+
+/* ── Fireworks ──────────────────────────────────────────────── */
+function launchFireworks(setLabel, nextLabel) {
+  const overlay = document.getElementById("fw-overlay");
+  const msg     = document.getElementById("fw-message");
+  const canvas  = document.getElementById("fw-canvas");
+  const ctx     = canvas.getContext("2d");
+
+  document.getElementById("fw-title").textContent    = setLabel + " complete!";
+  document.getElementById("fw-subtitle").textContent = "Amazing work — keep it up!";
+  document.getElementById("fw-btn").textContent      = nextLabel ? nextLabel + " →" : "Back to sets";
+
+  overlay.classList.add("active");
+  msg.classList.add("active");
+
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const particles = [];
+  const COLORS    = ["#1D9E75","#378ADD","#D85A30","#BA7517","#D4537E","#7F77DD","#639922","#E24B4A"];
+  const rand = (a, b) => Math.random() * (b - a) + a;
+
+  function burst(x, y) {
+    for (let i = 0; i < 70; i++) {
+      const angle = Math.random() * Math.PI * 2, speed = rand(2, 9);
+      particles.push({
+        x, y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        alpha: 1,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        size:  rand(3, 7),
+        decay: rand(0.012, 0.022),
+        gravity: rand(0.08, 0.18),
+        trail: [],
+      });
+    }
+  }
+
+  let lastBurst = 0, burstCount = 0;
+
+  function loop(ts) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (ts - lastBurst > 600 && burstCount < 12) {
+      burst(rand(canvas.width * 0.15, canvas.width * 0.85),
+            rand(canvas.height * 0.1, canvas.height * 0.5));
+      lastBurst = ts;
+      burstCount++;
+    }
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      p.trail.push({ x: p.x, y: p.y });
+      if (p.trail.length > 5) p.trail.shift();
+      p.vy += p.gravity;
+      p.x  += p.vx;
+      p.y  += p.vy;
+      p.vx *= 0.97;
+      p.alpha -= p.decay;
+      if (p.alpha <= 0) { particles.splice(i, 1); continue; }
+      ctx.globalAlpha = p.alpha * 0.35;
+      p.trail.forEach(t => {
+        ctx.beginPath();
+        ctx.arc(t.x, t.y, p.size * 0.5, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+      });
+      ctx.globalAlpha = p.alpha;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    if (burstCount < 12 || particles.length > 0) {
+      fwAnimId = requestAnimationFrame(loop);
+    }
+  }
+
+  burst(canvas.width * 0.3,  canvas.height * 0.3);
+  burst(canvas.width * 0.7,  canvas.height * 0.25);
+  fwAnimId = requestAnimationFrame(loop);
+}
+
+function stopFireworks() {
+  if (fwAnimId) { cancelAnimationFrame(fwAnimId); fwAnimId = null; }
+  document.getElementById("fw-overlay").classList.remove("active");
+  document.getElementById("fw-message").classList.remove("active");
+}
+
+function dismissFireworks() {
+  stopFireworks();
+  const nextSet = CURRICULUM.find(c => c.id !== currentSet.id && c.steps.length > 0);
+  if (nextSet) openSet(nextSet.id, 0);
+  else goHome();
+}
+
+/* ── Boot ───────────────────────────────────────────────────── */
+renderHome();
