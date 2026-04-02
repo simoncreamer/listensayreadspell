@@ -71,7 +71,7 @@ const CURRICULUM = [
         group: "in",
         rows: [
           { phonemes: "i · n",     word: "in",  audio: "audio/in.mp3",  phonemeAudio: "audio/i...n.mp3" },
-          { phonemes: "t · i · n", word: "tin", audio: "audio/tin.mp3", phonemeAudio: "audio/t...i...n.mp3 },
+          { phonemes: "t · i · n", word: "tin", audio: "audio/tin.mp3", phonemeAudio: "audio/t...i...n.mp3" },
           { phonemes: "p · i · n", word: "pin", audio: "audio/pin.mp3", phonemeAudio: "audio/p...i...n.mp3" },
         ],
       },
