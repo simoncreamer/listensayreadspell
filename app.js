@@ -270,7 +270,7 @@ function renderSay(c, step) {
       <td>
         <div class="blend-listen-cell">
           <span class="phoneme-text">${row.phonemes}</span>
-          <button class="icon-btn-round" onclick="playPhonemeSequence(${JSON.stringify(row.phonemeAudio)}, 0)">
+          <button class="icon-btn-round" onclick="playAudioFile('${row.phonemeAudio}')">
             ${SVG.audio(22, "#378ADD")}
           </button>
         </div>
@@ -280,7 +280,7 @@ function renderSay(c, step) {
         <div class="blend-listen-cell">
           <span class="word-text">${row.word}</span>
           <button class="icon-btn-round" onclick="playAudioFile('${row.audio}')">
-            ${SVG.audio(22, "#378ADD")}
+              ${SVG.audio(22, "#378ADD")}
           </button>
         </div>
       </td>
