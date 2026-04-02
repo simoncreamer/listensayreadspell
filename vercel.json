@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/audio/(.*)", "destination": "/public/audio/$1" },
+    { "source": "/images/(.*)", "destination": "/public/images/$1" }
+  ]
+}
