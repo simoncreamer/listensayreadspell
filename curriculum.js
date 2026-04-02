@@ -70,9 +70,9 @@ const CURRICULUM = [
         label: "2",
         group: "in",
         rows: [
-          { phonemes: "i · n",     word: "in",  audio: "audio/i...n.mp3",  phonemeAudio: ["audio/i.mp3","audio/n.mp3"] },
-          { phonemes: "t · i · n", word: "tin", audio: "audio/t...i...n.mp3", phonemeAudio: ["audio/t.mp3","audio/i.mp3","audio/n.mp3"] },
-          { phonemes: "p · i · n", word: "pin", audio: "audio/p...i...n.mp3", phonemeAudio: ["audio/p.mp3","audio/i.mp3","audio/n.mp3"] },
+          { phonemes: "i · n",     word: "in",  audio: "audio/in.mp3",  phonemeAudio: "audio/i...n.mp3" },
+          { phonemes: "t · i · n", word: "tin", audio: "audio/tin.mp3", phonemeAudio: "audio/t...i...n.mp3 },
+          { phonemes: "p · i · n", word: "pin", audio: "audio/pin.mp3", phonemeAudio: "audio/p...i...n.mp3" },
         ],
       },
       {
@@ -102,10 +102,10 @@ const CURRICULUM = [
         label: "3",
         group: "an",
         rows: [
-          { phonemes: "n · a · p", word: "nap", audio: "audio/nap.mp3", phonemeAudio: ["audio/n...a...p.mp3] },
-          { phonemes: "t · a · p", word: "tap", audio: "audio/tap.mp3", phonemeAudio: ["audio/t...a...p.mp3"] },
-          { phonemes: "p · a · n", word: "pan", audio: "audio/pan.mp3", phonemeAudio: ["audio/p...a...t.mp3" },
-          { phonemes: "t · a · n", word: "tan", audio: "audio/tan.mp3", phonemeAudio: ["audio/t..a...p.mp3" },
+          { phonemes: "n · a · p", word: "nap", audio: "audio/nap.mp3", phonemeAudio: "audio/n...a...p.mp3" },
+          { phonemes: "t · a · p", word: "tap", audio: "audio/tap.mp3", phonemeAudio: "audio/t...a...p.mp3" },
+          { phonemes: "p · a · n", word: "pan", audio: "audio/pan.mp3", phonemeAudio: "audio/p...a...t.mp3" },
+          { phonemes: "t · a · n", word: "tan", audio: "audio/tan.mp3", phonemeAudio: "audio/t..a...p.mp3" },
         ],
       },
       {
@@ -137,9 +137,9 @@ const CURRICULUM = [
         label: "4",
         group: "it",
         rows: [
-          { phonemes: "s · i · t",     word: "sit",  audio: "audio/sit.mp3",  phonemeAudio: ["audio/s...i..t.mp3" },
-          { phonemes: "p · i · t",     word: "pit",  audio: "audio/pit.mp3",  phonemeAudio: ["audio/p...i...t.mp3" },
-          { phonemes: "n · i · t · s", word: "nits", audio: "audio/nits.mp3", phonemeAudio: ["audio/n...i...t...s.mp3" },
+          { phonemes: "s · i · t",     word: "sit",  audio: "audio/sit.mp3",  phonemeAudio: "audio/s...i..t.mp3" },
+          { phonemes: "p · i · t",     word: "pit",  audio: "audio/pit.mp3",  phonemeAudio: "audio/p...i...t.mp3" },
+          { phonemes: "n · i · t · s", word: "nits", audio: "audio/nits.mp3", phonemeAudio: "audio/n...i...t...s.mp3" },
         ],
       },
       {
@@ -169,10 +169,10 @@ const CURRICULUM = [
         label: "5",
         group: "ip",
         rows: [
-          { phonemes: "t · i · p", word: "tip", audio: "audio/tip.mp3", phonemeAudio: ["audio/t...i...p.mp3" },
-          { phonemes: "p · i · p", word: "pip", audio: "audio/pip.mp3", phonemeAudio: ["audio/p...i...p.mp3" },
-          { phonemes: "n · i · p", word: "nip", audio: "audio/nip.mp3", phonemeAudio: ["audio/n...i...p.mp3" },
-          { phonemes: "s · i · p", word: "sip", audio: "audio/sip.mp3", phonemeAudio: ["audio/s..i...p.mp3" },
+          { phonemes: "t · i · p", word: "tip", audio: "audio/tip.mp3", phonemeAudio: "audio/t...i...p.mp3" },
+          { phonemes: "p · i · p", word: "pip", audio: "audio/pip.mp3", phonemeAudio: "audio/p...i...p.mp3" },
+          { phonemes: "n · i · p", word: "nip", audio: "audio/nip.mp3", phonemeAudio: "audio/n...i...p.mp3" },
+          { phonemes: "s · i · p", word: "sip", audio: "audio/sip.mp3", phonemeAudio: "audio/s..i...p.mp3" },
         ],
       },
       {
@@ -204,9 +204,9 @@ const CURRICULUM = [
         label: "6",
         group: "ant",
         rows: [
-          { phonemes: "a · n · t",         word: "ant",   audio: "audio/ant.mp3",   phonemeAudio: ["audio/a...n...t.mp3" },
-          { phonemes: "p · a · n · t · s", word: "pants", audio: "audio/pants.mp3", phonemeAudio: ["audio/p...a...n...t...s.mp3" },
-          { phonemes: "s · n · a · p",     word: "snap",  audio: "audio/snap.mp3",  phonemeAudio: ["audio/s...n...a...p.mp3" },
+          { phonemes: "a · n · t",         word: "ant",   audio: "audio/ant.mp3",   phonemeAudio: "audio/a...n...t.mp3" },
+          { phonemes: "p · a · n · t · s", word: "pants", audio: "audio/pants.mp3", phonemeAudio: "audio/p...a...n...t...s.mp3" },
+          { phonemes: "s · n · a · p",     word: "snap",  audio: "audio/snap.mp3",  phonemeAudio: "audio/s...n...a...p.mp3" },
         ],
       },
       {
