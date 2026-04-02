@@ -38,9 +38,9 @@ const CURRICULUM = [
         label: "1",
         group: "at",
         rows: [
-          { phonemes: "a · t",     word: "at",  audio: "audio/at.mp3",  phonemeAudio: ["audio/a.mp3","audio/t.mp3"] },
-          { phonemes: "s · a · t", word: "sat", audio: "audio/sat.mp3", phonemeAudio: ["audio/s.mp3","audio/a.mp3","audio/t.mp3"] },
-          { phonemes: "p · a · t", word: "pat", audio: "audio/pat.mp3", phonemeAudio: ["audio/p.mp3","audio/a.mp3","audio/t.mp3"] },
+          { phonemes: "a · t",     word: "at",  audio: "audio/a...t.mp3",  phonemeAudio: ["audio/a.mp3","audio/t.mp3"] },
+          { phonemes: "s · a · t", word: "sat", audio: "audio/s...a...t.mp3", phonemeAudio: ["audio/s.mp3","audio/a.mp3","audio/t.mp3"] },
+          { phonemes: "p · a · t", word: "pat", audio: "audio/p...a...t.mp3", phonemeAudio: ["audio/p.mp3","audio/a.mp3","audio/t.mp3"] },
         ],
       },
       {
@@ -48,9 +48,9 @@ const CURRICULUM = [
         label: "1",
         group: "at",
         words: [
-          { word: "at",  image: "images/at.jpg",  audio: "audio/at.mp3",  emoji: "🎯" },
-          { word: "sat", image: "images/sat.jpg", audio: "audio/sat.mp3", emoji: "🪑" },
-          { word: "pat", image: "images/pat.jpg", audio: "audio/pat.mp3", emoji: "🐾" },
+          { word: "at",  image: "images/at.jpg",  audio: "audio/at spelling.mp3",  emoji: "🎯" },
+          { word: "sat", image: "images/sat.jpg", audio: "audio/sat spelling.mp3", emoji: "🪑" },
+          { word: "pat", image: "images/pat.jpg", audio: "audio/pat spelling.mp3", emoji: "🐾" },
         ],
       },
       {
@@ -70,9 +70,9 @@ const CURRICULUM = [
         label: "2",
         group: "in",
         rows: [
-          { phonemes: "i · n",     word: "in",  audio: "audio/in.mp3",  phonemeAudio: ["audio/i.mp3","audio/n.mp3"] },
-          { phonemes: "t · i · n", word: "tin", audio: "audio/tin.mp3", phonemeAudio: ["audio/t.mp3","audio/i.mp3","audio/n.mp3"] },
-          { phonemes: "p · i · n", word: "pin", audio: "audio/pin.mp3", phonemeAudio: ["audio/p.mp3","audio/i.mp3","audio/n.mp3"] },
+          { phonemes: "i · n",     word: "in",  audio: "audio/i...n.mp3",  phonemeAudio: ["audio/i.mp3","audio/n.mp3"] },
+          { phonemes: "t · i · n", word: "tin", audio: "audio/t...i...n.mp3", phonemeAudio: ["audio/t.mp3","audio/i.mp3","audio/n.mp3"] },
+          { phonemes: "p · i · n", word: "pin", audio: "audio/p...i...n.mp3", phonemeAudio: ["audio/p.mp3","audio/i.mp3","audio/n.mp3"] },
         ],
       },
       {
@@ -80,9 +80,9 @@ const CURRICULUM = [
         label: "2",
         group: "in",
         words: [
-          { word: "in",  image: "images/in.jpg",  audio: "audio/in.mp3",  emoji: "📥" },
-          { word: "tin", image: "images/tin.jpg", audio: "audio/tin.mp3", emoji: "🥫" },
-          { word: "pin", image: "images/pin.jpg", audio: "audio/pin.mp3", emoji: "📌" },
+          { word: "in",  image: "images/in.jpg",  audio: "audio/in spelling.mp3",  emoji: "📥" },
+          { word: "tin", image: "images/tin.jpg", audio: "audio/tin spelling.mp3", emoji: "🥫" },
+          { word: "pin", image: "images/pin.jpg", audio: "audio/pin spelling.mp3", emoji: "📌" },
         ],
       },
       {
@@ -102,10 +102,10 @@ const CURRICULUM = [
         label: "3",
         group: "an",
         rows: [
-          { phonemes: "n · a · p", word: "nap", audio: "audio/nap.mp3", phonemeAudio: ["audio/n.mp3","audio/a.mp3","audio/p.mp3"] },
-          { phonemes: "t · a · p", word: "tap", audio: "audio/tap.mp3", phonemeAudio: ["audio/t.mp3","audio/a.mp3","audio/p.mp3"] },
-          { phonemes: "p · a · n", word: "pan", audio: "audio/pan.mp3", phonemeAudio: ["audio/p.mp3","audio/a.mp3","audio/n.mp3"] },
-          { phonemes: "t · a · n", word: "tan", audio: "audio/tan.mp3", phonemeAudio: ["audio/t.mp3","audio/a.mp3","audio/n.mp3"] },
+          { phonemes: "n · a · p", word: "nap", audio: "audio/n...a...p.mp3", phonemeAudio: ["audio/n.mp3","audio/a.mp3","audio/p.mp3"] },
+          { phonemes: "t · a · p", word: "tap", audio: "audio/t...a...p.mp3", phonemeAudio: ["audio/t.mp3","audio/a.mp3","audio/p.mp3"] },
+          { phonemes: "p · a · n", word: "pan", audio: "audio/p...a...n.mp3", phonemeAudio: ["audio/p.mp3","audio/a.mp3","audio/n.mp3"] },
+          { phonemes: "t · a · n", word: "tan", audio: "audio/t...a...n.mp3", phonemeAudio: ["audio/t.mp3","audio/a.mp3","audio/n.mp3"] },
         ],
       },
       {
@@ -113,10 +113,10 @@ const CURRICULUM = [
         label: "3",
         group: "an",
         words: [
-          { word: "nap", image: "images/nap.jpg", audio: "audio/nap.mp3", emoji: "😴" },
-          { word: "tap", image: "images/tap.jpg", audio: "audio/tap.mp3", emoji: "🚰" },
-          { word: "pan", image: "images/pan.jpg", audio: "audio/pan.mp3", emoji: "🍳" },
-          { word: "tan", image: "images/tan.jpg", audio: "audio/tan.mp3", emoji: "🏖️" },
+          { word: "nap", image: "images/nap.jpg", audio: "audio/nap spelling.mp3", emoji: "😴" },
+          { word: "tap", image: "images/tap.jpg", audio: "audio/tap spelling.mp3", emoji: "🚰" },
+          { word: "pan", image: "images/pan.jpg", audio: "audio/pan spelling.mp3", emoji: "🍳" },
+          { word: "tan", image: "images/tan.jpg", audio: "audio/tan v2 spelling.mp3", emoji: "🏖️" },
         ],
       },
       {
@@ -137,9 +137,9 @@ const CURRICULUM = [
         label: "4",
         group: "it",
         rows: [
-          { phonemes: "s · i · t",     word: "sit",  audio: "audio/sit.mp3",  phonemeAudio: ["audio/s.mp3","audio/i.mp3","audio/t.mp3"] },
-          { phonemes: "p · i · t",     word: "pit",  audio: "audio/pit.mp3",  phonemeAudio: ["audio/p.mp3","audio/i.mp3","audio/t.mp3"] },
-          { phonemes: "n · i · t · s", word: "nits", audio: "audio/nits.mp3", phonemeAudio: ["audio/n.mp3","audio/i.mp3","audio/t.mp3","audio/s.mp3"] },
+          { phonemes: "s · i · t",     word: "sit",  audio: "audio/s...i...t.mp3",  phonemeAudio: ["audio/s.mp3","audio/i.mp3","audio/t.mp3"] },
+          { phonemes: "p · i · t",     word: "pit",  audio: "audio/p...i...t.mp3",  phonemeAudio: ["audio/p.mp3","audio/i.mp3","audio/t.mp3"] },
+          { phonemes: "n · i · t · s", word: "nits", audio: "audio/n...i...t...s.mp3", phonemeAudio: ["audio/n.mp3","audio/i.mp3","audio/t.mp3","audio/s.mp3"] },
         ],
       },
       {
