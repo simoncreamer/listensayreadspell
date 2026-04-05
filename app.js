@@ -3,11 +3,16 @@
  * Core application logic. Reads from CURRICULUM (curriculum.js).
  * Uses localStorage for progress. Falls back to browser TTS if
  * audio files are missing, and emoji if image files are missing.
+ *
+ * Display notation in curriculum.js:
+ *   <u>xx</u>   → underline (two-letter graphemes)
+ *   <g>x</g>    → green (split digraph vowel)
+ *   <r>x</r>    → red (silent e)
  */
 
 /* ── State ─────────────────────────────────────────────────── */
 let progress       = JSON.parse(localStorage.getItem("phonics_progress") || "{}");
-let currentSet     = null;   // reference to a CURRICULUM entry
+let currentSet     = null;
 let currentStepIdx = 0;
 let dndDragging    = null;
 let dndState       = {};
@@ -32,17 +37,31 @@ function stepsCompleted(c) {
   return c.steps.filter((_, i) => isStepDone(c.id, i)).length;
 }
 
+/* ── Display helper ─────────────────────────────────────────── */
+/**
+ * Converts display notation to HTML:
+ *   <u>xx</u>  → underline span
+ *   <g>x</g>   → green span
+ *   <r>x</r>   → red span
+ */
+function renderDisplay(str) {
+  if (!str) return "";
+  return str
+    .replace(/<u>(.*?)<\/u>/g, '<span style="text-decoration:underline;text-underline-offset:3px;">$1</span>')
+    .replace(/<g>(.*?)<\/g>/g, '<span style="color:#1D9E75;font-weight:600;">$1</span>')
+    .replace(/<r>(.*?)<\/r>/g, '<span style="color:#D85A30;font-weight:600;">$1</span>');
+}
+
 /* ── Audio ──────────────────────────────────────────────────── */
 function playAudioFile(src, onEnd) {
   const audio = new Audio(src);
   audio.onended = onEnd || null;
   audio.onerror = () => {
-    // File missing — fall back to TTS using the filename stem
-    const word = src.split("/").pop().replace(/\.[^.]+$/, "");
+    const word = src.split("/").pop().replace(/\.[^.]+$/, "").replace(/\s*spelling\s*/i, "").trim();
     speakTTS(word, 0.85, onEnd);
   };
   audio.play().catch(() => {
-    const word = src.split("/").pop().replace(/\.[^.]+$/, "");
+    const word = src.split("/").pop().replace(/\.[^.]+$/, "").replace(/\s*spelling\s*/i, "").trim();
     speakTTS(word, 0.85, onEnd);
   });
 }
@@ -64,10 +83,6 @@ function playPhonemeSequence(audioFiles, index) {
 }
 
 /* ── Image helper ───────────────────────────────────────────── */
-/**
- * Returns an <img> tag if src is provided, otherwise an emoji span.
- * The image silently falls back to the emoji on load error.
- */
 function imgOrEmoji(src, emoji, cls) {
   if (!src) return `<span>${emoji}</span>`;
   return `<img src="${src}" alt="" class="${cls || ""}"
@@ -143,7 +158,7 @@ function advanceStep() {
   const next = currentStepIdx + 1;
   if (next >= currentSet.steps.length) {
     renderSetHeader();
-    const nextSet = CURRICULUM.find(c => c.id !== currentSet.id && c.steps.length > 0);
+    const nextSet = CURRICULUM.find(c => c.id !== currentSet.id && c.steps.length > 0 && !isSetComplete(c));
     launchFireworks(currentSet.homeLabel, nextSet ? nextSet.homeLabel : null);
   } else {
     currentStepIdx = next;
@@ -164,7 +179,7 @@ function renderHome() {
     const el     = document.createElement("div");
     el.className = "set-card" + (locked ? " locked-card" : "");
     el.innerHTML = `<div class="set-number">${c.homeLabel}${done ? " ✓" : ""}</div>
-                    <div class="set-sounds">${c.homeSounds}</div>`;
+                    <div class="set-sounds">${renderDisplay(c.homeSounds)}</div>`;
     if (!locked) el.onclick = () => openSet(c.id, 0);
     g.appendChild(el);
   });
@@ -181,8 +196,8 @@ function openSet(id, stepIdx) {
 }
 
 function renderSetHeader() {
-  document.getElementById("set-title").textContent    = currentSet.homeLabel;
-  document.getElementById("set-subtitle").textContent = currentSet.homeSounds;
+  document.getElementById("set-title").textContent = currentSet.homeLabel;
+  document.getElementById("set-subtitle").innerHTML = renderDisplay(currentSet.homeSounds);
   const pct = (stepsCompleted(currentSet) / currentSet.steps.length * 100) + "%";
   document.getElementById("set-progress").style.width = pct;
 }
@@ -228,22 +243,20 @@ function renderCurrentStep() {
 function renderListen(c, step) {
   let html = `<div class="card"><div class="sound-grid">`;
   step.sounds.forEach(s => {
-    html += `<button class="sound-btn" id="sb-${s.letter}" onclick="playSound('${s.audio}','${s.letter}')">
-      <span>${s.letter}</span>${SVG.audio(22, "#378ADD")}
+    html += `<button class="sound-btn" id="sb-${s.letter}" onclick="playSound('${s.audio}','${encodeURIComponent(s.letter)}')">
+      <span>${renderDisplay(s.display || s.letter)}</span>${SVG.audio(22, "#378ADD")}
     </button>`;
   });
   html += `</div>${navRow(false)}</div>`;
   c.innerHTML = html;
 }
 
-function playSound(audioSrc, letter) {
+function playSound(audioSrc, encodedLetter) {
+  const letter = decodeURIComponent(encodedLetter);
   document.querySelectorAll(".sound-btn").forEach(b => b.classList.remove("playing"));
   const btn = document.getElementById("sb-" + letter);
   if (btn) btn.classList.add("playing");
-  playAudioFile(audioSrc, () => {
-    if (btn) btn.classList.remove("playing");
-  });
-  // Ensure button un-highlights even if audio event doesn't fire
+  playAudioFile(audioSrc, () => { if (btn) btn.classList.remove("playing"); });
   setTimeout(() => { if (btn) btn.classList.remove("playing"); }, 1200);
 }
 
@@ -265,12 +278,13 @@ function renderSay(c, step) {
     </tr></thead>
     <tbody>`;
 
-  step.rows.forEach((row, ri) => {
+  step.rows.forEach((row) => {
+    const safePhoneme = row.phonemeAudio.replace(/'/g, "\\'");
     html += `<tr>
       <td>
         <div class="blend-listen-cell">
-          <span class="phoneme-text">${row.phonemes}</span>
-          <button class="icon-btn-round" onclick="playAudioFile('${row.phonemeAudio}')">
+          <span class="phoneme-text">${renderDisplay(row.phonemes)}</span>
+          <button class="icon-btn-round" onclick="playAudioFile('${safePhoneme}')">
             ${SVG.audio(22, "#378ADD")}
           </button>
         </div>
@@ -278,9 +292,9 @@ function renderSay(c, step) {
       <td><div class="blend-say-cell">${SVG.bubble()}</div></td>
       <td class="col-divider">
         <div class="blend-listen-cell">
-          <span class="word-text">${row.word}</span>
+          <span class="word-text">${renderDisplay(row.display || row.word)}</span>
           <button class="icon-btn-round" onclick="playAudioFile('${row.audio}')">
-              ${SVG.audio(22, "#378ADD")}
+            ${SVG.audio(22, "#378ADD")}
           </button>
         </div>
       </td>
@@ -301,9 +315,10 @@ function renderSpell(c, step) {
       ? `<img src="${item.image}" alt="${item.word}"
            onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${item.emoji}',style:'font-size:26px'}))">`
       : `<span style="font-size:26px">${item.emoji}</span>`;
+    const safeAudio = item.audio.replace(/'/g, "\\'");
     html += `<div class="spell-item">
       <div class="spell-pic">${pic}</div>
-      <button class="icon-btn-round" onclick="playAudioFile('${item.audio}')">
+      <button class="icon-btn-round" onclick="playAudioFile('${safeAudio}')">
         ${SVG.audio(24, "#378ADD")}
       </button>
       <input class="spell-input" id="sp-${idx}" type="text"
@@ -322,7 +337,7 @@ function renderSpell(c, step) {
     function checkSpelling() {
       const val = inp.value.trim().toLowerCase();
       if (!val) return;
-      const ok = val === item.word;
+      const ok = val === item.word.toLowerCase();
       inp.className = "spell-input " + (ok ? "correct-input" : "wrong-input");
       const iconEl = document.getElementById("sr-" + idx);
       if (ok) {
@@ -336,7 +351,6 @@ function renderSpell(c, step) {
           inp.focus();
         }, 900);
       }
-      // Show next arrow when all correct
       const allOk = step.words.every((_, i) => {
         const el = document.getElementById("sp-" + i);
         return el && el.classList.contains("correct-input");
@@ -376,7 +390,6 @@ function renderMatch(c, step) {
   const shuffledPics  = [...items].sort(() => Math.random() - 0.5);
   const shuffledWords = [...items].sort(() => Math.random() - 0.5);
 
-  // Drag (picture) column
   const dragCol = document.getElementById("drag-col");
   shuffledPics.forEach(it => {
     const el = document.createElement("div");
@@ -387,7 +400,6 @@ function renderMatch(c, step) {
       ? `<img src="${it.image}" alt="${it.word}"
            onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'${it.emoji}',style:'font-size:28px'}))">`
       : `<span style="font-size:28px">${it.emoji}</span>`;
-
     el.addEventListener("dragstart", e => {
       dndDragging = it.word;
       el.classList.add("dragging");
@@ -400,13 +412,12 @@ function renderMatch(c, step) {
     dragCol.appendChild(el);
   });
 
-  // Drop (word) column
   const dropCol = document.getElementById("drop-col");
   shuffledWords.forEach(it => {
     const el = document.createElement("div");
     el.className = "drop-slot";
     el.id        = "slot-" + it.word;
-    el.innerHTML = `<span class="slot-word">${it.word}</span>
+    el.innerHTML = `<span class="slot-word">${renderDisplay(it.display || it.word)}</span>
                     <span class="slot-img"  id="si-${it.word}"></span>
                     <span class="slot-result" id="sr2-${it.word}"></span>`;
 
@@ -417,21 +428,19 @@ function renderMatch(c, step) {
       el.classList.remove("over");
       if (!dndDragging || el.classList.contains("correct-slot")) return;
 
-      // Remove from previous slot if already placed
       const prevSlotKey = Object.keys(dndState).find(k => dndState[k] === dndDragging);
       if (prevSlotKey) {
         dndState[prevSlotKey] = null;
         const ps = document.getElementById("slot-" + prevSlotKey);
         if (ps && !ps.classList.contains("correct-slot")) {
           ps.classList.remove("correct-slot", "wrong-slot");
-          document.getElementById("si-" + prevSlotKey).innerHTML   = "";
+          document.getElementById("si-" + prevSlotKey).innerHTML  = "";
           document.getElementById("sr2-" + prevSlotKey).innerHTML = "";
         }
         const prevChip = document.getElementById("chip-" + dndDragging);
         if (prevChip) prevChip.classList.remove("used");
       }
 
-      // Place in new slot
       const correct = dndDragging === it.word;
       dndState[it.word] = dndDragging;
 
@@ -444,8 +453,8 @@ function renderMatch(c, step) {
             : `<span style="font-size:24px">${src.emoji}</span>`)
         : "";
 
-      const chip   = document.getElementById("chip-" + dndDragging);
-      const resEl  = document.getElementById("sr2-" + it.word);
+      const chip  = document.getElementById("chip-" + dndDragging);
+      const resEl = document.getElementById("sr2-" + it.word);
 
       if (correct) {
         el.classList.add("correct-slot");
@@ -463,7 +472,6 @@ function renderMatch(c, step) {
         }, 900);
       }
 
-      // Check all correct
       if (items.every(x => dndState[x.word] === x.word)) {
         const nb = document.getElementById("match-next");
         if (nb) nb.style.display = "inline-flex";
@@ -564,7 +572,7 @@ function stopFireworks() {
 
 function dismissFireworks() {
   stopFireworks();
-  const nextSet = CURRICULUM.find(c => c.id !== currentSet.id && c.steps.length > 0);
+  const nextSet = CURRICULUM.find(c => c.id !== currentSet.id && c.steps.length > 0 && !isSetComplete(c));
   if (nextSet) openSet(nextSet.id, 0);
   else goHome();
 }
