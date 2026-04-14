@@ -206,22 +206,24 @@ function renderStepIndicator() {
   const ind = document.getElementById("step-indicator");
   ind.innerHTML = "";
   const seen = new Map();
-  currentSet.steps.forEach((s, i) => { if (!seen.has(s.label)) seen.set(s.label, i); });
+currentSet.steps.forEach((s, i) => { if (!seen.has(s.label)) seen.set(s.label, i); });
 
-  seen.forEach((firstIdx, label) => {
-    const matching = currentSet.steps.map((s, i) => ({ ...s, i })).filter(s => s.label === label);
-    const isActive = matching.some(s => s.i === currentStepIdx);
-    const allDone  = matching.every(s => isStepDone(currentSet.id, s.i));
-    const anyDone  = matching.some(s => isStepDone(currentSet.id, s.i));
-    const isLocked = !anyDone && !isActive && firstIdx > 0 && !isStepDone(currentSet.id, firstIdx - 1);
+seen.forEach((firstIdx, label) => {
+  const matching = currentSet.steps.map((s, i) => ({ ...s, i })).filter(s => s.label === label);
+  const suffixes = ["a", "b", "c", "d", "e"];
+  matching.forEach((step, si) => {
+    const pillLabel = matching.length > 1 ? label + suffixes[si] : label;
+    const isActive = step.i === currentStepIdx;
+    const isDone   = isStepDone(currentSet.id, step.i);
+    const isLocked = !isDone && !isActive && step.i > 0 && !isStepDone(currentSet.id, step.i - 1);
 
     const pill = document.createElement("span");
-    pill.className = "step-pill" + (isActive ? " active" : allDone ? " done" : isLocked ? " locked" : "");
-    pill.textContent = label;
+    pill.className = "step-pill" + (isActive ? " active" : isDone ? " done" : isLocked ? " locked" : "");
+    pill.textContent = pillLabel;
     if (!isLocked) {
       pill.onclick = () => {
-        if (isStepDone(currentSet.id, firstIdx) || isActive) {
-          currentStepIdx = firstIdx;
+        if (isDone || isActive) {
+          currentStepIdx = step.i;
           renderStepIndicator();
           renderCurrentStep();
         }
@@ -229,6 +231,7 @@ function renderStepIndicator() {
     }
     ind.appendChild(pill);
   });
+});
 }
 
 /* ── Activity router ────────────────────────────────────────── */
