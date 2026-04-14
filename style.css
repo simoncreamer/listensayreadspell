@@ -228,10 +228,10 @@ p.sub {
   table-layout: fixed;
 }
 .blend-table th {
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 600;
   padding: 0 8px 10px;
-  text-align: center;
+  text-align: left;
   border-bottom: 0.5px solid #e0e0e0;
   font-family: 'Comic Sans MS', cursive;
 }
