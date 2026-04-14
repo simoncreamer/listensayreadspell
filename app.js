@@ -241,7 +241,7 @@ function renderCurrentStep() {
 
 /* ── Activity 1: Listen ─────────────────────────────────────── */
 function renderListen(c, step) {
-  let html = `<div class="card"><h2 style="margin-bottom:1rem;">Listen</h2><div class="sound-grid">`;
+let html = `<div class="card"><h2 style="margin-bottom:1rem;color:#185FA5;">Listen</h2><div class="sound-grid">`;
   step.sounds.forEach(s => {
     html += `<button class="sound-btn" id="sb-${s.letter}" onclick="playSound('${s.audio}','${encodeURIComponent(s.letter)}')">
       <span>${renderDisplay(s.display || s.letter)}</span>${SVG.audio(22, "#378ADD")}
