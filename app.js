@@ -1,3 +1,4 @@
+
 /**
  * app.js
  * Core application logic. Reads from CURRICULUM (curriculum.js).
@@ -205,75 +206,36 @@ function renderSetHeader() {
 function renderStepIndicator() {
   const ind = document.getElementById("step-indicator");
   ind.innerHTML = "";
-  ind.style.cssText = "display:flex;flex-direction:column;gap:8px;margin-bottom:1.25rem;";
-
-  const typeLabels = { listen: "Listen", say: "Listen/Say", spell: "Spell", match: "Match" };
   const seen = new Map();
-  currentSet.steps.forEach((s, i) => { if (!seen.has(s.label)) seen.set(s.label, i); });
+currentSet.steps.forEach((s, i) => { if (!seen.has(s.label)) seen.set(s.label, i); });
 
-  let firstGroup = true;
-  seen.forEach((firstIdx, label) => {
-    const matching = currentSet.steps.map((s, i) => ({ ...s, i })).filter(s => s.label === label);
+const typeLabels = { listen: "Listen", say: "Say", spell: "Spell", match: "Match" };
 
-    // satpin (or any single-step group) — just a standalone pill
-    if (matching.length === 1) {
-      const pill = document.createElement("span");
-      const isActive = matching[0].i === currentStepIdx;
-      const isDone   = isStepDone(currentSet.id, matching[0].i);
-      pill.className = "step-pill" + (isActive ? " active" : isDone ? " done" : "");
-      pill.textContent = label;
+seen.forEach((firstIdx, label) => {
+  const matching = currentSet.steps.map((s, i) => ({ ...s, i })).filter(s => s.label === label);
+
+  matching.forEach((step, si) => {
+    const pillLabel = matching.length > 1
+      ? label + " " + (typeLabels[step.type] || step.type)
+      : label;
+    const isActive = step.i === currentStepIdx;
+    const isDone   = isStepDone(currentSet.id, step.i);
+    const isLocked = !isDone && !isActive && step.i > 0 && !isStepDone(currentSet.id, step.i - 1);
+
+    const pill = document.createElement("span");
+    pill.className = "step-pill" + (isActive ? " active" : isDone ? " done" : isLocked ? " locked" : "");
+    pill.textContent = pillLabel;
+    if (!isLocked) {
       pill.onclick = () => {
         if (isDone || isActive) {
-          currentStepIdx = matching[0].i;
+          currentStepIdx = step.i;
           renderStepIndicator();
           renderCurrentStep();
         }
       };
-      ind.appendChild(pill);
-      return;
     }
-
-    // Dividing line before each numbered group
-    if (!firstGroup) {
-      const hr = document.createElement("div");
-      hr.style.cssText = "border-top:0.5px solid #e0e0e0;margin:2px 0;";
-      ind.appendChild(hr);
-    }
-    firstGroup = false;
-
-    // Row: number + three pills
-    const row = document.createElement("div");
-    row.style.cssText = "display:flex;align-items:center;gap:8px;flex-wrap:wrap;";
-
-    const num = document.createElement("span");
-    num.style.cssText = "font-size:13px;font-weight:600;color:#185FA5;min-width:20px;font-family:'Comic Sans MS',cursive;";
-    num.textContent = label;
-    row.appendChild(num);
-
-    matching.forEach((step) => {
-      const pillLabel = typeLabels[step.type] || step.type;
-      const isActive  = step.i === currentStepIdx;
-      const isDone    = isStepDone(currentSet.id, step.i);
-      const isLocked  = !isDone && !isActive && step.i > 0 && !isStepDone(currentSet.id, step.i - 1);
-
-      const pill = document.createElement("span");
-      pill.className = "step-pill" + (isActive ? " active" : isDone ? " done" : isLocked ? " locked" : "");
-      pill.textContent = pillLabel;
-      if (!isLocked) {
-        pill.onclick = () => {
-          if (isDone || isActive) {
-            currentStepIdx = step.i;
-            renderStepIndicator();
-            renderCurrentStep();
-          }
-        };
-      }
-      row.appendChild(pill);
-    });
-
-    ind.appendChild(row);
+    ind.appendChild(pill);
   });
-}
 
   const br = document.createElement("div");
   br.style.cssText = "width:100%;height:0;";
