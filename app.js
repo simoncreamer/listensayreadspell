@@ -231,6 +231,11 @@ seen.forEach((firstIdx, label) => {
     }
     ind.appendChild(pill);
   });
+
+  // Force a new line after each group
+  const br = document.createElement("div");
+  br.style.cssText = "width:100%;height:0;";
+  ind.appendChild(br);
 });
 }
 
