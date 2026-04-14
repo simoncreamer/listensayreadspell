@@ -1,4 +1,3 @@
-
 /**
  * app.js
  * Core application logic. Reads from CURRICULUM (curriculum.js).
@@ -39,12 +38,6 @@ function stepsCompleted(c) {
 }
 
 /* ── Display helper ─────────────────────────────────────────── */
-/**
- * Converts display notation to HTML:
- *   <u>xx</u>  → underline span
- *   <g>x</g>   → green span
- *   <r>x</r>   → red span
- */
 function renderDisplay(str) {
   if (!str) return "";
   return str
@@ -203,29 +196,29 @@ function renderSetHeader() {
   document.getElementById("set-progress").style.width = pct;
 }
 
+/* ── Step indicator ─────────────────────────────────────────── */
 function renderStepIndicator() {
   const ind = document.getElementById("step-indicator");
   ind.innerHTML = "";
+  ind.style.cssText = "display:flex;flex-direction:column;gap:0;margin-bottom:1.25rem;";
+
+  const typeLabels = { listen: "Listen", say: "Listen/Say", spell: "Spell", match: "Match" };
   const seen = new Map();
-currentSet.steps.forEach((s, i) => { if (!seen.has(s.label)) seen.set(s.label, i); });
+  currentSet.steps.forEach((s, i) => { if (!seen.has(s.label)) seen.set(s.label, i); });
 
-const typeLabels = { listen: "Listen", say: "Say", spell: "Spell", match: "Match" };
+  let firstGroup = true;
+  seen.forEach((firstIdx, label) => {
+    const matching = currentSet.steps.map((s, i) => ({ ...s, i })).filter(s => s.label === label);
 
-seen.forEach((firstIdx, label) => {
-  const matching = currentSet.steps.map((s, i) => ({ ...s, i })).filter(s => s.label === label);
-
-  matching.forEach((step, si) => {
-    const pillLabel = matching.length > 1
-      ? label + " " + (typeLabels[step.type] || step.type)
-      : label;
-    const isActive = step.i === currentStepIdx;
-    const isDone   = isStepDone(currentSet.id, step.i);
-    const isLocked = !isDone && !isActive && step.i > 0 && !isStepDone(currentSet.id, step.i - 1);
-
-    const pill = document.createElement("span");
-    pill.className = "step-pill" + (isActive ? " active" : isDone ? " done" : isLocked ? " locked" : "");
-    pill.textContent = pillLabel;
-    if (!isLocked) {
+    // Single-step groups (e.g. satpin) — just a standalone pill, no row
+    if (matching.length === 1) {
+      const step     = matching[0];
+      const isActive = step.i === currentStepIdx;
+      const isDone   = isStepDone(currentSet.id, step.i);
+      const pill     = document.createElement("span");
+      pill.className = "step-pill" + (isActive ? " active" : isDone ? " done" : "");
+      pill.textContent = label;
+      pill.style.cssText = "margin-bottom:8px;";
       pill.onclick = () => {
         if (isDone || isActive) {
           currentStepIdx = step.i;
@@ -233,14 +226,50 @@ seen.forEach((firstIdx, label) => {
           renderCurrentStep();
         }
       };
+      ind.appendChild(pill);
+      return;
     }
-    ind.appendChild(pill);
-  });
 
-  const br = document.createElement("div");
-  br.style.cssText = "width:100%;height:0;";
-  ind.appendChild(br);
-});
+    // Dividing line between numbered groups (not before the first)
+    if (!firstGroup) {
+      const hr = document.createElement("div");
+      hr.style.cssText = "border-top:0.5px solid #e0e0e0;margin:6px 0;";
+      ind.appendChild(hr);
+    }
+    firstGroup = false;
+
+    // Row: number label + pills
+    const row = document.createElement("div");
+    row.style.cssText = "display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:4px 0;";
+
+    const num = document.createElement("span");
+    num.style.cssText = "font-size:14px;font-weight:600;color:#185FA5;min-width:18px;font-family:'Comic Sans MS',cursive;";
+    num.textContent = label;
+    row.appendChild(num);
+
+    matching.forEach((step) => {
+      const pillLabel = typeLabels[step.type] || step.type;
+      const isActive  = step.i === currentStepIdx;
+      const isDone    = isStepDone(currentSet.id, step.i);
+      const isLocked  = !isDone && !isActive && step.i > 0 && !isStepDone(currentSet.id, step.i - 1);
+
+      const pill = document.createElement("span");
+      pill.className = "step-pill" + (isActive ? " active" : isDone ? " done" : isLocked ? " locked" : "");
+      pill.textContent = pillLabel;
+      if (!isLocked) {
+        pill.onclick = () => {
+          if (isDone || isActive) {
+            currentStepIdx = step.i;
+            renderStepIndicator();
+            renderCurrentStep();
+          }
+        };
+      }
+      row.appendChild(pill);
+    });
+
+    ind.appendChild(row);
+  });
 }
 
 /* ── Activity router ────────────────────────────────────────── */
@@ -253,7 +282,7 @@ function renderCurrentStep() {
 
 /* ── Activity 1: Listen ─────────────────────────────────────── */
 function renderListen(c, step) {
-let html = `<div class="card"><h2 style="margin-bottom:1rem;color:#185FA5;">Listen</h2><div class="sound-grid">`;
+  let html = `<div class="card"><h2 style="margin-bottom:1rem;color:#185FA5;">Listen</h2><div class="sound-grid">`;
   step.sounds.forEach(s => {
     html += `<button class="sound-btn" id="sb-${s.letter}" onclick="playSound('${s.audio}','${encodeURIComponent(s.letter)}')">
       <span>${renderDisplay(s.display || s.letter)}</span>${SVG.audio(22, "#378ADD")}
