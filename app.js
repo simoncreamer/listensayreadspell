@@ -208,11 +208,15 @@ function renderStepIndicator() {
   const seen = new Map();
 currentSet.steps.forEach((s, i) => { if (!seen.has(s.label)) seen.set(s.label, i); });
 
+const typeLabels = { listen: "Listen", say: "Say", spell: "Spell", match: "Match" };
+
 seen.forEach((firstIdx, label) => {
   const matching = currentSet.steps.map((s, i) => ({ ...s, i })).filter(s => s.label === label);
-  const suffixes = ["a", "b", "c", "d", "e"];
+
   matching.forEach((step, si) => {
-    const pillLabel = matching.length > 1 ? label + suffixes[si] : label;
+    const pillLabel = matching.length > 1
+      ? label + " " + (typeLabels[step.type] || step.type)
+      : label;
     const isActive = step.i === currentStepIdx;
     const isDone   = isStepDone(currentSet.id, step.i);
     const isLocked = !isDone && !isActive && step.i > 0 && !isStepDone(currentSet.id, step.i - 1);
@@ -232,7 +236,6 @@ seen.forEach((firstIdx, label) => {
     ind.appendChild(pill);
   });
 
-  // Force a new line after each group
   const br = document.createElement("div");
   br.style.cssText = "width:100%;height:0;";
   ind.appendChild(br);
