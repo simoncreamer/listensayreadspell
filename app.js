@@ -217,7 +217,7 @@ function renderStepIndicator() {
       const pill     = document.createElement("span");
       pill.className = "step-pill" + (isActive ? " active" : isDone ? " done" : "");
       pill.textContent = label;
-      pill.style.cssText = "margin-bottom:8px;";
+      pill.style.cssText = "grid-column: 1 / -1; text-align:center; justify-self:center;";
       pill.onclick = () => {
         if (isDone || isActive) {
           currentStepIdx = step.i;
