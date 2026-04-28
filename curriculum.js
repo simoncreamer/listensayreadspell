@@ -40,12 +40,12 @@ const CURRICULUM = [
         { phonemes: "p · a · t", display: "pat", word: "pat", audio: "audio/pat.mp3", phonemeAudio: "audio/p...a...t.mp3" },
       ]},
       { type: "spell", label: "1", group: "at", words: [
-        { word: "at",  display: "at",  image: "images/at.png",      audio: "audio/at spelling.mp3",  emoji: "🎯" },
+        { word: "at",  display: "at",  image: "images/at.jpg",      audio: "audio/at spelling.mp3",  emoji: "🎯" },
         { word: "sat", display: "sat", image: "images/sat sit.png", audio: "audio/sat spelling.mp3", emoji: "🪑" },
         { word: "pat", display: "pat", image: "images/pat.png",     audio: "audio/pat spelling.mp3", emoji: "🐾" },
       ]},
       { type: "match", label: "1", group: "at", items: [
-        { word: "at",  display: "at",  image: "images/at.png",      emoji: "🎯" },
+        { word: "at",  display: "at",  image: "images/at.jpg",      emoji: "🎯" },
         { word: "sat", display: "sat", image: "images/sat sit.png", emoji: "🪑" },
         { word: "pat", display: "pat", image: "images/pat.png",     emoji: "🐾" },
       ]},
