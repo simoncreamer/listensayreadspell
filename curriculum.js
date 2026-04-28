@@ -8,7 +8,7 @@
  *   <r>x</r>          → red (silent e in split digraph)
  *
  * Audio files: public/audio/<name>.mp3
- * Image files: public/images/<name>.jpg
+ * Image files: public/images/<name>.png
  * Sets 2-10 use placeholder emoji/TTS until real files are added.
  */
 
@@ -40,14 +40,14 @@ const CURRICULUM = [
         { phonemes: "p · a · t", display: "pat", word: "pat", audio: "audio/pat.mp3", phonemeAudio: "audio/p...a...t.mp3" },
       ]},
       { type: "spell", label: "1", group: "at", words: [
-        { word: "at",  display: "at",  image: "images/at.jpg",      audio: "audio/at spelling.mp3",  emoji: "🎯" },
-        { word: "sat", display: "sat", image: "images/sat sit.jpg", audio: "audio/sat spelling.mp3", emoji: "🪑" },
-        { word: "pat", display: "pat", image: "images/pat.jpg",     audio: "audio/pat spelling.mp3", emoji: "🐾" },
+        { word: "at",  display: "at",  image: "images/at.png",      audio: "audio/at spelling.mp3",  emoji: "🎯" },
+        { word: "sat", display: "sat", image: "images/sat sit.png", audio: "audio/sat spelling.mp3", emoji: "🪑" },
+        { word: "pat", display: "pat", image: "images/pat.png",     audio: "audio/pat spelling.mp3", emoji: "🐾" },
       ]},
       { type: "match", label: "1", group: "at", items: [
-        { word: "at",  display: "at",  image: "images/at.jpg",      emoji: "🎯" },
-        { word: "sat", display: "sat", image: "images/sat sit.jpg", emoji: "🪑" },
-        { word: "pat", display: "pat", image: "images/pat.jpg",     emoji: "🐾" },
+        { word: "at",  display: "at",  image: "images/at.png",      emoji: "🎯" },
+        { word: "sat", display: "sat", image: "images/sat sit.png", emoji: "🪑" },
+        { word: "pat", display: "pat", image: "images/pat.png",     emoji: "🐾" },
       ]},
       /* 1.1 group in */
       { type: "say",   label: "2", group: "in", rows: [
@@ -56,14 +56,14 @@ const CURRICULUM = [
         { phonemes: "p · i · n", display: "pin", word: "pin", audio: "audio/pin.mp3", phonemeAudio: "audio/p...i...n.mp3" },
       ]},
       { type: "spell", label: "2", group: "in", words: [
-        { word: "in",  display: "in",  image: "images/in.jpg",  audio: "audio/in spelling.mp3",  emoji: "📥" },
-        { word: "tin", display: "tin", image: "images/tin.jpg", audio: "audio/tin spelling.mp3", emoji: "🥫" },
-        { word: "pin", display: "pin", image: "images/pin.jpg", audio: "audio/pin spelling.mp3", emoji: "📌" },
+        { word: "in",  display: "in",  image: "images/in.png",  audio: "audio/in spelling.mp3",  emoji: "📥" },
+        { word: "tin", display: "tin", image: "images/tin.png", audio: "audio/tin spelling.mp3", emoji: "🥫" },
+        { word: "pin", display: "pin", image: "images/pin.png", audio: "audio/pin spelling.mp3", emoji: "📌" },
       ]},
       { type: "match", label: "2", group: "in", items: [
-        { word: "in",  display: "in",  image: "images/in.jpg",  emoji: "📥" },
-        { word: "tin", display: "tin", image: "images/tin.jpg", emoji: "🥫" },
-        { word: "pin", display: "pin", image: "images/pin.jpg", emoji: "📌" },
+        { word: "in",  display: "in",  image: "images/in.png",  emoji: "📥" },
+        { word: "tin", display: "tin", image: "images/tin.png", emoji: "🥫" },
+        { word: "pin", display: "pin", image: "images/pin.png", emoji: "📌" },
       ]},
       /* 1.1 group an */
       { type: "say",   label: "3", group: "an", rows: [
@@ -73,16 +73,16 @@ const CURRICULUM = [
         { phonemes: "t · a · n", display: "tan", word: "tan", audio: "audio/tan.mp3", phonemeAudio: "audio/t...a...n.mp3" },
       ]},
       { type: "spell", label: "3", group: "an", words: [
-        { word: "nap", display: "nap", image: "images/nap.jpg", audio: "audio/nap spelling.mp3",    emoji: "😴" },
-        { word: "tap", display: "tap", image: "images/tap.jpg", audio: "audio/tap spelling.mp3",    emoji: "🚰" },
-        { word: "pan", display: "pan", image: "images/pan.jpg", audio: "audio/pan spelling.mp3",    emoji: "🍳" },
-        { word: "tan", display: "tan", image: "images/tan.jpg", audio: "audio/tan v2 spelling.mp3", emoji: "🏖️" },
+        { word: "nap", display: "nap", image: "images/nap.png", audio: "audio/nap spelling.mp3",    emoji: "😴" },
+        { word: "tap", display: "tap", image: "images/tap.png", audio: "audio/tap spelling.mp3",    emoji: "🚰" },
+        { word: "pan", display: "pan", image: "images/pan.png", audio: "audio/pan spelling.mp3",    emoji: "🍳" },
+        { word: "tan", display: "tan", image: "images/tan.png", audio: "audio/tan v2 spelling.mp3", emoji: "🏖️" },
       ]},
       { type: "match", label: "3", group: "an", items: [
-        { word: "nap", display: "nap", image: "images/nap.jpg", emoji: "😴" },
-        { word: "tap", display: "tap", image: "images/tap.jpg", emoji: "🚰" },
-        { word: "pan", display: "pan", image: "images/pan.jpg", emoji: "🍳" },
-        { word: "tan", display: "tan", image: "images/tan.jpg", emoji: "🏖️" },
+        { word: "nap", display: "nap", image: "images/nap.png", emoji: "😴" },
+        { word: "tap", display: "tap", image: "images/tap.png", emoji: "🚰" },
+        { word: "pan", display: "pan", image: "images/pan.png", emoji: "🍳" },
+        { word: "tan", display: "tan", image: "images/tan.png", emoji: "🏖️" },
       ]},
       /* 1.2 group it */
       { type: "say",   label: "4", group: "it", rows: [
@@ -91,14 +91,14 @@ const CURRICULUM = [
         { phonemes: "n · i · t · s", display: "nits", word: "nits", audio: "audio/nits.mp3", phonemeAudio: "audio/n...i...t...s.mp3" },
       ]},
       { type: "spell", label: "4", group: "it", words: [
-        { word: "sit",  display: "sit",  image: "images/sit.jpg",  audio: "audio/sit.mp3",  emoji: "🪑" },
-        { word: "pit",  display: "pit",  image: "images/pit.jpg",  audio: "audio/pit.mp3",  emoji: "🕳️" },
-        { word: "nits", display: "nits", image: "images/nits.jpg", audio: "audio/nits.mp3", emoji: "🔍" },
+        { word: "sit",  display: "sit",  image: "images/sit.png",  audio: "audio/sit.mp3",  emoji: "🪑" },
+        { word: "pit",  display: "pit",  image: "images/pit.png",  audio: "audio/pit.mp3",  emoji: "🕳️" },
+        { word: "nits", display: "nits", image: "images/nits.png", audio: "audio/nits.mp3", emoji: "🔍" },
       ]},
       { type: "match", label: "4", group: "it", items: [
-        { word: "sit",  display: "sit",  image: "images/sit.jpg",  emoji: "🪑" },
-        { word: "pit",  display: "pit",  image: "images/pit.jpg",  emoji: "🕳️" },
-        { word: "nits", display: "nits", image: "images/nits.jpg", emoji: "🔍" },
+        { word: "sit",  display: "sit",  image: "images/sit.png",  emoji: "🪑" },
+        { word: "pit",  display: "pit",  image: "images/pit.png",  emoji: "🕳️" },
+        { word: "nits", display: "nits", image: "images/nits.png", emoji: "🔍" },
       ]},
       /* 1.2 group ip */
       { type: "say",   label: "5", group: "ip", rows: [
@@ -108,16 +108,16 @@ const CURRICULUM = [
         { phonemes: "s · i · p", display: "sip", word: "sip", audio: "audio/sip.mp3", phonemeAudio: "audio/s...i...p.mp3" },
       ]},
       { type: "spell", label: "5", group: "ip", words: [
-        { word: "tip", display: "tip", image: "images/tip.jpg", audio: "audio/tip.mp3", emoji: "💡" },
-        { word: "pip", display: "pip", image: "images/pip.jpg", audio: "audio/pip.mp3", emoji: "🍎" },
-        { word: "nip", display: "nip", image: "images/nip.jpg", audio: "audio/nip.mp3", emoji: "🤏" },
-        { word: "sip", display: "sip", image: "images/sip.jpg", audio: "audio/sip.mp3", emoji: "🥤" },
+        { word: "tip", display: "tip", image: "images/tip.png", audio: "audio/tip.mp3", emoji: "💡" },
+        { word: "pip", display: "pip", image: "images/pip.png", audio: "audio/pip.mp3", emoji: "🍎" },
+        { word: "nip", display: "nip", image: "images/nip.png", audio: "audio/nip.mp3", emoji: "🤏" },
+        { word: "sip", display: "sip", image: "images/sip.png", audio: "audio/sip.mp3", emoji: "🥤" },
       ]},
       { type: "match", label: "5", group: "ip", items: [
-        { word: "tip", display: "tip", image: "images/tip.jpg", emoji: "💡" },
-        { word: "pip", display: "pip", image: "images/pip.jpg", emoji: "🍎" },
-        { word: "nip", display: "nip", image: "images/nip.jpg", emoji: "🤏" },
-        { word: "sip", display: "sip", image: "images/sip.jpg", emoji: "🥤" },
+        { word: "tip", display: "tip", image: "images/tip.png", emoji: "💡" },
+        { word: "pip", display: "pip", image: "images/pip.png", emoji: "🍎" },
+        { word: "nip", display: "nip", image: "images/nip.png", emoji: "🤏" },
+        { word: "sip", display: "sip", image: "images/sip.png", emoji: "🥤" },
       ]},
       /* 1.2 group ant */
       { type: "say",   label: "6", group: "ant", rows: [
@@ -126,14 +126,14 @@ const CURRICULUM = [
         { phonemes: "s · n · a · p",     display: "snap",  word: "snap",  audio: "audio/snap.mp3",  phonemeAudio: "audio/s...n...a...p.mp3" },
       ]},
       { type: "spell", label: "6", group: "ant", words: [
-        { word: "ant",   display: "ant",   image: "images/ant.jpg",   audio: "audio/ant.mp3",   emoji: "🐜" },
-        { word: "pants", display: "pants", image: "images/pants.jpg", audio: "audio/pants.mp3", emoji: "👖" },
-        { word: "snap",  display: "snap",  image: "images/snap.jpg",  audio: "audio/snap.mp3",  emoji: "📸" },
+        { word: "ant",   display: "ant",   image: "images/ant.png",   audio: "audio/ant.mp3",   emoji: "🐜" },
+        { word: "pants", display: "pants", image: "images/pants.png", audio: "audio/pants.mp3", emoji: "👖" },
+        { word: "snap",  display: "snap",  image: "images/snap.png",  audio: "audio/snap.mp3",  emoji: "📸" },
       ]},
       { type: "match", label: "6", group: "ant", items: [
-        { word: "ant",   display: "ant",   image: "images/ant.jpg",   emoji: "🐜" },
-        { word: "pants", display: "pants", image: "images/pants.jpg", emoji: "👖" },
-        { word: "snap",  display: "snap",  image: "images/snap.jpg",  emoji: "📸" },
+        { word: "ant",   display: "ant",   image: "images/ant.png",   emoji: "🐜" },
+        { word: "pants", display: "pants", image: "images/pants.png", emoji: "👖" },
+        { word: "snap",  display: "snap",  image: "images/snap.png",  emoji: "📸" },
       ]},
     ],
   },
@@ -165,14 +165,14 @@ const CURRICULUM = [
         { phonemes: "c · a · t", display: "cat", word: "cat", audio: "audio/cat.mp3", phonemeAudio: "audio/cat.mp3" },
       ]},
       { type: "spell", label: "1", group: "hat", words: [
-        { word: "hat", display: "hat", image: "images/hat.jpg", audio: "audio/hat.mp3", emoji: "🎩" },
-        { word: "mat", display: "mat", image: "images/mat.jpg", audio: "audio/mat.mp3", emoji: "🟫" },
-        { word: "cat", display: "cat", image: "images/cat.jpg", audio: "audio/cat.mp3", emoji: "🐱" },
+        { word: "hat", display: "hat", image: "images/hat.png", audio: "audio/hat.mp3", emoji: "🎩" },
+        { word: "mat", display: "mat", image: "images/mat.png", audio: "audio/mat.mp3", emoji: "🟫" },
+        { word: "cat", display: "cat", image: "images/cat.png", audio: "audio/cat.mp3", emoji: "🐱" },
       ]},
       { type: "match", label: "1", group: "hat", items: [
-        { word: "hat", display: "hat", image: "images/hat.jpg", emoji: "🎩" },
-        { word: "mat", display: "mat", image: "images/mat.jpg", emoji: "🟫" },
-        { word: "cat", display: "cat", image: "images/cat.jpg", emoji: "🐱" },
+        { word: "hat", display: "hat", image: "images/hat.png", emoji: "🎩" },
+        { word: "mat", display: "mat", image: "images/mat.png", emoji: "🟫" },
+        { word: "cat", display: "cat", image: "images/cat.png", emoji: "🐱" },
       ]},
       /* 2.1 group pen */
       { type: "say",   label: "2", group: "pen", rows: [
@@ -182,16 +182,16 @@ const CURRICULUM = [
         { phonemes: "r · e · d", display: "red", word: "red", audio: "audio/red.mp3", phonemeAudio: "audio/red.mp3" },
       ]},
       { type: "spell", label: "2", group: "pen", words: [
-        { word: "pen", display: "pen", image: "images/pen.jpg", audio: "audio/pen.mp3", emoji: "🖊️" },
-        { word: "hen", display: "hen", image: "images/hen.jpg", audio: "audio/hen.mp3", emoji: "🐔" },
-        { word: "ten", display: "ten", image: "images/ten.jpg", audio: "audio/ten.mp3", emoji: "🔟" },
-        { word: "red", display: "red", image: "images/red.jpg", audio: "audio/red.mp3", emoji: "🔴" },
+        { word: "pen", display: "pen", image: "images/pen.png", audio: "audio/pen.mp3", emoji: "🖊️" },
+        { word: "hen", display: "hen", image: "images/hen.png", audio: "audio/hen.mp3", emoji: "🐔" },
+        { word: "ten", display: "ten", image: "images/ten.png", audio: "audio/ten.mp3", emoji: "🔟" },
+        { word: "red", display: "red", image: "images/red.png", audio: "audio/red.mp3", emoji: "🔴" },
       ]},
       { type: "match", label: "2", group: "pen", items: [
-        { word: "pen", display: "pen", image: "images/pen.jpg", emoji: "🖊️" },
-        { word: "hen", display: "hen", image: "images/hen.jpg", emoji: "🐔" },
-        { word: "ten", display: "ten", image: "images/ten.jpg", emoji: "🔟" },
-        { word: "red", display: "red", image: "images/red.jpg", emoji: "🔴" },
+        { word: "pen", display: "pen", image: "images/pen.png", emoji: "🖊️" },
+        { word: "hen", display: "hen", image: "images/hen.png", emoji: "🐔" },
+        { word: "ten", display: "ten", image: "images/ten.png", emoji: "🔟" },
+        { word: "red", display: "red", image: "images/red.png", emoji: "🔴" },
       ]},
       /* 2.1 group tent */
       { type: "say",   label: "3", group: "tent", rows: [
@@ -201,16 +201,16 @@ const CURRICULUM = [
         { phonemes: "n · e · ck",      display: "ne<u>ck</u>",     word: "neck", audio: "audio/neck.mp3", phonemeAudio: "audio/neck.mp3" },
       ]},
       { type: "spell", label: "3", group: "tent", words: [
-        { word: "tent", display: "tent",        image: "images/tent.jpg", audio: "audio/tent.mp3", emoji: "⛺" },
-        { word: "desk", display: "desk",        image: "images/desk.jpg", audio: "audio/desk.mp3", emoji: "🪑" },
-        { word: "hand", display: "hand",        image: "images/hand.jpg", audio: "audio/hand.mp3", emoji: "✋" },
-        { word: "neck", display: "ne<u>ck</u>", image: "images/neck.jpg", audio: "audio/neck.mp3", emoji: "👔" },
+        { word: "tent", display: "tent",        image: "images/tent.png", audio: "audio/tent.mp3", emoji: "⛺" },
+        { word: "desk", display: "desk",        image: "images/desk.png", audio: "audio/desk.mp3", emoji: "🪑" },
+        { word: "hand", display: "hand",        image: "images/hand.png", audio: "audio/hand.mp3", emoji: "✋" },
+        { word: "neck", display: "ne<u>ck</u>", image: "images/neck.png", audio: "audio/neck.mp3", emoji: "👔" },
       ]},
       { type: "match", label: "3", group: "tent", items: [
-        { word: "tent", display: "tent",        image: "images/tent.jpg", emoji: "⛺" },
-        { word: "desk", display: "desk",        image: "images/desk.jpg", emoji: "🪑" },
-        { word: "hand", display: "hand",        image: "images/hand.jpg", emoji: "✋" },
-        { word: "neck", display: "ne<u>ck</u>", image: "images/neck.jpg", emoji: "👔" },
+        { word: "tent", display: "tent",        image: "images/tent.png", emoji: "⛺" },
+        { word: "desk", display: "desk",        image: "images/desk.png", emoji: "🪑" },
+        { word: "hand", display: "hand",        image: "images/hand.png", emoji: "✋" },
+        { word: "neck", display: "ne<u>ck</u>", image: "images/neck.png", emoji: "👔" },
       ]},
       /* 2.2 group hip */
       { type: "say",   label: "4", group: "hip", rows: [
@@ -219,14 +219,14 @@ const CURRICULUM = [
         { phonemes: "n · e · t", display: "net", word: "net", audio: "audio/net.mp3", phonemeAudio: "audio/net.mp3" },
       ]},
       { type: "spell", label: "4", group: "hip", words: [
-        { word: "hip", display: "hip", image: "images/hip.jpg", audio: "audio/hip.mp3", emoji: "🦴" },
-        { word: "rip", display: "rip", image: "images/rip.jpg", audio: "audio/rip.mp3", emoji: "😬" },
-        { word: "net", display: "net", image: "images/net.jpg", audio: "audio/net.mp3", emoji: "🥅" },
+        { word: "hip", display: "hip", image: "images/hip.png", audio: "audio/hip.mp3", emoji: "🦴" },
+        { word: "rip", display: "rip", image: "images/rip.png", audio: "audio/rip.mp3", emoji: "😬" },
+        { word: "net", display: "net", image: "images/net.png", audio: "audio/net.mp3", emoji: "🥅" },
       ]},
       { type: "match", label: "4", group: "hip", items: [
-        { word: "hip", display: "hip", image: "images/hip.jpg", emoji: "🦴" },
-        { word: "rip", display: "rip", image: "images/rip.jpg", emoji: "😬" },
-        { word: "net", display: "net", image: "images/net.jpg", emoji: "🥅" },
+        { word: "hip", display: "hip", image: "images/hip.png", emoji: "🦴" },
+        { word: "rip", display: "rip", image: "images/rip.png", emoji: "😬" },
+        { word: "net", display: "net", image: "images/net.png", emoji: "🥅" },
       ]},
       /* 2.2 group sad */
       { type: "say",   label: "5", group: "sad", rows: [
@@ -235,14 +235,14 @@ const CURRICULUM = [
         { phonemes: "m · a · d", display: "mad", word: "mad", audio: "audio/mad.mp3", phonemeAudio: "audio/mad.mp3" },
       ]},
       { type: "spell", label: "5", group: "sad", words: [
-        { word: "sad", display: "sad", image: "images/sad.jpg", audio: "audio/sad.mp3", emoji: "😢" },
-        { word: "man", display: "man", image: "images/man.jpg", audio: "audio/man.mp3", emoji: "👨" },
-        { word: "mad", display: "mad", image: "images/mad.jpg", audio: "audio/mad.mp3", emoji: "😡" },
+        { word: "sad", display: "sad", image: "images/sad.png", audio: "audio/sad.mp3", emoji: "😢" },
+        { word: "man", display: "man", image: "images/man.png", audio: "audio/man.mp3", emoji: "👨" },
+        { word: "mad", display: "mad", image: "images/mad.png", audio: "audio/mad.mp3", emoji: "😡" },
       ]},
       { type: "match", label: "5", group: "sad", items: [
-        { word: "sad", display: "sad", image: "images/sad.jpg", emoji: "😢" },
-        { word: "man", display: "man", image: "images/man.jpg", emoji: "👨" },
-        { word: "mad", display: "mad", image: "images/mad.jpg", emoji: "😡" },
+        { word: "sad", display: "sad", image: "images/sad.png", emoji: "😢" },
+        { word: "man", display: "man", image: "images/man.png", emoji: "👨" },
+        { word: "mad", display: "mad", image: "images/mad.png", emoji: "😡" },
       ]},
       /* 2.2 group sick */
       { type: "say",   label: "6", group: "sick", rows: [
@@ -252,16 +252,16 @@ const CURRICULUM = [
         { phonemes: "s · n · a · ck", display: "sna<u>ck</u>", word: "snack", audio: "audio/snack.mp3", phonemeAudio: "audio/snack.mp3" },
       ]},
       { type: "spell", label: "6", group: "sick", words: [
-        { word: "sick",  display: "si<u>ck</u>",   image: "images/sick.jpg",  audio: "audio/sick.mp3",  emoji: "🤒" },
-        { word: "kick",  display: "ki<u>ck</u>",   image: "images/kick.jpg",  audio: "audio/kick.mp3",  emoji: "🦵" },
-        { word: "stick", display: "sti<u>ck</u>",  image: "images/stick.jpg", audio: "audio/stick.mp3", emoji: "🪵" },
-        { word: "snack", display: "sna<u>ck</u>",  image: "images/snack.jpg", audio: "audio/snack.mp3", emoji: "🍎" },
+        { word: "sick",  display: "si<u>ck</u>",   image: "images/sick.png",  audio: "audio/sick.mp3",  emoji: "🤒" },
+        { word: "kick",  display: "ki<u>ck</u>",   image: "images/kick.png",  audio: "audio/kick.mp3",  emoji: "🦵" },
+        { word: "stick", display: "sti<u>ck</u>",  image: "images/stick.png", audio: "audio/stick.mp3", emoji: "🪵" },
+        { word: "snack", display: "sna<u>ck</u>",  image: "images/snack.png", audio: "audio/snack.mp3", emoji: "🍎" },
       ]},
       { type: "match", label: "6", group: "sick", items: [
-        { word: "sick",  display: "si<u>ck</u>",  image: "images/sick.jpg",  emoji: "🤒" },
-        { word: "kick",  display: "ki<u>ck</u>",  image: "images/kick.jpg",  emoji: "🦵" },
-        { word: "stick", display: "sti<u>ck</u>", image: "images/stick.jpg", emoji: "🪵" },
-        { word: "snack", display: "sna<u>ck</u>", image: "images/snack.jpg", emoji: "🍎" },
+        { word: "sick",  display: "si<u>ck</u>",  image: "images/sick.png",  emoji: "🤒" },
+        { word: "kick",  display: "ki<u>ck</u>",  image: "images/kick.png",  emoji: "🦵" },
+        { word: "stick", display: "sti<u>ck</u>", image: "images/stick.png", emoji: "🪵" },
+        { word: "snack", display: "sna<u>ck</u>", image: "images/snack.png", emoji: "🍎" },
       ]},
     ],
   },
@@ -293,14 +293,14 @@ const CURRICULUM = [
         { phonemes: "b · i · t", display: "bit", word: "bit", audio: "audio/bit.mp3", phonemeAudio: "audio/bit.mp3" },
       ]},
       { type: "spell", label: "1", group: "fit", words: [
-        { word: "fit", display: "fit", image: "images/fit.jpg", audio: "audio/fit.mp3", emoji: "💪" },
-        { word: "gap", display: "gap", image: "images/gap.jpg", audio: "audio/gap.mp3", emoji: "↔️" },
-        { word: "bit", display: "bit", image: "images/bit.jpg", audio: "audio/bit.mp3", emoji: "🔩" },
+        { word: "fit", display: "fit", image: "images/fit.png", audio: "audio/fit.mp3", emoji: "💪" },
+        { word: "gap", display: "gap", image: "images/gap.png", audio: "audio/gap.mp3", emoji: "↔️" },
+        { word: "bit", display: "bit", image: "images/bit.png", audio: "audio/bit.mp3", emoji: "🔩" },
       ]},
       { type: "match", label: "1", group: "fit", items: [
-        { word: "fit", display: "fit", image: "images/fit.jpg", emoji: "💪" },
-        { word: "gap", display: "gap", image: "images/gap.jpg", emoji: "↔️" },
-        { word: "bit", display: "bit", image: "images/bit.jpg", emoji: "🔩" },
+        { word: "fit", display: "fit", image: "images/fit.png", emoji: "💪" },
+        { word: "gap", display: "gap", image: "images/gap.png", emoji: "↔️" },
+        { word: "bit", display: "bit", image: "images/bit.png", emoji: "🔩" },
       ]},
       /* 3.1 group bun */
       { type: "say",   label: "2", group: "bun", rows: [
@@ -310,16 +310,16 @@ const CURRICULUM = [
         { phonemes: "b · u · m", display: "bum", word: "bum", audio: "audio/bum.mp3", phonemeAudio: "audio/bum.mp3" },
       ]},
       { type: "spell", label: "2", group: "bun", words: [
-        { word: "bun", display: "bun", image: "images/bun.jpg", audio: "audio/bun.mp3", emoji: "🍞" },
-        { word: "gum", display: "gum", image: "images/gum.jpg", audio: "audio/gum.mp3", emoji: "🫧" },
-        { word: "fog", display: "fog", image: "images/fog.jpg", audio: "audio/fog.mp3", emoji: "🌫️" },
-        { word: "bum", display: "bum", image: "images/bum.jpg", audio: "audio/bum.mp3", emoji: "🍑" },
+        { word: "bun", display: "bun", image: "images/bun.png", audio: "audio/bun.mp3", emoji: "🍞" },
+        { word: "gum", display: "gum", image: "images/gum.png", audio: "audio/gum.mp3", emoji: "🫧" },
+        { word: "fog", display: "fog", image: "images/fog.png", audio: "audio/fog.mp3", emoji: "🌫️" },
+        { word: "bum", display: "bum", image: "images/bum.png", audio: "audio/bum.mp3", emoji: "🍑" },
       ]},
       { type: "match", label: "2", group: "bun", items: [
-        { word: "bun", display: "bun", image: "images/bun.jpg", emoji: "🍞" },
-        { word: "gum", display: "gum", image: "images/gum.jpg", emoji: "🫧" },
-        { word: "fog", display: "fog", image: "images/fog.jpg", emoji: "🌫️" },
-        { word: "bum", display: "bum", image: "images/bum.jpg", emoji: "🍑" },
+        { word: "bun", display: "bun", image: "images/bun.png", emoji: "🍞" },
+        { word: "gum", display: "gum", image: "images/gum.png", emoji: "🫧" },
+        { word: "fog", display: "fog", image: "images/fog.png", emoji: "🌫️" },
+        { word: "bum", display: "bum", image: "images/bum.png", emoji: "🍑" },
       ]},
       /* 3.1 group bug */
       { type: "say",   label: "3", group: "bug", rows: [
@@ -328,14 +328,14 @@ const CURRICULUM = [
         { phonemes: "f · l · a · g", display: "flag", word: "flag", audio: "audio/flag.mp3", phonemeAudio: "audio/flag.mp3" },
       ]},
       { type: "spell", label: "3", group: "bug", words: [
-        { word: "bug",  display: "bug",  image: "images/bug.jpg",  audio: "audio/bug.mp3",  emoji: "🐛" },
-        { word: "frog", display: "frog", image: "images/frog.jpg", audio: "audio/frog.mp3", emoji: "🐸" },
-        { word: "flag", display: "flag", image: "images/flag.jpg", audio: "audio/flag.mp3", emoji: "🚩" },
+        { word: "bug",  display: "bug",  image: "images/bug.png",  audio: "audio/bug.mp3",  emoji: "🐛" },
+        { word: "frog", display: "frog", image: "images/frog.png", audio: "audio/frog.mp3", emoji: "🐸" },
+        { word: "flag", display: "flag", image: "images/flag.png", audio: "audio/flag.mp3", emoji: "🚩" },
       ]},
       { type: "match", label: "3", group: "bug", items: [
-        { word: "bug",  display: "bug",  image: "images/bug.jpg",  emoji: "🐛" },
-        { word: "frog", display: "frog", image: "images/frog.jpg", emoji: "🐸" },
-        { word: "flag", display: "flag", image: "images/flag.jpg", emoji: "🚩" },
+        { word: "bug",  display: "bug",  image: "images/bug.png",  emoji: "🐛" },
+        { word: "frog", display: "frog", image: "images/frog.png", emoji: "🐸" },
+        { word: "flag", display: "flag", image: "images/flag.png", emoji: "🚩" },
       ]},
       /* 3.2 group dog */
       { type: "say",   label: "4", group: "dog", rows: [
@@ -344,14 +344,14 @@ const CURRICULUM = [
         { phonemes: "g · u · t", display: "gut", word: "gut", audio: "audio/gut.mp3", phonemeAudio: "audio/gut.mp3" },
       ]},
       { type: "spell", label: "4", group: "dog", words: [
-        { word: "dog", display: "dog", image: "images/dog.jpg", audio: "audio/dog.mp3", emoji: "🐶" },
-        { word: "fun", display: "fun", image: "images/fun.jpg", audio: "audio/fun.mp3", emoji: "🎉" },
-        { word: "gut", display: "gut", image: "images/gut.jpg", audio: "audio/gut.mp3", emoji: "🫃" },
+        { word: "dog", display: "dog", image: "images/dog.png", audio: "audio/dog.mp3", emoji: "🐶" },
+        { word: "fun", display: "fun", image: "images/fun.png", audio: "audio/fun.mp3", emoji: "🎉" },
+        { word: "gut", display: "gut", image: "images/gut.png", audio: "audio/gut.mp3", emoji: "🫃" },
       ]},
       { type: "match", label: "4", group: "dog", items: [
-        { word: "dog", display: "dog", image: "images/dog.jpg", emoji: "🐶" },
-        { word: "fun", display: "fun", image: "images/fun.jpg", emoji: "🎉" },
-        { word: "gut", display: "gut", image: "images/gut.jpg", emoji: "🫃" },
+        { word: "dog", display: "dog", image: "images/dog.png", emoji: "🐶" },
+        { word: "fun", display: "fun", image: "images/fun.png", emoji: "🎉" },
+        { word: "gut", display: "gut", image: "images/gut.png", emoji: "🫃" },
       ]},
       /* 3.2 group leg */
       { type: "say",   label: "5", group: "leg", rows: [
@@ -361,16 +361,16 @@ const CURRICULUM = [
         { phonemes: "l · o · g", display: "log", word: "log", audio: "audio/log.mp3", phonemeAudio: "audio/log.mp3" },
       ]},
       { type: "spell", label: "5", group: "leg", words: [
-        { word: "leg", display: "leg", image: "images/leg.jpg", audio: "audio/leg.mp3", emoji: "🦵" },
-        { word: "bag", display: "bag", image: "images/bag.jpg", audio: "audio/bag.mp3", emoji: "👜" },
-        { word: "cup", display: "cup", image: "images/cup.jpg", audio: "audio/cup.mp3", emoji: "☕" },
-        { word: "log", display: "log", image: "images/log.jpg", audio: "audio/log.mp3", emoji: "🪵" },
+        { word: "leg", display: "leg", image: "images/leg.png", audio: "audio/leg.mp3", emoji: "🦵" },
+        { word: "bag", display: "bag", image: "images/bag.png", audio: "audio/bag.mp3", emoji: "👜" },
+        { word: "cup", display: "cup", image: "images/cup.png", audio: "audio/cup.mp3", emoji: "☕" },
+        { word: "log", display: "log", image: "images/log.png", audio: "audio/log.mp3", emoji: "🪵" },
       ]},
       { type: "match", label: "5", group: "leg", items: [
-        { word: "leg", display: "leg", image: "images/leg.jpg", emoji: "🦵" },
-        { word: "bag", display: "bag", image: "images/bag.jpg", emoji: "👜" },
-        { word: "cup", display: "cup", image: "images/cup.jpg", emoji: "☕" },
-        { word: "log", display: "log", image: "images/log.jpg", emoji: "🪵" },
+        { word: "leg", display: "leg", image: "images/leg.png", emoji: "🦵" },
+        { word: "bag", display: "bag", image: "images/bag.png", emoji: "👜" },
+        { word: "cup", display: "cup", image: "images/cup.png", emoji: "☕" },
+        { word: "log", display: "log", image: "images/log.png", emoji: "🪵" },
       ]},
       /* 3.2 group gold */
       { type: "say",   label: "6", group: "gold", rows: [
@@ -379,14 +379,14 @@ const CURRICULUM = [
         { phonemes: "g · o · l · f", display: "golf", word: "golf", audio: "audio/golf.mp3", phonemeAudio: "audio/golf.mp3" },
       ]},
       { type: "spell", label: "6", group: "gold", words: [
-        { word: "gold", display: "gold", image: "images/gold.jpg", audio: "audio/gold.mp3", emoji: "🥇" },
-        { word: "fold", display: "fold", image: "images/fold.jpg", audio: "audio/fold.mp3", emoji: "📄" },
-        { word: "golf", display: "golf", image: "images/golf.jpg", audio: "audio/golf.mp3", emoji: "⛳" },
+        { word: "gold", display: "gold", image: "images/gold.png", audio: "audio/gold.mp3", emoji: "🥇" },
+        { word: "fold", display: "fold", image: "images/fold.png", audio: "audio/fold.mp3", emoji: "📄" },
+        { word: "golf", display: "golf", image: "images/golf.png", audio: "audio/golf.mp3", emoji: "⛳" },
       ]},
       { type: "match", label: "6", group: "gold", items: [
-        { word: "gold", display: "gold", image: "images/gold.jpg", emoji: "🥇" },
-        { word: "fold", display: "fold", image: "images/fold.jpg", emoji: "📄" },
-        { word: "golf", display: "golf", image: "images/golf.jpg", emoji: "⛳" },
+        { word: "gold", display: "gold", image: "images/gold.png", emoji: "🥇" },
+        { word: "fold", display: "fold", image: "images/fold.png", emoji: "📄" },
+        { word: "golf", display: "golf", image: "images/golf.png", emoji: "⛳" },
       ]},
     ],
   },
@@ -419,16 +419,16 @@ const CURRICULUM = [
         { phonemes: "j · u · m · p", display: "jump", word: "jump", audio: "audio/jump.mp3", phonemeAudio: "audio/jump.mp3" },
       ]},
       { type: "spell", label: "1", group: "jam", words: [
-        { word: "jam",  display: "jam",  image: "images/jam.jpg",  audio: "audio/jam.mp3",  emoji: "🍓" },
-        { word: "jet",  display: "jet",  image: "images/jet.jpg",  audio: "audio/jet.mp3",  emoji: "✈️" },
-        { word: "jog",  display: "jog",  image: "images/jog.jpg",  audio: "audio/jog.mp3",  emoji: "🏃" },
-        { word: "jump", display: "jump", image: "images/jump.jpg", audio: "audio/jump.mp3", emoji: "🦘" },
+        { word: "jam",  display: "jam",  image: "images/jam.png",  audio: "audio/jam.mp3",  emoji: "🍓" },
+        { word: "jet",  display: "jet",  image: "images/jet.png",  audio: "audio/jet.mp3",  emoji: "✈️" },
+        { word: "jog",  display: "jog",  image: "images/jog.png",  audio: "audio/jog.mp3",  emoji: "🏃" },
+        { word: "jump", display: "jump", image: "images/jump.png", audio: "audio/jump.mp3", emoji: "🦘" },
       ]},
       { type: "match", label: "1", group: "jam", items: [
-        { word: "jam",  display: "jam",  image: "images/jam.jpg",  emoji: "🍓" },
-        { word: "jet",  display: "jet",  image: "images/jet.jpg",  emoji: "✈️" },
-        { word: "jog",  display: "jog",  image: "images/jog.jpg",  emoji: "🏃" },
-        { word: "jump", display: "jump", image: "images/jump.jpg", emoji: "🦘" },
+        { word: "jam",  display: "jam",  image: "images/jam.png",  emoji: "🍓" },
+        { word: "jet",  display: "jet",  image: "images/jet.png",  emoji: "✈️" },
+        { word: "jog",  display: "jog",  image: "images/jog.png",  emoji: "🏃" },
+        { word: "jump", display: "jump", image: "images/jump.png", emoji: "🦘" },
       ]},
       /* 4.1 group ee */
       { type: "say",   label: "2", group: "ee", rows: [
@@ -437,14 +437,14 @@ const CURRICULUM = [
         { phonemes: "s · t · r · ee · t", display: "str<u>ee</u>t",  word: "street", audio: "audio/street.mp3", phonemeAudio: "audio/street.mp3" },
       ]},
       { type: "spell", label: "2", group: "ee", words: [
-        { word: "tree",   display: "tr<u>ee</u>",   image: "images/tree.jpg",   audio: "audio/tree.mp3",   emoji: "🌳" },
-        { word: "sleep",  display: "sl<u>ee</u>p",  image: "images/sleep.jpg",  audio: "audio/sleep.mp3",  emoji: "😴" },
-        { word: "street", display: "str<u>ee</u>t", image: "images/street.jpg", audio: "audio/street.mp3", emoji: "🛣️" },
+        { word: "tree",   display: "tr<u>ee</u>",   image: "images/tree.png",   audio: "audio/tree.mp3",   emoji: "🌳" },
+        { word: "sleep",  display: "sl<u>ee</u>p",  image: "images/sleep.png",  audio: "audio/sleep.mp3",  emoji: "😴" },
+        { word: "street", display: "str<u>ee</u>t", image: "images/street.png", audio: "audio/street.mp3", emoji: "🛣️" },
       ]},
       { type: "match", label: "2", group: "ee", items: [
-        { word: "tree",   display: "tr<u>ee</u>",   image: "images/tree.jpg",   emoji: "🌳" },
-        { word: "sleep",  display: "sl<u>ee</u>p",  image: "images/sleep.jpg",  emoji: "😴" },
-        { word: "street", display: "str<u>ee</u>t", image: "images/street.jpg", emoji: "🛣️" },
+        { word: "tree",   display: "tr<u>ee</u>",   image: "images/tree.png",   emoji: "🌳" },
+        { word: "sleep",  display: "sl<u>ee</u>p",  image: "images/sleep.png",  emoji: "😴" },
+        { word: "street", display: "str<u>ee</u>t", image: "images/street.png", emoji: "🛣️" },
       ]},
       /* 4.1 group ie */
       { type: "say",   label: "3", group: "ie", rows: [
@@ -453,14 +453,14 @@ const CURRICULUM = [
         { phonemes: "c · r · ie · d", display: "cr<u>ie</u>d",  word: "cried", audio: "audio/cried.mp3", phonemeAudio: "audio/cried.mp3" },
       ]},
       { type: "spell", label: "3", group: "ie", words: [
-        { word: "pie",   display: "p<u>ie</u>",   image: "images/pie.jpg",   audio: "audio/pie.mp3",   emoji: "🥧" },
-        { word: "tie",   display: "t<u>ie</u>",   image: "images/tie.jpg",   audio: "audio/tie.mp3",   emoji: "👔" },
-        { word: "cried", display: "cr<u>ie</u>d", image: "images/cried.jpg", audio: "audio/cried.mp3", emoji: "😢" },
+        { word: "pie",   display: "p<u>ie</u>",   image: "images/pie.png",   audio: "audio/pie.mp3",   emoji: "🥧" },
+        { word: "tie",   display: "t<u>ie</u>",   image: "images/tie.png",   audio: "audio/tie.mp3",   emoji: "👔" },
+        { word: "cried", display: "cr<u>ie</u>d", image: "images/cried.png", audio: "audio/cried.mp3", emoji: "😢" },
       ]},
       { type: "match", label: "3", group: "ie", items: [
-        { word: "pie",   display: "p<u>ie</u>",   image: "images/pie.jpg",   emoji: "🥧" },
-        { word: "tie",   display: "t<u>ie</u>",   image: "images/tie.jpg",   emoji: "👔" },
-        { word: "cried", display: "cr<u>ie</u>d", image: "images/cried.jpg", emoji: "😢" },
+        { word: "pie",   display: "p<u>ie</u>",   image: "images/pie.png",   emoji: "🥧" },
+        { word: "tie",   display: "t<u>ie</u>",   image: "images/tie.png",   emoji: "👔" },
+        { word: "cried", display: "cr<u>ie</u>d", image: "images/cried.png", emoji: "😢" },
       ]},
       /* 4.2 group ai */
       { type: "say",   label: "4", group: "ai", rows: [
@@ -469,14 +469,14 @@ const CURRICULUM = [
         { phonemes: "p · ai · n · t", display: "p<u>ai</u>nt",  word: "paint", audio: "audio/paint.mp3", phonemeAudio: "audio/paint.mp3" },
       ]},
       { type: "spell", label: "4", group: "ai", words: [
-        { word: "train", display: "tr<u>ai</u>n", image: "images/train.jpg", audio: "audio/train.mp3", emoji: "🚂" },
-        { word: "hail",  display: "h<u>ai</u>l",  image: "images/hail.jpg",  audio: "audio/hail.mp3",  emoji: "🌨️" },
-        { word: "paint", display: "p<u>ai</u>nt", image: "images/paint.jpg", audio: "audio/paint.mp3", emoji: "🎨" },
+        { word: "train", display: "tr<u>ai</u>n", image: "images/train.png", audio: "audio/train.mp3", emoji: "🚂" },
+        { word: "hail",  display: "h<u>ai</u>l",  image: "images/hail.png",  audio: "audio/hail.mp3",  emoji: "🌨️" },
+        { word: "paint", display: "p<u>ai</u>nt", image: "images/paint.png", audio: "audio/paint.mp3", emoji: "🎨" },
       ]},
       { type: "match", label: "4", group: "ai", items: [
-        { word: "train", display: "tr<u>ai</u>n", image: "images/train.jpg", emoji: "🚂" },
-        { word: "hail",  display: "h<u>ai</u>l",  image: "images/hail.jpg",  emoji: "🌨️" },
-        { word: "paint", display: "p<u>ai</u>nt", image: "images/paint.jpg", emoji: "🎨" },
+        { word: "train", display: "tr<u>ai</u>n", image: "images/train.png", emoji: "🚂" },
+        { word: "hail",  display: "h<u>ai</u>l",  image: "images/hail.png",  emoji: "🌨️" },
+        { word: "paint", display: "p<u>ai</u>nt", image: "images/paint.png", emoji: "🎨" },
       ]},
       /* 4.2 group oa */
       { type: "say",   label: "5", group: "oa", rows: [
@@ -486,16 +486,16 @@ const CURRICULUM = [
         { phonemes: "b · oa · t",     display: "b<u>oa</u>t",  word: "boat", audio: "audio/boat.mp3", phonemeAudio: "audio/boat.mp3" },
       ]},
       { type: "spell", label: "5", group: "oa", words: [
-        { word: "soap", display: "s<u>oa</u>p", image: "images/soap.jpg", audio: "audio/soap.mp3", emoji: "🧼" },
-        { word: "road", display: "r<u>oa</u>d", image: "images/road.jpg", audio: "audio/road.mp3", emoji: "🛣️" },
-        { word: "loaf", display: "l<u>oa</u>f", image: "images/loaf.jpg", audio: "audio/loaf.mp3", emoji: "🍞" },
-        { word: "boat", display: "b<u>oa</u>t", image: "images/boat.jpg", audio: "audio/boat.mp3", emoji: "⛵" },
+        { word: "soap", display: "s<u>oa</u>p", image: "images/soap.png", audio: "audio/soap.mp3", emoji: "🧼" },
+        { word: "road", display: "r<u>oa</u>d", image: "images/road.png", audio: "audio/road.mp3", emoji: "🛣️" },
+        { word: "loaf", display: "l<u>oa</u>f", image: "images/loaf.png", audio: "audio/loaf.mp3", emoji: "🍞" },
+        { word: "boat", display: "b<u>oa</u>t", image: "images/boat.png", audio: "audio/boat.mp3", emoji: "⛵" },
       ]},
       { type: "match", label: "5", group: "oa", items: [
-        { word: "soap", display: "s<u>oa</u>p", image: "images/soap.jpg", emoji: "🧼" },
-        { word: "road", display: "r<u>oa</u>d", image: "images/road.jpg", emoji: "🛣️" },
-        { word: "loaf", display: "l<u>oa</u>f", image: "images/loaf.jpg", emoji: "🍞" },
-        { word: "boat", display: "b<u>oa</u>t", image: "images/boat.jpg", emoji: "⛵" },
+        { word: "soap", display: "s<u>oa</u>p", image: "images/soap.png", emoji: "🧼" },
+        { word: "road", display: "r<u>oa</u>d", image: "images/road.png", emoji: "🛣️" },
+        { word: "loaf", display: "l<u>oa</u>f", image: "images/loaf.png", emoji: "🍞" },
+        { word: "boat", display: "b<u>oa</u>t", image: "images/boat.png", emoji: "⛵" },
       ]},
       /* 4.2 group or */
       { type: "say",   label: "6", group: "or", rows: [
@@ -504,14 +504,14 @@ const CURRICULUM = [
         { phonemes: "f · or · g · e · t", display: "f<u>or</u>get", word: "forget", audio: "audio/forget.mp3", phonemeAudio: "audio/forget.mp3" },
       ]},
       { type: "spell", label: "6", group: "or", words: [
-        { word: "sport",  display: "sp<u>or</u>t",  image: "images/sport.jpg",  audio: "audio/sport.mp3",  emoji: "⚽" },
-        { word: "pork",   display: "p<u>or</u>k",   image: "images/pork.jpg",   audio: "audio/pork.mp3",   emoji: "🥩" },
-        { word: "forget", display: "f<u>or</u>get", image: "images/forget.jpg", audio: "audio/forget.mp3", emoji: "🤔" },
+        { word: "sport",  display: "sp<u>or</u>t",  image: "images/sport.png",  audio: "audio/sport.mp3",  emoji: "⚽" },
+        { word: "pork",   display: "p<u>or</u>k",   image: "images/pork.png",   audio: "audio/pork.mp3",   emoji: "🥩" },
+        { word: "forget", display: "f<u>or</u>get", image: "images/forget.png", audio: "audio/forget.mp3", emoji: "🤔" },
       ]},
       { type: "match", label: "6", group: "or", items: [
-        { word: "sport",  display: "sp<u>or</u>t",  image: "images/sport.jpg",  emoji: "⚽" },
-        { word: "pork",   display: "p<u>or</u>k",   image: "images/pork.jpg",   emoji: "🥩" },
-        { word: "forget", display: "f<u>or</u>get", image: "images/forget.jpg", emoji: "🤔" },
+        { word: "sport",  display: "sp<u>or</u>t",  image: "images/sport.png",  emoji: "⚽" },
+        { word: "pork",   display: "p<u>or</u>k",   image: "images/pork.png",   emoji: "🥩" },
+        { word: "forget", display: "f<u>or</u>get", image: "images/forget.png", emoji: "🤔" },
       ]},
     ],
   },
@@ -542,14 +542,14 @@ const CURRICULUM = [
         { phonemes: "z · i · n · c",     display: "zinc",   word: "zinc",   audio: "audio/zinc.mp3",   phonemeAudio: "audio/zinc.mp3" },
       ]},
       { type: "spell", label: "1", group: "zip", words: [
-        { word: "zip",    display: "zip",    image: "images/zip.jpg",    audio: "audio/zip.mp3",    emoji: "🤐" },
-        { word: "zigzag", display: "zigzag", image: "images/zigzag.jpg", audio: "audio/zigzag.mp3", emoji: "〰️" },
-        { word: "zinc",   display: "zinc",   image: "images/zinc.jpg",   audio: "audio/zinc.mp3",   emoji: "⚗️" },
+        { word: "zip",    display: "zip",    image: "images/zip.png",    audio: "audio/zip.mp3",    emoji: "🤐" },
+        { word: "zigzag", display: "zigzag", image: "images/zigzag.png", audio: "audio/zigzag.mp3", emoji: "〰️" },
+        { word: "zinc",   display: "zinc",   image: "images/zinc.png",   audio: "audio/zinc.mp3",   emoji: "⚗️" },
       ]},
       { type: "match", label: "1", group: "zip", items: [
-        { word: "zip",    display: "zip",    image: "images/zip.jpg",    emoji: "🤐" },
-        { word: "zigzag", display: "zigzag", image: "images/zigzag.jpg", emoji: "〰️" },
-        { word: "zinc",   display: "zinc",   image: "images/zinc.jpg",   emoji: "⚗️" },
+        { word: "zip",    display: "zip",    image: "images/zip.png",    emoji: "🤐" },
+        { word: "zigzag", display: "zigzag", image: "images/zigzag.png", emoji: "〰️" },
+        { word: "zinc",   display: "zinc",   image: "images/zinc.png",   emoji: "⚗️" },
       ]},
       /* 5.1 group wet */
       { type: "say",   label: "2", group: "wet", rows: [
@@ -558,14 +558,14 @@ const CURRICULUM = [
         { phonemes: "w · e · s · t", display: "west", word: "west", audio: "audio/west.mp3", phonemeAudio: "audio/west.mp3" },
       ]},
       { type: "spell", label: "2", group: "wet", words: [
-        { word: "wet",  display: "wet",  image: "images/wet.jpg",  audio: "audio/wet.mp3",  emoji: "💧" },
-        { word: "wind", display: "wind", image: "images/wind.jpg", audio: "audio/wind.mp3", emoji: "💨" },
-        { word: "west", display: "west", image: "images/west.jpg", audio: "audio/west.mp3", emoji: "🧭" },
+        { word: "wet",  display: "wet",  image: "images/wet.png",  audio: "audio/wet.mp3",  emoji: "💧" },
+        { word: "wind", display: "wind", image: "images/wind.png", audio: "audio/wind.mp3", emoji: "💨" },
+        { word: "west", display: "west", image: "images/west.png", audio: "audio/west.mp3", emoji: "🧭" },
       ]},
       { type: "match", label: "2", group: "wet", items: [
-        { word: "wet",  display: "wet",  image: "images/wet.jpg",  emoji: "💧" },
-        { word: "wind", display: "wind", image: "images/wind.jpg", emoji: "💨" },
-        { word: "west", display: "west", image: "images/west.jpg", emoji: "🧭" },
+        { word: "wet",  display: "wet",  image: "images/wet.png",  emoji: "💧" },
+        { word: "wind", display: "wind", image: "images/wind.png", emoji: "💨" },
+        { word: "west", display: "west", image: "images/west.png", emoji: "🧭" },
       ]},
       /* 5.1 group sing */
       { type: "say",   label: "3", group: "sing", rows: [
@@ -575,16 +575,16 @@ const CURRICULUM = [
         { phonemes: "b · a · ng",     display: "ba<u>ng</u>",   word: "bang", audio: "audio/bang.mp3", phonemeAudio: "audio/bang.mp3" },
       ]},
       { type: "spell", label: "3", group: "sing", words: [
-        { word: "sing", display: "si<u>ng</u>", image: "images/sing.jpg", audio: "audio/sing.mp3", emoji: "🎤" },
-        { word: "ring", display: "ri<u>ng</u>", image: "images/ring.jpg", audio: "audio/ring.mp3", emoji: "💍" },
-        { word: "long", display: "lo<u>ng</u>", image: "images/long.jpg", audio: "audio/long.mp3", emoji: "📏" },
-        { word: "bang", display: "ba<u>ng</u>", image: "images/bang.jpg", audio: "audio/bang.mp3", emoji: "💥" },
+        { word: "sing", display: "si<u>ng</u>", image: "images/sing.png", audio: "audio/sing.mp3", emoji: "🎤" },
+        { word: "ring", display: "ri<u>ng</u>", image: "images/ring.png", audio: "audio/ring.mp3", emoji: "💍" },
+        { word: "long", display: "lo<u>ng</u>", image: "images/long.png", audio: "audio/long.mp3", emoji: "📏" },
+        { word: "bang", display: "ba<u>ng</u>", image: "images/bang.png", audio: "audio/bang.mp3", emoji: "💥" },
       ]},
       { type: "match", label: "3", group: "sing", items: [
-        { word: "sing", display: "si<u>ng</u>", image: "images/sing.jpg", emoji: "🎤" },
-        { word: "ring", display: "ri<u>ng</u>", image: "images/ring.jpg", emoji: "💍" },
-        { word: "long", display: "lo<u>ng</u>", image: "images/long.jpg", emoji: "📏" },
-        { word: "bang", display: "ba<u>ng</u>", image: "images/bang.jpg", emoji: "💥" },
+        { word: "sing", display: "si<u>ng</u>", image: "images/sing.png", emoji: "🎤" },
+        { word: "ring", display: "ri<u>ng</u>", image: "images/ring.png", emoji: "💍" },
+        { word: "long", display: "lo<u>ng</u>", image: "images/long.png", emoji: "📏" },
+        { word: "bang", display: "ba<u>ng</u>", image: "images/bang.png", emoji: "💥" },
       ]},
       /* 5.2 group van */
       { type: "say",   label: "4", group: "van", rows: [
@@ -593,14 +593,14 @@ const CURRICULUM = [
         { phonemes: "v · e · s · t", display: "vest", word: "vest", audio: "audio/vest.mp3", phonemeAudio: "audio/vest.mp3" },
       ]},
       { type: "spell", label: "4", group: "van", words: [
-        { word: "van",  display: "van",  image: "images/van.jpg",  audio: "audio/van.mp3",  emoji: "🚐" },
-        { word: "vet",  display: "vet",  image: "images/vet.jpg",  audio: "audio/vet.mp3",  emoji: "🐾" },
-        { word: "vest", display: "vest", image: "images/vest.jpg", audio: "audio/vest.mp3", emoji: "🦺" },
+        { word: "van",  display: "van",  image: "images/van.png",  audio: "audio/van.mp3",  emoji: "🚐" },
+        { word: "vet",  display: "vet",  image: "images/vet.png",  audio: "audio/vet.mp3",  emoji: "🐾" },
+        { word: "vest", display: "vest", image: "images/vest.png", audio: "audio/vest.mp3", emoji: "🦺" },
       ]},
       { type: "match", label: "4", group: "van", items: [
-        { word: "van",  display: "van",  image: "images/van.jpg",  emoji: "🚐" },
-        { word: "vet",  display: "vet",  image: "images/vet.jpg",  emoji: "🐾" },
-        { word: "vest", display: "vest", image: "images/vest.jpg", emoji: "🦺" },
+        { word: "van",  display: "van",  image: "images/van.png",  emoji: "🚐" },
+        { word: "vet",  display: "vet",  image: "images/vet.png",  emoji: "🐾" },
+        { word: "vest", display: "vest", image: "images/vest.png", emoji: "🦺" },
       ]},
       /* 5.2 group book */
       { type: "say",   label: "5", group: "book", rows: [
@@ -609,14 +609,14 @@ const CURRICULUM = [
         { phonemes: "l · oo · k", display: "l<u>oo</u>k", word: "look", audio: "audio/look.mp3", phonemeAudio: "audio/look.mp3" },
       ]},
       { type: "spell", label: "5", group: "book", words: [
-        { word: "book", display: "b<u>oo</u>k", image: "images/book.jpg", audio: "audio/book.mp3", emoji: "📚" },
-        { word: "foot", display: "f<u>oo</u>t", image: "images/foot.jpg", audio: "audio/foot.mp3", emoji: "🦶" },
-        { word: "look", display: "l<u>oo</u>k", image: "images/look.jpg", audio: "audio/look.mp3", emoji: "👀" },
+        { word: "book", display: "b<u>oo</u>k", image: "images/book.png", audio: "audio/book.mp3", emoji: "📚" },
+        { word: "foot", display: "f<u>oo</u>t", image: "images/foot.png", audio: "audio/foot.mp3", emoji: "🦶" },
+        { word: "look", display: "l<u>oo</u>k", image: "images/look.png", audio: "audio/look.mp3", emoji: "👀" },
       ]},
       { type: "match", label: "5", group: "book", items: [
-        { word: "book", display: "b<u>oo</u>k", image: "images/book.jpg", emoji: "📚" },
-        { word: "foot", display: "f<u>oo</u>t", image: "images/foot.jpg", emoji: "🦶" },
-        { word: "look", display: "l<u>oo</u>k", image: "images/look.jpg", emoji: "👀" },
+        { word: "book", display: "b<u>oo</u>k", image: "images/book.png", emoji: "📚" },
+        { word: "foot", display: "f<u>oo</u>t", image: "images/foot.png", emoji: "🦶" },
+        { word: "look", display: "l<u>oo</u>k", image: "images/look.png", emoji: "👀" },
       ]},
       /* 5.2 group moon */
       { type: "say",   label: "6", group: "moon", rows: [
@@ -626,16 +626,16 @@ const CURRICULUM = [
         { phonemes: "f · oo · d",     display: "f<u>oo</u>d",   word: "food",  audio: "audio/food.mp3",  phonemeAudio: "audio/food.mp3" },
       ]},
       { type: "spell", label: "6", group: "moon", words: [
-        { word: "zoo",   display: "z<u>oo</u>",   image: "images/zoo.jpg",   audio: "audio/zoo.mp3",   emoji: "🦒" },
-        { word: "moon",  display: "m<u>oo</u>n",  image: "images/moon.jpg",  audio: "audio/moon.mp3",  emoji: "🌙" },
-        { word: "spoon", display: "sp<u>oo</u>n", image: "images/spoon.jpg", audio: "audio/spoon.mp3", emoji: "🥄" },
-        { word: "food",  display: "f<u>oo</u>d",  image: "images/food.jpg",  audio: "audio/food.mp3",  emoji: "🍽️" },
+        { word: "zoo",   display: "z<u>oo</u>",   image: "images/zoo.png",   audio: "audio/zoo.mp3",   emoji: "🦒" },
+        { word: "moon",  display: "m<u>oo</u>n",  image: "images/moon.png",  audio: "audio/moon.mp3",  emoji: "🌙" },
+        { word: "spoon", display: "sp<u>oo</u>n", image: "images/spoon.png", audio: "audio/spoon.mp3", emoji: "🥄" },
+        { word: "food",  display: "f<u>oo</u>d",  image: "images/food.png",  audio: "audio/food.mp3",  emoji: "🍽️" },
       ]},
       { type: "match", label: "6", group: "moon", items: [
-        { word: "zoo",   display: "z<u>oo</u>",   image: "images/zoo.jpg",   emoji: "🦒" },
-        { word: "moon",  display: "m<u>oo</u>n",  image: "images/moon.jpg",  emoji: "🌙" },
-        { word: "spoon", display: "sp<u>oo</u>n", image: "images/spoon.jpg", emoji: "🥄" },
-        { word: "food",  display: "f<u>oo</u>d",  image: "images/food.jpg",  emoji: "🍽️" },
+        { word: "zoo",   display: "z<u>oo</u>",   image: "images/zoo.png",   emoji: "🦒" },
+        { word: "moon",  display: "m<u>oo</u>n",  image: "images/moon.png",  emoji: "🌙" },
+        { word: "spoon", display: "sp<u>oo</u>n", image: "images/spoon.png", emoji: "🥄" },
+        { word: "food",  display: "f<u>oo</u>d",  image: "images/food.png",  emoji: "🍽️" },
       ]},
     ],
   },
@@ -666,14 +666,14 @@ const CURRICULUM = [
         { phonemes: "y · u · m", display: "yum", word: "yum", audio: "audio/yum.mp3", phonemeAudio: "audio/yum.mp3" },
       ]},
       { type: "spell", label: "1", group: "yes", words: [
-        { word: "yes", display: "yes", image: "images/yes.jpg", audio: "audio/yes.mp3", emoji: "✅" },
-        { word: "yam", display: "yam", image: "images/yam.jpg", audio: "audio/yam.mp3", emoji: "🍠" },
-        { word: "yum", display: "yum", image: "images/yum.jpg", audio: "audio/yum.mp3", emoji: "😋" },
+        { word: "yes", display: "yes", image: "images/yes.png", audio: "audio/yes.mp3", emoji: "✅" },
+        { word: "yam", display: "yam", image: "images/yam.png", audio: "audio/yam.mp3", emoji: "🍠" },
+        { word: "yum", display: "yum", image: "images/yum.png", audio: "audio/yum.mp3", emoji: "😋" },
       ]},
       { type: "match", label: "1", group: "yes", items: [
-        { word: "yes", display: "yes", image: "images/yes.jpg", emoji: "✅" },
-        { word: "yam", display: "yam", image: "images/yam.jpg", emoji: "🍠" },
-        { word: "yum", display: "yum", image: "images/yum.jpg", emoji: "😋" },
+        { word: "yes", display: "yes", image: "images/yes.png", emoji: "✅" },
+        { word: "yam", display: "yam", image: "images/yam.png", emoji: "🍠" },
+        { word: "yum", display: "yum", image: "images/yum.png", emoji: "😋" },
       ]},
       /* 6.1 group box */
       { type: "say",   label: "2", group: "box", rows: [
@@ -682,14 +682,14 @@ const CURRICULUM = [
         { phonemes: "t · e · x · t", display: "text", word: "text", audio: "audio/text.mp3", phonemeAudio: "audio/text.mp3" },
       ]},
       { type: "spell", label: "2", group: "box", words: [
-        { word: "box",  display: "box",  image: "images/box.jpg",  audio: "audio/box.mp3",  emoji: "📦" },
-        { word: "six",  display: "six",  image: "images/six.jpg",  audio: "audio/six.mp3",  emoji: "6️⃣" },
-        { word: "text", display: "text", image: "images/text.jpg", audio: "audio/text.mp3", emoji: "💬" },
+        { word: "box",  display: "box",  image: "images/box.png",  audio: "audio/box.mp3",  emoji: "📦" },
+        { word: "six",  display: "six",  image: "images/six.png",  audio: "audio/six.mp3",  emoji: "6️⃣" },
+        { word: "text", display: "text", image: "images/text.png", audio: "audio/text.mp3", emoji: "💬" },
       ]},
       { type: "match", label: "2", group: "box", items: [
-        { word: "box",  display: "box",  image: "images/box.jpg",  emoji: "📦" },
-        { word: "six",  display: "six",  image: "images/six.jpg",  emoji: "6️⃣" },
-        { word: "text", display: "text", image: "images/text.jpg", emoji: "💬" },
+        { word: "box",  display: "box",  image: "images/box.png",  emoji: "📦" },
+        { word: "six",  display: "six",  image: "images/six.png",  emoji: "6️⃣" },
+        { word: "text", display: "text", image: "images/text.png", emoji: "💬" },
       ]},
       /* 6.1 group ch */
       { type: "say",   label: "3", group: "ch", rows: [
@@ -699,16 +699,16 @@ const CURRICULUM = [
         { phonemes: "i · t · ch",   display: "it<u>ch</u>",  word: "itch",  audio: "audio/itch.mp3",  phonemeAudio: "audio/itch.mp3" },
       ]},
       { type: "spell", label: "3", group: "ch", words: [
-        { word: "chat",  display: "<u>ch</u>at",  image: "images/chat.jpg",  audio: "audio/chat.mp3",  emoji: "💬" },
-        { word: "chips", display: "<u>ch</u>ips", image: "images/chips.jpg", audio: "audio/chips.mp3", emoji: "🍟" },
-        { word: "chin",  display: "<u>ch</u>in",  image: "images/chin.jpg",  audio: "audio/chin.mp3",  emoji: "🧑" },
-        { word: "itch",  display: "it<u>ch</u>",  image: "images/itch.jpg",  audio: "audio/itch.mp3",  emoji: "🤚" },
+        { word: "chat",  display: "<u>ch</u>at",  image: "images/chat.png",  audio: "audio/chat.mp3",  emoji: "💬" },
+        { word: "chips", display: "<u>ch</u>ips", image: "images/chips.png", audio: "audio/chips.mp3", emoji: "🍟" },
+        { word: "chin",  display: "<u>ch</u>in",  image: "images/chin.png",  audio: "audio/chin.mp3",  emoji: "🧑" },
+        { word: "itch",  display: "it<u>ch</u>",  image: "images/itch.png",  audio: "audio/itch.mp3",  emoji: "🤚" },
       ]},
       { type: "match", label: "3", group: "ch", items: [
-        { word: "chat",  display: "<u>ch</u>at",  image: "images/chat.jpg",  emoji: "💬" },
-        { word: "chips", display: "<u>ch</u>ips", image: "images/chips.jpg", emoji: "🍟" },
-        { word: "chin",  display: "<u>ch</u>in",  image: "images/chin.jpg",  emoji: "🧑" },
-        { word: "itch",  display: "it<u>ch</u>",  image: "images/itch.jpg",  emoji: "🤚" },
+        { word: "chat",  display: "<u>ch</u>at",  image: "images/chat.png",  emoji: "💬" },
+        { word: "chips", display: "<u>ch</u>ips", image: "images/chips.png", emoji: "🍟" },
+        { word: "chin",  display: "<u>ch</u>in",  image: "images/chin.png",  emoji: "🧑" },
+        { word: "itch",  display: "it<u>ch</u>",  image: "images/itch.png",  emoji: "🤚" },
       ]},
       /* 6.2 group sh */
       { type: "say",   label: "4", group: "sh", rows: [
@@ -717,14 +717,14 @@ const CURRICULUM = [
         { phonemes: "sh · o · p", display: "<u>sh</u>op", word: "shop", audio: "audio/shop.mp3", phonemeAudio: "audio/shop.mp3" },
       ]},
       { type: "spell", label: "4", group: "sh", words: [
-        { word: "shut", display: "<u>sh</u>ut", image: "images/shut.jpg", audio: "audio/shut.mp3", emoji: "🚪" },
-        { word: "dish", display: "di<u>sh</u>", image: "images/dish.jpg", audio: "audio/dish.mp3", emoji: "🍽️" },
-        { word: "shop", display: "<u>sh</u>op", image: "images/shop.jpg", audio: "audio/shop.mp3", emoji: "🛍️" },
+        { word: "shut", display: "<u>sh</u>ut", image: "images/shut.png", audio: "audio/shut.mp3", emoji: "🚪" },
+        { word: "dish", display: "di<u>sh</u>", image: "images/dish.png", audio: "audio/dish.mp3", emoji: "🍽️" },
+        { word: "shop", display: "<u>sh</u>op", image: "images/shop.png", audio: "audio/shop.mp3", emoji: "🛍️" },
       ]},
       { type: "match", label: "4", group: "sh", items: [
-        { word: "shut", display: "<u>sh</u>ut", image: "images/shut.jpg", emoji: "🚪" },
-        { word: "dish", display: "di<u>sh</u>", image: "images/dish.jpg", emoji: "🍽️" },
-        { word: "shop", display: "<u>sh</u>op", image: "images/shop.jpg", emoji: "🛍️" },
+        { word: "shut", display: "<u>sh</u>ut", image: "images/shut.png", emoji: "🚪" },
+        { word: "dish", display: "di<u>sh</u>", image: "images/dish.png", emoji: "🍽️" },
+        { word: "shop", display: "<u>sh</u>op", image: "images/shop.png", emoji: "🛍️" },
       ]},
       /* 6.2 group th-thin */
       { type: "say",   label: "5", group: "th-thin", rows: [
@@ -734,16 +734,16 @@ const CURRICULUM = [
         { phonemes: "m · a · th · s", display: "ma<u>th</u>s", word: "maths", audio: "audio/maths.mp3", phonemeAudio: "audio/maths.mp3" },
       ]},
       { type: "spell", label: "5", group: "th-thin", words: [
-        { word: "thin",  display: "<u>th</u>in",          image: "images/thin.jpg",  audio: "audio/thin.mp3",  emoji: "📏" },
-        { word: "thick", display: "<u>th</u>i<u>ck</u>",  image: "images/thick.jpg", audio: "audio/thick.mp3", emoji: "📚" },
-        { word: "moth",  display: "mo<u>th</u>",          image: "images/moth.jpg",  audio: "audio/moth.mp3",  emoji: "🦋" },
-        { word: "maths", display: "ma<u>th</u>s",         image: "images/maths.jpg", audio: "audio/maths.mp3", emoji: "➕" },
+        { word: "thin",  display: "<u>th</u>in",          image: "images/thin.png",  audio: "audio/thin.mp3",  emoji: "📏" },
+        { word: "thick", display: "<u>th</u>i<u>ck</u>",  image: "images/thick.png", audio: "audio/thick.mp3", emoji: "📚" },
+        { word: "moth",  display: "mo<u>th</u>",          image: "images/moth.png",  audio: "audio/moth.mp3",  emoji: "🦋" },
+        { word: "maths", display: "ma<u>th</u>s",         image: "images/maths.png", audio: "audio/maths.mp3", emoji: "➕" },
       ]},
       { type: "match", label: "5", group: "th-thin", items: [
-        { word: "thin",  display: "<u>th</u>in",         image: "images/thin.jpg",  emoji: "📏" },
-        { word: "thick", display: "<u>th</u>i<u>ck</u>", image: "images/thick.jpg", emoji: "📚" },
-        { word: "moth",  display: "mo<u>th</u>",         image: "images/moth.jpg",  emoji: "🦋" },
-        { word: "maths", display: "ma<u>th</u>s",        image: "images/maths.jpg", emoji: "➕" },
+        { word: "thin",  display: "<u>th</u>in",         image: "images/thin.png",  emoji: "📏" },
+        { word: "thick", display: "<u>th</u>i<u>ck</u>", image: "images/thick.png", emoji: "📚" },
+        { word: "moth",  display: "mo<u>th</u>",         image: "images/moth.png",  emoji: "🦋" },
+        { word: "maths", display: "ma<u>th</u>s",        image: "images/maths.png", emoji: "➕" },
       ]},
       /* 6.2 group th-that */
       { type: "say",   label: "6", group: "th-that", rows: [
@@ -752,14 +752,14 @@ const CURRICULUM = [
         { phonemes: "th · e · n", display: "<u>th</u>en",  word: "then", audio: "audio/then.mp3", phonemeAudio: "audio/then.mp3" },
       ]},
       { type: "spell", label: "6", group: "th-that", words: [
-        { word: "this", display: "<u>th</u>is", image: "images/this.jpg", audio: "audio/this.mp3", emoji: "👆" },
-        { word: "that", display: "<u>th</u>at", image: "images/that.jpg", audio: "audio/that.mp3", emoji: "👉" },
-        { word: "then", display: "<u>th</u>en", image: "images/then.jpg", audio: "audio/then.mp3", emoji: "➡️" },
+        { word: "this", display: "<u>th</u>is", image: "images/this.png", audio: "audio/this.mp3", emoji: "👆" },
+        { word: "that", display: "<u>th</u>at", image: "images/that.png", audio: "audio/that.mp3", emoji: "👉" },
+        { word: "then", display: "<u>th</u>en", image: "images/then.png", audio: "audio/then.mp3", emoji: "➡️" },
       ]},
       { type: "match", label: "6", group: "th-that", items: [
-        { word: "this", display: "<u>th</u>is", image: "images/this.jpg", emoji: "👆" },
-        { word: "that", display: "<u>th</u>at", image: "images/that.jpg", emoji: "👉" },
-        { word: "then", display: "<u>th</u>en", image: "images/then.jpg", emoji: "➡️" },
+        { word: "this", display: "<u>th</u>is", image: "images/this.png", emoji: "👆" },
+        { word: "that", display: "<u>th</u>at", image: "images/that.png", emoji: "👉" },
+        { word: "then", display: "<u>th</u>en", image: "images/then.png", emoji: "➡️" },
       ]},
     ],
   },
@@ -791,14 +791,14 @@ const CURRICULUM = [
         { phonemes: "qu · ee · n",      display: "<u>qu</u> <u>ee</u>n", word: "queen", audio: "audio/queen.mp3", phonemeAudio: "audio/queen.mp3" },
       ]},
       { type: "spell", label: "1", group: "qu", words: [
-        { word: "quiz",  display: "<u>qu</u>iz",         image: "images/quiz.jpg",  audio: "audio/quiz.mp3",  emoji: "❓" },
-        { word: "quick", display: "q<u>ui</u><u>ck</u>", image: "images/quick.jpg", audio: "audio/quick.mp3", emoji: "⚡" },
-        { word: "queen", display: "<u>qu</u> <u>ee</u>n", image: "images/queen.jpg", audio: "audio/queen.mp3", emoji: "👑" },
+        { word: "quiz",  display: "<u>qu</u>iz",         image: "images/quiz.png",  audio: "audio/quiz.mp3",  emoji: "❓" },
+        { word: "quick", display: "q<u>ui</u><u>ck</u>", image: "images/quick.png", audio: "audio/quick.mp3", emoji: "⚡" },
+        { word: "queen", display: "<u>qu</u> <u>ee</u>n", image: "images/queen.png", audio: "audio/queen.mp3", emoji: "👑" },
       ]},
       { type: "match", label: "1", group: "qu", items: [
-        { word: "quiz",  display: "<u>qu</u>iz",          image: "images/quiz.jpg",  emoji: "❓" },
-        { word: "quick", display: "q<u>ui</u><u>ck</u>",  image: "images/quick.jpg", emoji: "⚡" },
-        { word: "queen", display: "<u>qu</u> <u>ee</u>n", image: "images/queen.jpg", emoji: "👑" },
+        { word: "quiz",  display: "<u>qu</u>iz",          image: "images/quiz.png",  emoji: "❓" },
+        { word: "quick", display: "q<u>ui</u><u>ck</u>",  image: "images/quick.png", emoji: "⚡" },
+        { word: "queen", display: "<u>qu</u> <u>ee</u>n", image: "images/queen.png", emoji: "👑" },
       ]},
       /* 7.1 group ou */
       { type: "say",   label: "2", group: "ou", rows: [
@@ -807,14 +807,14 @@ const CURRICULUM = [
         { phonemes: "r · ou · n · d", display: "r<u>ou</u>nd", word: "round", audio: "audio/round.mp3", phonemeAudio: "audio/round.mp3" },
       ]},
       { type: "spell", label: "2", group: "ou", words: [
-        { word: "out",   display: "<u>ou</u>t",   image: "images/out.jpg",   audio: "audio/out.mp3",   emoji: "🚪" },
-        { word: "loud",  display: "l<u>ou</u>d",  image: "images/loud.jpg",  audio: "audio/loud.mp3",  emoji: "📢" },
-        { word: "round", display: "r<u>ou</u>nd", image: "images/round.jpg", audio: "audio/round.mp3", emoji: "⭕" },
+        { word: "out",   display: "<u>ou</u>t",   image: "images/out.png",   audio: "audio/out.mp3",   emoji: "🚪" },
+        { word: "loud",  display: "l<u>ou</u>d",  image: "images/loud.png",  audio: "audio/loud.mp3",  emoji: "📢" },
+        { word: "round", display: "r<u>ou</u>nd", image: "images/round.png", audio: "audio/round.mp3", emoji: "⭕" },
       ]},
       { type: "match", label: "2", group: "ou", items: [
-        { word: "out",   display: "<u>ou</u>t",   image: "images/out.jpg",   emoji: "🚪" },
-        { word: "loud",  display: "l<u>ou</u>d",  image: "images/loud.jpg",  emoji: "📢" },
-        { word: "round", display: "r<u>ou</u>nd", image: "images/round.jpg", emoji: "⭕" },
+        { word: "out",   display: "<u>ou</u>t",   image: "images/out.png",   emoji: "🚪" },
+        { word: "loud",  display: "l<u>ou</u>d",  image: "images/loud.png",  emoji: "📢" },
+        { word: "round", display: "r<u>ou</u>nd", image: "images/round.png", emoji: "⭕" },
       ]},
       /* 7.1 group oi */
       { type: "say",   label: "3", group: "oi", rows: [
@@ -824,16 +824,16 @@ const CURRICULUM = [
         { phonemes: "p · oi · n · t", display: "p<u>oi</u>nt", word: "point", audio: "audio/point.mp3", phonemeAudio: "audio/point.mp3" },
       ]},
       { type: "spell", label: "3", group: "oi", words: [
-        { word: "oil",   display: "<u>oi</u>l",   image: "images/oil.jpg",   audio: "audio/oil.mp3",   emoji: "🛢️" },
-        { word: "coin",  display: "c<u>oi</u>n",  image: "images/coin.jpg",  audio: "audio/coin.mp3",  emoji: "🪙" },
-        { word: "foil",  display: "f<u>oi</u>l",  image: "images/foil.jpg",  audio: "audio/foil.mp3",  emoji: "✨" },
-        { word: "point", display: "p<u>oi</u>nt", image: "images/point.jpg", audio: "audio/point.mp3", emoji: "👆" },
+        { word: "oil",   display: "<u>oi</u>l",   image: "images/oil.png",   audio: "audio/oil.mp3",   emoji: "🛢️" },
+        { word: "coin",  display: "c<u>oi</u>n",  image: "images/coin.png",  audio: "audio/coin.mp3",  emoji: "🪙" },
+        { word: "foil",  display: "f<u>oi</u>l",  image: "images/foil.png",  audio: "audio/foil.mp3",  emoji: "✨" },
+        { word: "point", display: "p<u>oi</u>nt", image: "images/point.png", audio: "audio/point.mp3", emoji: "👆" },
       ]},
       { type: "match", label: "3", group: "oi", items: [
-        { word: "oil",   display: "<u>oi</u>l",   image: "images/oil.jpg",   emoji: "🛢️" },
-        { word: "coin",  display: "c<u>oi</u>n",  image: "images/coin.jpg",  emoji: "🪙" },
-        { word: "foil",  display: "f<u>oi</u>l",  image: "images/foil.jpg",  emoji: "✨" },
-        { word: "point", display: "p<u>oi</u>nt", image: "images/point.jpg", emoji: "👆" },
+        { word: "oil",   display: "<u>oi</u>l",   image: "images/oil.png",   emoji: "🛢️" },
+        { word: "coin",  display: "c<u>oi</u>n",  image: "images/coin.png",  emoji: "🪙" },
+        { word: "foil",  display: "f<u>oi</u>l",  image: "images/foil.png",  emoji: "✨" },
+        { word: "point", display: "p<u>oi</u>nt", image: "images/point.png", emoji: "👆" },
       ]},
       /* 7.2 group ue */
       { type: "say",   label: "4", group: "ue", rows: [
@@ -842,14 +842,14 @@ const CURRICULUM = [
         { phonemes: "t · r · ue",     display: "tr<u>ue</u>",  word: "true", audio: "audio/true.mp3", phonemeAudio: "audio/true.mp3" },
       ]},
       { type: "spell", label: "4", group: "ue", words: [
-        { word: "blue", display: "bl<u>ue</u>", image: "images/blue.jpg", audio: "audio/blue.mp3", emoji: "🔵" },
-        { word: "fuel", display: "f<u>ue</u>l", image: "images/fuel.jpg", audio: "audio/fuel.mp3", emoji: "⛽" },
-        { word: "true", display: "tr<u>ue</u>", image: "images/true.jpg", audio: "audio/true.mp3", emoji: "✅" },
+        { word: "blue", display: "bl<u>ue</u>", image: "images/blue.png", audio: "audio/blue.mp3", emoji: "🔵" },
+        { word: "fuel", display: "f<u>ue</u>l", image: "images/fuel.png", audio: "audio/fuel.mp3", emoji: "⛽" },
+        { word: "true", display: "tr<u>ue</u>", image: "images/true.png", audio: "audio/true.mp3", emoji: "✅" },
       ]},
       { type: "match", label: "4", group: "ue", items: [
-        { word: "blue", display: "bl<u>ue</u>", image: "images/blue.jpg", emoji: "🔵" },
-        { word: "fuel", display: "f<u>ue</u>l", image: "images/fuel.jpg", emoji: "⛽" },
-        { word: "true", display: "tr<u>ue</u>", image: "images/true.jpg", emoji: "✅" },
+        { word: "blue", display: "bl<u>ue</u>", image: "images/blue.png", emoji: "🔵" },
+        { word: "fuel", display: "f<u>ue</u>l", image: "images/fuel.png", emoji: "⛽" },
+        { word: "true", display: "tr<u>ue</u>", image: "images/true.png", emoji: "✅" },
       ]},
       /* 7.2 group er */
       { type: "say",   label: "5", group: "er", rows: [
@@ -859,16 +859,16 @@ const CURRICULUM = [
         { phonemes: "u · n · d · er",     display: "und<u>er</u>",  word: "under",  audio: "audio/under.mp3",  phonemeAudio: "audio/under.mp3" },
       ]},
       { type: "spell", label: "5", group: "er", words: [
-        { word: "her",    display: "h<u>er</u>",    image: "images/her.jpg",    audio: "audio/her.mp3",    emoji: "👩" },
-        { word: "term",   display: "t<u>er</u>m",   image: "images/term.jpg",   audio: "audio/term.mp3",   emoji: "📅" },
-        { word: "sister", display: "sist<u>er</u>", image: "images/sister.jpg", audio: "audio/sister.mp3", emoji: "👧" },
-        { word: "under",  display: "und<u>er</u>",  image: "images/under.jpg",  audio: "audio/under.mp3",  emoji: "⬇️" },
+        { word: "her",    display: "h<u>er</u>",    image: "images/her.png",    audio: "audio/her.mp3",    emoji: "👩" },
+        { word: "term",   display: "t<u>er</u>m",   image: "images/term.png",   audio: "audio/term.mp3",   emoji: "📅" },
+        { word: "sister", display: "sist<u>er</u>", image: "images/sister.png", audio: "audio/sister.mp3", emoji: "👧" },
+        { word: "under",  display: "und<u>er</u>",  image: "images/under.png",  audio: "audio/under.mp3",  emoji: "⬇️" },
       ]},
       { type: "match", label: "5", group: "er", items: [
-        { word: "her",    display: "h<u>er</u>",    image: "images/her.jpg",    emoji: "👩" },
-        { word: "term",   display: "t<u>er</u>m",   image: "images/term.jpg",   emoji: "📅" },
-        { word: "sister", display: "sist<u>er</u>", image: "images/sister.jpg", emoji: "👧" },
-        { word: "under",  display: "und<u>er</u>",  image: "images/under.jpg",  emoji: "⬇️" },
+        { word: "her",    display: "h<u>er</u>",    image: "images/her.png",    emoji: "👩" },
+        { word: "term",   display: "t<u>er</u>m",   image: "images/term.png",   emoji: "📅" },
+        { word: "sister", display: "sist<u>er</u>", image: "images/sister.png", emoji: "👧" },
+        { word: "under",  display: "und<u>er</u>",  image: "images/under.png",  emoji: "⬇️" },
       ]},
       /* 7.2 group ar */
       { type: "say",   label: "6", group: "ar", rows: [
@@ -877,14 +877,14 @@ const CURRICULUM = [
         { phonemes: "s · m · ar · t", display: "sm<u>ar</u>t",  word: "smart", audio: "audio/smart.mp3", phonemeAudio: "audio/smart.mp3" },
       ]},
       { type: "spell", label: "6", group: "ar", words: [
-        { word: "car",   display: "c<u>ar</u>",   image: "images/car.jpg",   audio: "audio/car.mp3",   emoji: "🚗" },
-        { word: "arm",   display: "<u>ar</u>m",   image: "images/arm.jpg",   audio: "audio/arm.mp3",   emoji: "💪" },
-        { word: "smart", display: "sm<u>ar</u>t", image: "images/smart.jpg", audio: "audio/smart.mp3", emoji: "🧠" },
+        { word: "car",   display: "c<u>ar</u>",   image: "images/car.png",   audio: "audio/car.mp3",   emoji: "🚗" },
+        { word: "arm",   display: "<u>ar</u>m",   image: "images/arm.png",   audio: "audio/arm.mp3",   emoji: "💪" },
+        { word: "smart", display: "sm<u>ar</u>t", image: "images/smart.png", audio: "audio/smart.mp3", emoji: "🧠" },
       ]},
       { type: "match", label: "6", group: "ar", items: [
-        { word: "car",   display: "c<u>ar</u>",   image: "images/car.jpg",   emoji: "🚗" },
-        { word: "arm",   display: "<u>ar</u>m",   image: "images/arm.jpg",   emoji: "💪" },
-        { word: "smart", display: "sm<u>ar</u>t", image: "images/smart.jpg", emoji: "🧠" },
+        { word: "car",   display: "c<u>ar</u>",   image: "images/car.png",   emoji: "🚗" },
+        { word: "arm",   display: "<u>ar</u>m",   image: "images/arm.png",   emoji: "💪" },
+        { word: "smart", display: "sm<u>ar</u>t", image: "images/smart.png", emoji: "🧠" },
       ]},
     ],
   },
@@ -918,14 +918,14 @@ const CURRICULUM = [
         { phonemes: "m · a_e · t", display: "m<g>a</g>t<r>e</r>",    word: "mate",  audio: "audio/mate.mp3",  phonemeAudio: "audio/mate.mp3" },
       ]},
       { type: "spell", label: "1", group: "a_e", words: [
-        { word: "tape",  display: "t<g>a</g>p<r>e</r>",  image: "images/tape.jpg",  audio: "audio/tape.mp3",  emoji: "🧲" },
-        { word: "plate", display: "pl<g>a</g>t<r>e</r>", image: "images/plate.jpg", audio: "audio/plate.mp3", emoji: "🍽️" },
-        { word: "cake",  display: "c<g>a</g>k<r>e</r>",  image: "images/cake.jpg",  audio: "audio/cake.mp3",  emoji: "🎂" },
+        { word: "tape",  display: "t<g>a</g>p<r>e</r>",  image: "images/tape.png",  audio: "audio/tape.mp3",  emoji: "🧲" },
+        { word: "plate", display: "pl<g>a</g>t<r>e</r>", image: "images/plate.png", audio: "audio/plate.mp3", emoji: "🍽️" },
+        { word: "cake",  display: "c<g>a</g>k<r>e</r>",  image: "images/cake.png",  audio: "audio/cake.mp3",  emoji: "🎂" },
       ]},
       { type: "match", label: "1", group: "a_e", items: [
-        { word: "tape",  display: "t<g>a</g>p<r>e</r>",  image: "images/tape.jpg",  emoji: "🧲" },
-        { word: "plate", display: "pl<g>a</g>t<r>e</r>", image: "images/plate.jpg", emoji: "🍽️" },
-        { word: "cake",  display: "c<g>a</g>k<r>e</r>",  image: "images/cake.jpg",  emoji: "🎂" },
+        { word: "tape",  display: "t<g>a</g>p<r>e</r>",  image: "images/tape.png",  emoji: "🧲" },
+        { word: "plate", display: "pl<g>a</g>t<r>e</r>", image: "images/plate.png", emoji: "🍽️" },
+        { word: "cake",  display: "c<g>a</g>k<r>e</r>",  image: "images/cake.png",  emoji: "🎂" },
       ]},
       /* 8.1 i_e pairs */
       { type: "say",   label: "2", group: "i_e", rows: [
@@ -935,14 +935,14 @@ const CURRICULUM = [
         { phonemes: "p · i_e · n", display: "p<g>i</g>n<r>e</r>",  word: "pine",  audio: "audio/pine.mp3",  phonemeAudio: "audio/pine.mp3" },
       ]},
       { type: "spell", label: "2", group: "i_e", words: [
-        { word: "like",  display: "l<g>i</g>k<r>e</r>",  image: "images/like.jpg",  audio: "audio/like.mp3",  emoji: "👍" },
-        { word: "ride",  display: "r<g>i</g>d<r>e</r>",  image: "images/ride.jpg",  audio: "audio/ride.mp3",  emoji: "🚴" },
-        { word: "smile", display: "sm<g>i</g>l<r>e</r>", image: "images/smile.jpg", audio: "audio/smile.mp3", emoji: "😊" },
+        { word: "like",  display: "l<g>i</g>k<r>e</r>",  image: "images/like.png",  audio: "audio/like.mp3",  emoji: "👍" },
+        { word: "ride",  display: "r<g>i</g>d<r>e</r>",  image: "images/ride.png",  audio: "audio/ride.mp3",  emoji: "🚴" },
+        { word: "smile", display: "sm<g>i</g>l<r>e</r>", image: "images/smile.png", audio: "audio/smile.mp3", emoji: "😊" },
       ]},
       { type: "match", label: "2", group: "i_e", items: [
-        { word: "like",  display: "l<g>i</g>k<r>e</r>",  image: "images/like.jpg",  emoji: "👍" },
-        { word: "ride",  display: "r<g>i</g>d<r>e</r>",  image: "images/ride.jpg",  emoji: "🚴" },
-        { word: "smile", display: "sm<g>i</g>l<r>e</r>", image: "images/smile.jpg", emoji: "😊" },
+        { word: "like",  display: "l<g>i</g>k<r>e</r>",  image: "images/like.png",  emoji: "👍" },
+        { word: "ride",  display: "r<g>i</g>d<r>e</r>",  image: "images/ride.png",  emoji: "🚴" },
+        { word: "smile", display: "sm<g>i</g>l<r>e</r>", image: "images/smile.png", emoji: "😊" },
       ]},
       /* 8.2 o_e pairs */
       { type: "say",   label: "3", group: "o_e", rows: [
@@ -952,14 +952,14 @@ const CURRICULUM = [
         { phonemes: "n · o_e · t", display: "n<g>o</g>t<r>e</r>",  word: "note", audio: "audio/note.mp3", phonemeAudio: "audio/note.mp3" },
       ]},
       { type: "spell", label: "3", group: "o_e", words: [
-        { word: "stove", display: "st<g>o</g>v<r>e</r>", image: "images/stove.jpg", audio: "audio/stove.mp3", emoji: "🔥" },
-        { word: "home",  display: "h<g>o</g>m<r>e</r>",  image: "images/home.jpg",  audio: "audio/home.mp3",  emoji: "🏠" },
-        { word: "bone",  display: "b<g>o</g>n<r>e</r>",  image: "images/bone.jpg",  audio: "audio/bone.mp3",  emoji: "🦴" },
+        { word: "stove", display: "st<g>o</g>v<r>e</r>", image: "images/stove.png", audio: "audio/stove.mp3", emoji: "🔥" },
+        { word: "home",  display: "h<g>o</g>m<r>e</r>",  image: "images/home.png",  audio: "audio/home.mp3",  emoji: "🏠" },
+        { word: "bone",  display: "b<g>o</g>n<r>e</r>",  image: "images/bone.png",  audio: "audio/bone.mp3",  emoji: "🦴" },
       ]},
       { type: "match", label: "3", group: "o_e", items: [
-        { word: "stove", display: "st<g>o</g>v<r>e</r>", image: "images/stove.jpg", emoji: "🔥" },
-        { word: "home",  display: "h<g>o</g>m<r>e</r>",  image: "images/home.jpg",  emoji: "🏠" },
-        { word: "bone",  display: "b<g>o</g>n<r>e</r>",  image: "images/bone.jpg",  emoji: "🦴" },
+        { word: "stove", display: "st<g>o</g>v<r>e</r>", image: "images/stove.png", emoji: "🔥" },
+        { word: "home",  display: "h<g>o</g>m<r>e</r>",  image: "images/home.png",  emoji: "🏠" },
+        { word: "bone",  display: "b<g>o</g>n<r>e</r>",  image: "images/bone.png",  emoji: "🦴" },
       ]},
       /* 8.2 u_e pairs */
       { type: "say",   label: "4", group: "u_e", rows: [
@@ -969,16 +969,16 @@ const CURRICULUM = [
         { phonemes: "t · u_e · b", display: "t<g>u</g>b<r>e</r>",  word: "tube", audio: "audio/tube.mp3", phonemeAudio: "audio/tube.mp3" },
       ]},
       { type: "spell", label: "4", group: "u_e", words: [
-        { word: "June", display: "J<g>u</g>n<r>e</r>", image: "images/june.jpg", audio: "audio/june.mp3", emoji: "📅" },
-        { word: "cube", display: "c<g>u</g>b<r>e</r>", image: "images/cube.jpg", audio: "audio/cube.mp3", emoji: "🧊" },
-        { word: "mute", display: "m<g>u</g>t<r>e</r>", image: "images/mute.jpg", audio: "audio/mute.mp3", emoji: "🔇" },
-        { word: "tune", display: "t<g>u</g>n<r>e</r>", image: "images/tune.jpg", audio: "audio/tune.mp3", emoji: "🎵" },
+        { word: "June", display: "J<g>u</g>n<r>e</r>", image: "images/june.png", audio: "audio/june.mp3", emoji: "📅" },
+        { word: "cube", display: "c<g>u</g>b<r>e</r>", image: "images/cube.png", audio: "audio/cube.mp3", emoji: "🧊" },
+        { word: "mute", display: "m<g>u</g>t<r>e</r>", image: "images/mute.png", audio: "audio/mute.mp3", emoji: "🔇" },
+        { word: "tune", display: "t<g>u</g>n<r>e</r>", image: "images/tune.png", audio: "audio/tune.mp3", emoji: "🎵" },
       ]},
       { type: "match", label: "4", group: "u_e", items: [
-        { word: "June", display: "J<g>u</g>n<r>e</r>", image: "images/june.jpg", emoji: "📅" },
-        { word: "cube", display: "c<g>u</g>b<r>e</r>", image: "images/cube.jpg", emoji: "🧊" },
-        { word: "mute", display: "m<g>u</g>t<r>e</r>", image: "images/mute.jpg", emoji: "🔇" },
-        { word: "tune", display: "t<g>u</g>n<r>e</r>", image: "images/tune.jpg", emoji: "🎵" },
+        { word: "June", display: "J<g>u</g>n<r>e</r>", image: "images/june.png", emoji: "📅" },
+        { word: "cube", display: "c<g>u</g>b<r>e</r>", image: "images/cube.png", emoji: "🧊" },
+        { word: "mute", display: "m<g>u</g>t<r>e</r>", image: "images/mute.png", emoji: "🔇" },
+        { word: "tune", display: "t<g>u</g>n<r>e</r>", image: "images/tune.png", emoji: "🎵" },
       ]},
       /* 8.3 e/y/i */
       { type: "say",   label: "5", group: "e-me", rows: [
@@ -988,16 +988,16 @@ const CURRICULUM = [
         { phonemes: "w · e",   display: "we",  word: "we",  audio: "audio/we.mp3",  phonemeAudio: "audio/we.mp3" },
       ]},
       { type: "spell", label: "5", group: "e-me", words: [
-        { word: "me",  display: "me",  image: "images/me.jpg",  audio: "audio/me.mp3",  emoji: "🧑" },
-        { word: "he",  display: "he",  image: "images/he.jpg",  audio: "audio/he.mp3",  emoji: "👨" },
-        { word: "she", display: "she", image: "images/she.jpg", audio: "audio/she.mp3", emoji: "👩" },
-        { word: "we",  display: "we",  image: "images/we.jpg",  audio: "audio/we.mp3",  emoji: "👫" },
+        { word: "me",  display: "me",  image: "images/me.png",  audio: "audio/me.mp3",  emoji: "🧑" },
+        { word: "he",  display: "he",  image: "images/he.png",  audio: "audio/he.mp3",  emoji: "👨" },
+        { word: "she", display: "she", image: "images/she.png", audio: "audio/she.mp3", emoji: "👩" },
+        { word: "we",  display: "we",  image: "images/we.png",  audio: "audio/we.mp3",  emoji: "👫" },
       ]},
       { type: "match", label: "5", group: "e-me", items: [
-        { word: "me",  display: "me",  image: "images/me.jpg",  emoji: "🧑" },
-        { word: "he",  display: "he",  image: "images/he.jpg",  emoji: "👨" },
-        { word: "she", display: "she", image: "images/she.jpg", emoji: "👩" },
-        { word: "we",  display: "we",  image: "images/we.jpg",  emoji: "👫" },
+        { word: "me",  display: "me",  image: "images/me.png",  emoji: "🧑" },
+        { word: "he",  display: "he",  image: "images/he.png",  emoji: "👨" },
+        { word: "she", display: "she", image: "images/she.png", emoji: "👩" },
+        { word: "we",  display: "we",  image: "images/we.png",  emoji: "👫" },
       ]},
       /* 8.3 y-funny */
       { type: "say",   label: "6", group: "y-funny", rows: [
@@ -1007,16 +1007,16 @@ const CURRICULUM = [
         { phonemes: "l · u · ck · y",    display: "luc<u>k</u>y", word: "lucky", audio: "audio/lucky.mp3", phonemeAudio: "audio/lucky.mp3" },
       ]},
       { type: "spell", label: "6", group: "y-funny", words: [
-        { word: "sunny", display: "sunny", image: "images/sunny.jpg", audio: "audio/sunny.mp3", emoji: "☀️" },
-        { word: "funny", display: "funny", image: "images/funny.jpg", audio: "audio/funny.mp3", emoji: "😄" },
-        { word: "merry", display: "merry", image: "images/merry.jpg", audio: "audio/merry.mp3", emoji: "🎄" },
-        { word: "lucky", display: "lucky", image: "images/lucky.jpg", audio: "audio/lucky.mp3", emoji: "🍀" },
+        { word: "sunny", display: "sunny", image: "images/sunny.png", audio: "audio/sunny.mp3", emoji: "☀️" },
+        { word: "funny", display: "funny", image: "images/funny.png", audio: "audio/funny.mp3", emoji: "😄" },
+        { word: "merry", display: "merry", image: "images/merry.png", audio: "audio/merry.mp3", emoji: "🎄" },
+        { word: "lucky", display: "lucky", image: "images/lucky.png", audio: "audio/lucky.mp3", emoji: "🍀" },
       ]},
       { type: "match", label: "6", group: "y-funny", items: [
-        { word: "sunny", display: "sunny", image: "images/sunny.jpg", emoji: "☀️" },
-        { word: "funny", display: "funny", image: "images/funny.jpg", emoji: "😄" },
-        { word: "merry", display: "merry", image: "images/merry.jpg", emoji: "🎄" },
-        { word: "lucky", display: "lucky", image: "images/lucky.jpg", emoji: "🍀" },
+        { word: "sunny", display: "sunny", image: "images/sunny.png", emoji: "☀️" },
+        { word: "funny", display: "funny", image: "images/funny.png", emoji: "😄" },
+        { word: "merry", display: "merry", image: "images/merry.png", emoji: "🎄" },
+        { word: "lucky", display: "lucky", image: "images/lucky.png", emoji: "🍀" },
       ]},
       /* 8.3 i-hi */
       { type: "say",   label: "7", group: "i-hi", rows: [
@@ -1026,14 +1026,14 @@ const CURRICULUM = [
         { phonemes: "S · i · m · o · n", display: "Simon", word: "Simon", audio: "audio/simon.mp3", phonemeAudio: "audio/simon.mp3" },
       ]},
       { type: "spell", label: "7", group: "i-hi", words: [
-        { word: "hi",    display: "hi",    image: "images/hi.jpg",    audio: "audio/hi.mp3",    emoji: "👋" },
-        { word: "pilot", display: "pilot", image: "images/pilot.jpg", audio: "audio/pilot.mp3", emoji: "👨‍✈️" },
-        { word: "final", display: "final", image: "images/final.jpg", audio: "audio/final.mp3", emoji: "🏁" },
+        { word: "hi",    display: "hi",    image: "images/hi.png",    audio: "audio/hi.mp3",    emoji: "👋" },
+        { word: "pilot", display: "pilot", image: "images/pilot.png", audio: "audio/pilot.mp3", emoji: "👨‍✈️" },
+        { word: "final", display: "final", image: "images/final.png", audio: "audio/final.mp3", emoji: "🏁" },
       ]},
       { type: "match", label: "7", group: "i-hi", items: [
-        { word: "hi",    display: "hi",    image: "images/hi.jpg",    emoji: "👋" },
-        { word: "pilot", display: "pilot", image: "images/pilot.jpg", emoji: "👨‍✈️" },
-        { word: "final", display: "final", image: "images/final.jpg", emoji: "🏁" },
+        { word: "hi",    display: "hi",    image: "images/hi.png",    emoji: "👋" },
+        { word: "pilot", display: "pilot", image: "images/pilot.png", emoji: "👨‍✈️" },
+        { word: "final", display: "final", image: "images/final.png", emoji: "🏁" },
       ]},
     ],
   },
@@ -1066,16 +1066,16 @@ const CURRICULUM = [
         { phonemes: "p · r · ay",     display: "pr<u>ay</u>",  word: "pray", audio: "audio/pray.mp3", phonemeAudio: "audio/pray.mp3" },
       ]},
       { type: "spell", label: "1", group: "ay", words: [
-        { word: "day",  display: "d<u>ay</u>",  image: "images/day.jpg",  audio: "audio/day.mp3",  emoji: "☀️" },
-        { word: "say",  display: "s<u>ay</u>",  image: "images/say.jpg",  audio: "audio/say.mp3",  emoji: "💬" },
-        { word: "play", display: "pl<u>ay</u>", image: "images/play.jpg", audio: "audio/play.mp3", emoji: "🎮" },
-        { word: "pray", display: "pr<u>ay</u>", image: "images/pray.jpg", audio: "audio/pray.mp3", emoji: "🙏" },
+        { word: "day",  display: "d<u>ay</u>",  image: "images/day.png",  audio: "audio/day.mp3",  emoji: "☀️" },
+        { word: "say",  display: "s<u>ay</u>",  image: "images/say.png",  audio: "audio/say.mp3",  emoji: "💬" },
+        { word: "play", display: "pl<u>ay</u>", image: "images/play.png", audio: "audio/play.mp3", emoji: "🎮" },
+        { word: "pray", display: "pr<u>ay</u>", image: "images/pray.png", audio: "audio/pray.mp3", emoji: "🙏" },
       ]},
       { type: "match", label: "1", group: "ay", items: [
-        { word: "day",  display: "d<u>ay</u>",  image: "images/day.jpg",  emoji: "☀️" },
-        { word: "say",  display: "s<u>ay</u>",  image: "images/say.jpg",  emoji: "💬" },
-        { word: "play", display: "pl<u>ay</u>", image: "images/play.jpg", emoji: "🎮" },
-        { word: "pray", display: "pr<u>ay</u>", image: "images/pray.jpg", emoji: "🙏" },
+        { word: "day",  display: "d<u>ay</u>",  image: "images/day.png",  emoji: "☀️" },
+        { word: "say",  display: "s<u>ay</u>",  image: "images/say.png",  emoji: "💬" },
+        { word: "play", display: "pl<u>ay</u>", image: "images/play.png", emoji: "🎮" },
+        { word: "pray", display: "pr<u>ay</u>", image: "images/pray.png", emoji: "🙏" },
       ]},
       /* 9.1 oy */
       { type: "say",   label: "2", group: "oy", rows: [
@@ -1085,16 +1085,16 @@ const CURRICULUM = [
         { phonemes: "e · n · j · oy", display: "enj<u>oy</u>",  word: "enjoy", audio: "audio/enjoy.mp3", phonemeAudio: "audio/enjoy.mp3" },
       ]},
       { type: "spell", label: "2", group: "oy", words: [
-        { word: "toy",   display: "t<u>oy</u>",   image: "images/toy.jpg",   audio: "audio/toy.mp3",   emoji: "🧸" },
-        { word: "boy",   display: "b<u>oy</u>",   image: "images/boy.jpg",   audio: "audio/boy.mp3",   emoji: "👦" },
-        { word: "soy",   display: "s<u>oy</u>",   image: "images/soy.jpg",   audio: "audio/soy.mp3",   emoji: "🫘" },
-        { word: "enjoy", display: "enj<u>oy</u>", image: "images/enjoy.jpg", audio: "audio/enjoy.mp3", emoji: "😊" },
+        { word: "toy",   display: "t<u>oy</u>",   image: "images/toy.png",   audio: "audio/toy.mp3",   emoji: "🧸" },
+        { word: "boy",   display: "b<u>oy</u>",   image: "images/boy.png",   audio: "audio/boy.mp3",   emoji: "👦" },
+        { word: "soy",   display: "s<u>oy</u>",   image: "images/soy.png",   audio: "audio/soy.mp3",   emoji: "🫘" },
+        { word: "enjoy", display: "enj<u>oy</u>", image: "images/enjoy.png", audio: "audio/enjoy.mp3", emoji: "😊" },
       ]},
       { type: "match", label: "2", group: "oy", items: [
-        { word: "toy",   display: "t<u>oy</u>",   image: "images/toy.jpg",   emoji: "🧸" },
-        { word: "boy",   display: "b<u>oy</u>",   image: "images/boy.jpg",   emoji: "👦" },
-        { word: "soy",   display: "s<u>oy</u>",   image: "images/soy.jpg",   emoji: "🫘" },
-        { word: "enjoy", display: "enj<u>oy</u>", image: "images/enjoy.jpg", emoji: "😊" },
+        { word: "toy",   display: "t<u>oy</u>",   image: "images/toy.png",   emoji: "🧸" },
+        { word: "boy",   display: "b<u>oy</u>",   image: "images/boy.png",   emoji: "👦" },
+        { word: "soy",   display: "s<u>oy</u>",   image: "images/soy.png",   emoji: "🫘" },
+        { word: "enjoy", display: "enj<u>oy</u>", image: "images/enjoy.png", emoji: "😊" },
       ]},
       /* 9.2 ea */
       { type: "say",   label: "3", group: "ea", rows: [
@@ -1104,16 +1104,16 @@ const CURRICULUM = [
         { phonemes: "c · l · ea · n", display: "cl<u>ea</u>n", word: "clean",audio: "audio/clean.mp3",phonemeAudio: "audio/clean.mp3" },
       ]},
       { type: "spell", label: "3", group: "ea", words: [
-        { word: "seat",  display: "s<u>ea</u>t",  image: "images/seat.jpg",  audio: "audio/seat.mp3",  emoji: "💺" },
-        { word: "meat",  display: "m<u>ea</u>t",  image: "images/meat.jpg",  audio: "audio/meat.mp3",  emoji: "🥩" },
-        { word: "leaf",  display: "l<u>ea</u>f",  image: "images/leaf.jpg",  audio: "audio/leaf.mp3",  emoji: "🍃" },
-        { word: "clean", display: "cl<u>ea</u>n", image: "images/clean.jpg", audio: "audio/clean.mp3", emoji: "🧹" },
+        { word: "seat",  display: "s<u>ea</u>t",  image: "images/seat.png",  audio: "audio/seat.mp3",  emoji: "💺" },
+        { word: "meat",  display: "m<u>ea</u>t",  image: "images/meat.png",  audio: "audio/meat.mp3",  emoji: "🥩" },
+        { word: "leaf",  display: "l<u>ea</u>f",  image: "images/leaf.png",  audio: "audio/leaf.mp3",  emoji: "🍃" },
+        { word: "clean", display: "cl<u>ea</u>n", image: "images/clean.png", audio: "audio/clean.mp3", emoji: "🧹" },
       ]},
       { type: "match", label: "3", group: "ea", items: [
-        { word: "seat",  display: "s<u>ea</u>t",  image: "images/seat.jpg",  emoji: "💺" },
-        { word: "meat",  display: "m<u>ea</u>t",  image: "images/meat.jpg",  emoji: "🥩" },
-        { word: "leaf",  display: "l<u>ea</u>f",  image: "images/leaf.jpg",  emoji: "🍃" },
-        { word: "clean", display: "cl<u>ea</u>n", image: "images/clean.jpg", emoji: "🧹" },
+        { word: "seat",  display: "s<u>ea</u>t",  image: "images/seat.png",  emoji: "💺" },
+        { word: "meat",  display: "m<u>ea</u>t",  image: "images/meat.png",  emoji: "🥩" },
+        { word: "leaf",  display: "l<u>ea</u>f",  image: "images/leaf.png",  emoji: "🍃" },
+        { word: "clean", display: "cl<u>ea</u>n", image: "images/clean.png", emoji: "🧹" },
       ]},
       /* 9.2 ie-field */
       { type: "say",   label: "4", group: "ie-field", rows: [
@@ -1123,16 +1123,16 @@ const CURRICULUM = [
         { phonemes: "m · a · r · r · ie · d", display: "marr<u>ie</u>d",  word: "married", audio: "audio/married.mp3", phonemeAudio: "audio/married.mp3" },
       ]},
       { type: "spell", label: "4", group: "ie-field", words: [
-        { word: "thief",   display: "<u>th</u> <u>ie</u>f",  image: "images/thief.jpg",   audio: "audio/thief.mp3",   emoji: "🦹" },
-        { word: "field",   display: "f<u>ie</u>ld",          image: "images/field.jpg",   audio: "audio/field.mp3",   emoji: "🌾" },
-        { word: "cookie",  display: "c<u>oo</u>k<u>ie</u>", image: "images/cookie.jpg",  audio: "audio/cookie.mp3",  emoji: "🍪" },
-        { word: "married", display: "marr<u>ie</u>d",        image: "images/married.jpg", audio: "audio/married.mp3", emoji: "💍" },
+        { word: "thief",   display: "<u>th</u> <u>ie</u>f",  image: "images/thief.png",   audio: "audio/thief.mp3",   emoji: "🦹" },
+        { word: "field",   display: "f<u>ie</u>ld",          image: "images/field.png",   audio: "audio/field.mp3",   emoji: "🌾" },
+        { word: "cookie",  display: "c<u>oo</u>k<u>ie</u>", image: "images/cookie.png",  audio: "audio/cookie.mp3",  emoji: "🍪" },
+        { word: "married", display: "marr<u>ie</u>d",        image: "images/married.png", audio: "audio/married.mp3", emoji: "💍" },
       ]},
       { type: "match", label: "4", group: "ie-field", items: [
-        { word: "thief",   display: "<u>th</u> <u>ie</u>f",  image: "images/thief.jpg",   emoji: "🦹" },
-        { word: "field",   display: "f<u>ie</u>ld",          image: "images/field.jpg",   emoji: "🌾" },
-        { word: "cookie",  display: "c<u>oo</u>k<u>ie</u>", image: "images/cookie.jpg",  emoji: "🍪" },
-        { word: "married", display: "marr<u>ie</u>d",        image: "images/married.jpg", emoji: "💍" },
+        { word: "thief",   display: "<u>th</u> <u>ie</u>f",  image: "images/thief.png",   emoji: "🦹" },
+        { word: "field",   display: "f<u>ie</u>ld",          image: "images/field.png",   emoji: "🌾" },
+        { word: "cookie",  display: "c<u>oo</u>k<u>ie</u>", image: "images/cookie.png",  emoji: "🍪" },
+        { word: "married", display: "marr<u>ie</u>d",        image: "images/married.png", emoji: "💍" },
       ]},
       /* 9.3 y-cry */
       { type: "say",   label: "5", group: "y-cry", rows: [
@@ -1142,16 +1142,16 @@ const CURRICULUM = [
         { phonemes: "s · k · y", display: "sk<u>y</u>", word: "sky", audio: "audio/sky.mp3", phonemeAudio: "audio/sky.mp3" },
       ]},
       { type: "spell", label: "5", group: "y-cry", words: [
-        { word: "dry", display: "dr<u>y</u>", image: "images/dry.jpg", audio: "audio/dry.mp3", emoji: "🌵" },
-        { word: "fly", display: "fl<u>y</u>", image: "images/fly.jpg", audio: "audio/fly.mp3", emoji: "✈️" },
-        { word: "cry", display: "cr<u>y</u>", image: "images/cry.jpg", audio: "audio/cry.mp3", emoji: "😢" },
-        { word: "sky", display: "sk<u>y</u>", image: "images/sky.jpg", audio: "audio/sky.mp3", emoji: "🌤️" },
+        { word: "dry", display: "dr<u>y</u>", image: "images/dry.png", audio: "audio/dry.mp3", emoji: "🌵" },
+        { word: "fly", display: "fl<u>y</u>", image: "images/fly.png", audio: "audio/fly.mp3", emoji: "✈️" },
+        { word: "cry", display: "cr<u>y</u>", image: "images/cry.png", audio: "audio/cry.mp3", emoji: "😢" },
+        { word: "sky", display: "sk<u>y</u>", image: "images/sky.png", audio: "audio/sky.mp3", emoji: "🌤️" },
       ]},
       { type: "match", label: "5", group: "y-cry", items: [
-        { word: "dry", display: "dr<u>y</u>", image: "images/dry.jpg", emoji: "🌵" },
-        { word: "fly", display: "fl<u>y</u>", image: "images/fly.jpg", emoji: "✈️" },
-        { word: "cry", display: "cr<u>y</u>", image: "images/cry.jpg", emoji: "😢" },
-        { word: "sky", display: "sk<u>y</u>", image: "images/sky.jpg", emoji: "🌤️" },
+        { word: "dry", display: "dr<u>y</u>", image: "images/dry.png", emoji: "🌵" },
+        { word: "fly", display: "fl<u>y</u>", image: "images/fly.png", emoji: "✈️" },
+        { word: "cry", display: "cr<u>y</u>", image: "images/cry.png", emoji: "😢" },
+        { word: "sky", display: "sk<u>y</u>", image: "images/sky.png", emoji: "🌤️" },
       ]},
       /* 9.3 igh */
       { type: "say",   label: "6", group: "igh", rows: [
@@ -1161,16 +1161,16 @@ const CURRICULUM = [
         { phonemes: "f · igh · t", display: "f<u>igh</u>t",  word: "fight", audio: "audio/fight.mp3", phonemeAudio: "audio/fight.mp3" },
       ]},
       { type: "spell", label: "6", group: "igh", words: [
-        { word: "light", display: "l<u>igh</u>t", image: "images/light.jpg", audio: "audio/light.mp3", emoji: "💡" },
-        { word: "night", display: "n<u>igh</u>t", image: "images/night.jpg", audio: "audio/night.mp3", emoji: "🌙" },
-        { word: "right", display: "r<u>igh</u>t", image: "images/right.jpg", audio: "audio/right.mp3", emoji: "✅" },
-        { word: "fight", display: "f<u>igh</u>t", image: "images/fight.jpg", audio: "audio/fight.mp3", emoji: "🥊" },
+        { word: "light", display: "l<u>igh</u>t", image: "images/light.png", audio: "audio/light.mp3", emoji: "💡" },
+        { word: "night", display: "n<u>igh</u>t", image: "images/night.png", audio: "audio/night.mp3", emoji: "🌙" },
+        { word: "right", display: "r<u>igh</u>t", image: "images/right.png", audio: "audio/right.mp3", emoji: "✅" },
+        { word: "fight", display: "f<u>igh</u>t", image: "images/fight.png", audio: "audio/fight.mp3", emoji: "🥊" },
       ]},
       { type: "match", label: "6", group: "igh", items: [
-        { word: "light", display: "l<u>igh</u>t", image: "images/light.jpg", emoji: "💡" },
-        { word: "night", display: "n<u>igh</u>t", image: "images/night.jpg", emoji: "🌙" },
-        { word: "right", display: "r<u>igh</u>t", image: "images/right.jpg", emoji: "✅" },
-        { word: "fight", display: "f<u>igh</u>t", image: "images/fight.jpg", emoji: "🥊" },
+        { word: "light", display: "l<u>igh</u>t", image: "images/light.png", emoji: "💡" },
+        { word: "night", display: "n<u>igh</u>t", image: "images/night.png", emoji: "🌙" },
+        { word: "right", display: "r<u>igh</u>t", image: "images/right.png", emoji: "✅" },
+        { word: "fight", display: "f<u>igh</u>t", image: "images/fight.png", emoji: "🥊" },
       ]},
     ],
   },
@@ -1201,14 +1201,14 @@ const CURRICULUM = [
         { phonemes: "b · al · d",   display: "b<u>al</u>d",  word: "bald", audio: "audio/bald.mp3", phonemeAudio: "audio/bald.mp3" },
       ]},
       { type: "spell", label: "1", group: "al", words: [
-        { word: "talk", display: "t<u>al</u>k", image: "images/talk.jpg", audio: "audio/talk.mp3", emoji: "🗣️" },
-        { word: "wall", display: "w<u>al</u>l", image: "images/wall.jpg", audio: "audio/wall.mp3", emoji: "🧱" },
-        { word: "bald", display: "b<u>al</u>d", image: "images/bald.jpg", audio: "audio/bald.mp3", emoji: "👨‍🦲" },
+        { word: "talk", display: "t<u>al</u>k", image: "images/talk.png", audio: "audio/talk.mp3", emoji: "🗣️" },
+        { word: "wall", display: "w<u>al</u>l", image: "images/wall.png", audio: "audio/wall.mp3", emoji: "🧱" },
+        { word: "bald", display: "b<u>al</u>d", image: "images/bald.png", audio: "audio/bald.mp3", emoji: "👨‍🦲" },
       ]},
       { type: "match", label: "1", group: "al", items: [
-        { word: "talk", display: "t<u>al</u>k", image: "images/talk.jpg", emoji: "🗣️" },
-        { word: "wall", display: "w<u>al</u>l", image: "images/wall.jpg", emoji: "🧱" },
-        { word: "bald", display: "b<u>al</u>d", image: "images/bald.jpg", emoji: "👨‍🦲" },
+        { word: "talk", display: "t<u>al</u>k", image: "images/talk.png", emoji: "🗣️" },
+        { word: "wall", display: "w<u>al</u>l", image: "images/wall.png", emoji: "🧱" },
+        { word: "bald", display: "b<u>al</u>d", image: "images/bald.png", emoji: "👨‍🦲" },
       ]},
       /* 10.1 aw */
       { type: "say",   label: "2", group: "aw", rows: [
@@ -1218,16 +1218,16 @@ const CURRICULUM = [
         { phonemes: "s · t · r · aw · b · e · r · r · y", display: "str<u>aw</u>berry", word: "strawberry", audio: "audio/strawberry.mp3", phonemeAudio: "audio/strawberry.mp3" },
       ]},
       { type: "spell", label: "2", group: "aw", words: [
-        { word: "paw",        display: "p<u>aw</u>",           image: "images/paw.jpg",        audio: "audio/paw.mp3",         emoji: "🐾" },
-        { word: "draw",       display: "dr<u>aw</u>",          image: "images/draw.jpg",       audio: "audio/draw.mp3",        emoji: "✏️" },
-        { word: "crawl",      display: "cr<u>aw</u>l",         image: "images/crawl.jpg",      audio: "audio/crawl.mp3",       emoji: "👶" },
-        { word: "strawberry", display: "str<u>aw</u>berry",    image: "images/strawberry.jpg", audio: "audio/strawberry.mp3",  emoji: "🍓" },
+        { word: "paw",        display: "p<u>aw</u>",           image: "images/paw.png",        audio: "audio/paw.mp3",         emoji: "🐾" },
+        { word: "draw",       display: "dr<u>aw</u>",          image: "images/draw.png",       audio: "audio/draw.mp3",        emoji: "✏️" },
+        { word: "crawl",      display: "cr<u>aw</u>l",         image: "images/crawl.png",      audio: "audio/crawl.mp3",       emoji: "👶" },
+        { word: "strawberry", display: "str<u>aw</u>berry",    image: "images/strawberry.png", audio: "audio/strawberry.mp3",  emoji: "🍓" },
       ]},
       { type: "match", label: "2", group: "aw", items: [
-        { word: "paw",        display: "p<u>aw</u>",        image: "images/paw.jpg",        emoji: "🐾" },
-        { word: "draw",       display: "dr<u>aw</u>",       image: "images/draw.jpg",       emoji: "✏️" },
-        { word: "crawl",      display: "cr<u>aw</u>l",      image: "images/crawl.jpg",      emoji: "👶" },
-        { word: "strawberry", display: "str<u>aw</u>berry", image: "images/strawberry.jpg", emoji: "🍓" },
+        { word: "paw",        display: "p<u>aw</u>",        image: "images/paw.png",        emoji: "🐾" },
+        { word: "draw",       display: "dr<u>aw</u>",       image: "images/draw.png",       emoji: "✏️" },
+        { word: "crawl",      display: "cr<u>aw</u>l",      image: "images/crawl.png",      emoji: "👶" },
+        { word: "strawberry", display: "str<u>aw</u>berry", image: "images/strawberry.png", emoji: "🍓" },
       ]},
       /* 10.2 ow-grow */
       { type: "say",   label: "3", group: "ow-grow", rows: [
@@ -1237,16 +1237,16 @@ const CURRICULUM = [
         { phonemes: "r · ai · n · b · ow", display: "r<u>ai</u>nb<u>ow</u>", word: "rainbow", audio: "audio/rainbow.mp3", phonemeAudio: "audio/rainbow.mp3" },
       ]},
       { type: "spell", label: "3", group: "ow-grow", words: [
-        { word: "low",     display: "l<u>ow</u>",                    image: "images/low.jpg",     audio: "audio/low.mp3",     emoji: "⬇️" },
-        { word: "grow",    display: "gr<u>ow</u>",                   image: "images/grow.jpg",    audio: "audio/grow.mp3",    emoji: "🌱" },
-        { word: "yellow",  display: "yell<u>ow</u>",                 image: "images/yellow.jpg",  audio: "audio/yellow.mp3",  emoji: "🟡" },
-        { word: "rainbow", display: "r<u>ai</u>nb<u>ow</u>",        image: "images/rainbow.jpg", audio: "audio/rainbow.mp3", emoji: "🌈" },
+        { word: "low",     display: "l<u>ow</u>",                    image: "images/low.png",     audio: "audio/low.mp3",     emoji: "⬇️" },
+        { word: "grow",    display: "gr<u>ow</u>",                   image: "images/grow.png",    audio: "audio/grow.mp3",    emoji: "🌱" },
+        { word: "yellow",  display: "yell<u>ow</u>",                 image: "images/yellow.png",  audio: "audio/yellow.mp3",  emoji: "🟡" },
+        { word: "rainbow", display: "r<u>ai</u>nb<u>ow</u>",        image: "images/rainbow.png", audio: "audio/rainbow.mp3", emoji: "🌈" },
       ]},
       { type: "match", label: "3", group: "ow-grow", items: [
-        { word: "low",     display: "l<u>ow</u>",             image: "images/low.jpg",     emoji: "⬇️" },
-        { word: "grow",    display: "gr<u>ow</u>",            image: "images/grow.jpg",    emoji: "🌱" },
-        { word: "yellow",  display: "yell<u>ow</u>",          image: "images/yellow.jpg",  emoji: "🟡" },
-        { word: "rainbow", display: "r<u>ai</u>nb<u>ow</u>", image: "images/rainbow.jpg", emoji: "🌈" },
+        { word: "low",     display: "l<u>ow</u>",             image: "images/low.png",     emoji: "⬇️" },
+        { word: "grow",    display: "gr<u>ow</u>",            image: "images/grow.png",    emoji: "🌱" },
+        { word: "yellow",  display: "yell<u>ow</u>",          image: "images/yellow.png",  emoji: "🟡" },
+        { word: "rainbow", display: "r<u>ai</u>nb<u>ow</u>", image: "images/rainbow.png", emoji: "🌈" },
       ]},
       /* 10.2 ow-now */
       { type: "say",   label: "4", group: "ow-now", rows: [
@@ -1255,14 +1255,14 @@ const CURRICULUM = [
         { phonemes: "b · r · ow · n", display: "br<u>ow</u>n",  word: "brown", audio: "audio/brown.mp3", phonemeAudio: "audio/brown.mp3" },
       ]},
       { type: "spell", label: "4", group: "ow-now", words: [
-        { word: "cow",   display: "c<u>ow</u>",   image: "images/cow.jpg",   audio: "audio/cow.mp3",   emoji: "🐄" },
-        { word: "town",  display: "t<u>ow</u>n",  image: "images/town.jpg",  audio: "audio/town.mp3",  emoji: "🏘️" },
-        { word: "brown", display: "br<u>ow</u>n", image: "images/brown.jpg", audio: "audio/brown.mp3", emoji: "🟤" },
+        { word: "cow",   display: "c<u>ow</u>",   image: "images/cow.png",   audio: "audio/cow.mp3",   emoji: "🐄" },
+        { word: "town",  display: "t<u>ow</u>n",  image: "images/town.png",  audio: "audio/town.mp3",  emoji: "🏘️" },
+        { word: "brown", display: "br<u>ow</u>n", image: "images/brown.png", audio: "audio/brown.mp3", emoji: "🟤" },
       ]},
       { type: "match", label: "4", group: "ow-now", items: [
-        { word: "cow",   display: "c<u>ow</u>",   image: "images/cow.jpg",   emoji: "🐄" },
-        { word: "town",  display: "t<u>ow</u>n",  image: "images/town.jpg",  emoji: "🏘️" },
-        { word: "brown", display: "br<u>ow</u>n", image: "images/brown.jpg", emoji: "🟤" },
+        { word: "cow",   display: "c<u>ow</u>",   image: "images/cow.png",   emoji: "🐄" },
+        { word: "town",  display: "t<u>ow</u>n",  image: "images/town.png",  emoji: "🏘️" },
+        { word: "brown", display: "br<u>ow</u>n", image: "images/brown.png", emoji: "🟤" },
       ]},
       /* 10.3 ir */
       { type: "say",   label: "5", group: "ir", rows: [
@@ -1272,16 +1272,16 @@ const CURRICULUM = [
         { phonemes: "b · ir · th · d · ay", display: "b<u>ir</u> <u>th</u>day", word: "birthday", audio: "audio/birthday.mp3", phonemeAudio: "audio/birthday.mp3" },
       ]},
       { type: "spell", label: "5", group: "ir", words: [
-        { word: "dirt",     display: "d<u>ir</u>t",              image: "images/dirt.jpg",     audio: "audio/dirt.mp3",     emoji: "🌱" },
-        { word: "girl",     display: "g<u>ir</u>l",              image: "images/girl.jpg",     audio: "audio/girl.mp3",     emoji: "👧" },
-        { word: "first",    display: "f<u>ir</u>st",             image: "images/first.jpg",    audio: "audio/first.mp3",    emoji: "🥇" },
-        { word: "birthday", display: "b<u>ir</u> <u>th</u>day", image: "images/birthday.jpg", audio: "audio/birthday.mp3", emoji: "🎂" },
+        { word: "dirt",     display: "d<u>ir</u>t",              image: "images/dirt.png",     audio: "audio/dirt.mp3",     emoji: "🌱" },
+        { word: "girl",     display: "g<u>ir</u>l",              image: "images/girl.png",     audio: "audio/girl.mp3",     emoji: "👧" },
+        { word: "first",    display: "f<u>ir</u>st",             image: "images/first.png",    audio: "audio/first.mp3",    emoji: "🥇" },
+        { word: "birthday", display: "b<u>ir</u> <u>th</u>day", image: "images/birthday.png", audio: "audio/birthday.mp3", emoji: "🎂" },
       ]},
       { type: "match", label: "5", group: "ir", items: [
-        { word: "dirt",     display: "d<u>ir</u>t",              image: "images/dirt.jpg",     emoji: "🌱" },
-        { word: "girl",     display: "g<u>ir</u>l",              image: "images/girl.jpg",     emoji: "👧" },
-        { word: "first",    display: "f<u>ir</u>st",             image: "images/first.jpg",    emoji: "🥇" },
-        { word: "birthday", display: "b<u>ir</u> <u>th</u>day", image: "images/birthday.jpg", emoji: "🎂" },
+        { word: "dirt",     display: "d<u>ir</u>t",              image: "images/dirt.png",     emoji: "🌱" },
+        { word: "girl",     display: "g<u>ir</u>l",              image: "images/girl.png",     emoji: "👧" },
+        { word: "first",    display: "f<u>ir</u>st",             image: "images/first.png",    emoji: "🥇" },
+        { word: "birthday", display: "b<u>ir</u> <u>th</u>day", image: "images/birthday.png", emoji: "🎂" },
       ]},
       /* 10.3 ur */
       { type: "say",   label: "6", group: "ur", rows: [
@@ -1291,16 +1291,16 @@ const CURRICULUM = [
         { phonemes: "c · ur · l · y", display: "c<u>ur</u>ly", word: "curly", audio: "audio/curly.mp3", phonemeAudio: "audio/curly.mp3" },
       ]},
       { type: "spell", label: "6", group: "ur", words: [
-        { word: "fur",   display: "f<u>ur</u>",   image: "images/fur.jpg",   audio: "audio/fur.mp3",   emoji: "🐻" },
-        { word: "turn",  display: "t<u>ur</u>n",  image: "images/turn.jpg",  audio: "audio/turn.mp3",  emoji: "↩️" },
-        { word: "hurt",  display: "h<u>ur</u>t",  image: "images/hurt.jpg",  audio: "audio/hurt.mp3",  emoji: "🤕" },
-        { word: "curly", display: "c<u>ur</u>ly", image: "images/curly.jpg", audio: "audio/curly.mp3", emoji: "〰️" },
+        { word: "fur",   display: "f<u>ur</u>",   image: "images/fur.png",   audio: "audio/fur.mp3",   emoji: "🐻" },
+        { word: "turn",  display: "t<u>ur</u>n",  image: "images/turn.png",  audio: "audio/turn.mp3",  emoji: "↩️" },
+        { word: "hurt",  display: "h<u>ur</u>t",  image: "images/hurt.png",  audio: "audio/hurt.mp3",  emoji: "🤕" },
+        { word: "curly", display: "c<u>ur</u>ly", image: "images/curly.png", audio: "audio/curly.mp3", emoji: "〰️" },
       ]},
       { type: "match", label: "6", group: "ur", items: [
-        { word: "fur",   display: "f<u>ur</u>",   image: "images/fur.jpg",   emoji: "🐻" },
-        { word: "turn",  display: "t<u>ur</u>n",  image: "images/turn.jpg",  emoji: "↩️" },
-        { word: "hurt",  display: "h<u>ur</u>t",  image: "images/hurt.jpg",  emoji: "🤕" },
-        { word: "curly", display: "c<u>ur</u>ly", image: "images/curly.jpg", emoji: "〰️" },
+        { word: "fur",   display: "f<u>ur</u>",   image: "images/fur.png",   emoji: "🐻" },
+        { word: "turn",  display: "t<u>ur</u>n",  image: "images/turn.png",  emoji: "↩️" },
+        { word: "hurt",  display: "h<u>ur</u>t",  image: "images/hurt.png",  emoji: "🤕" },
+        { word: "curly", display: "c<u>ur</u>ly", image: "images/curly.png", emoji: "〰️" },
       ]},
     ],
   },
