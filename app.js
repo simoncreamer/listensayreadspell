@@ -200,14 +200,13 @@ function renderSetHeader() {
 function renderStepIndicator() {
   const ind = document.getElementById("step-indicator");
   ind.innerHTML = "";
-  ind.style.cssText = "display:flex;flex-direction:column;gap:0;margin-bottom:1.25rem;";
+  ind.style.cssText = "display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-bottom:1.25rem;";
 
   const typeLabels = { listen: "Listen", say: "Listen/Say", spell: "Spell", match: "Match" };
   const seen = new Map();
   currentSet.steps.forEach((s, i) => { if (!seen.has(s.label)) seen.set(s.label, i); });
 
-  let firstGroup = true;
-  seen.forEach((firstIdx, label) => {
+    seen.forEach((firstIdx, label) => {
     const matching = currentSet.steps.map((s, i) => ({ ...s, i })).filter(s => s.label === label);
 
     // Single-step groups (e.g. satpin) — just a standalone pill, no row
@@ -231,12 +230,6 @@ function renderStepIndicator() {
     }
 
     // Dividing line between numbered groups (not before the first)
-    if (!firstGroup) {
-      const hr = document.createElement("div");
-      hr.style.cssText = "border-top:0.5px solid #e0e0e0;margin:6px 0;";
-      ind.appendChild(hr);
-    }
-    firstGroup = false;
 
     // Row: number label + pills
     const row = document.createElement("div");
