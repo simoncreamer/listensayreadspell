@@ -116,6 +116,14 @@ const SVG = {
   </svg>`; },
 };
 
+/* ── Helper: is this the last match step in the set? ────────── */
+function isLastMatchStep() {
+  // Find all match steps in current set
+  const matchSteps = currentSet.steps.map((s, i) => ({ ...s, i })).filter(s => s.type === "match");
+  if (!matchSteps.length) return true;
+  return matchSteps[matchSteps.length - 1].i === currentStepIdx;
+}
+
 /* ── Navigation helpers ─────────────────────────────────────── */
 function navRow(nextHidden) {
   const isFirst = currentStepIdx === 0;
@@ -134,6 +142,9 @@ function showScreen(id) {
 
 function goHome() {
   stopFireworks();
+  // Clear set screen content so it doesn't bleed through
+  document.getElementById("activity-container").innerHTML = "";
+  document.getElementById("step-indicator").innerHTML = "";
   showScreen("screen-home");
   renderHome();
 }
@@ -206,10 +217,10 @@ function renderStepIndicator() {
   const seen = new Map();
   currentSet.steps.forEach((s, i) => { if (!seen.has(s.label)) seen.set(s.label, i); });
 
-    seen.forEach((firstIdx, label) => {
+  seen.forEach((firstIdx, label) => {
     const matching = currentSet.steps.map((s, i) => ({ ...s, i })).filter(s => s.label === label);
 
-    // Single-step groups (e.g. satpin) — just a standalone pill, no row
+    // Single-step groups (e.g. satpin) — standalone pill spanning both columns
     if (matching.length === 1) {
       const step     = matching[0];
       const isActive = step.i === currentStepIdx;
@@ -228,8 +239,6 @@ function renderStepIndicator() {
       ind.appendChild(pill);
       return;
     }
-
-    // Dividing line between numbered groups (not before the first)
 
     // Row: number label + pills
     const row = document.createElement("div");
@@ -361,7 +370,14 @@ function renderSpell(c, step) {
     </div>`;
   });
 
-  html += `</div>${navRow(true)}</div>`;
+  // Always show back button; next arrow hidden until all words correct
+  const isFirst = currentStepIdx === 0;
+  html += `</div>
+    <div class="nav-row" style="margin-top:0.75rem;">
+      <button class="icon-only-btn" onclick="goBack()" ${isFirst ? "disabled" : ""}>${SVG.arrowLeft()}</button>
+      <button class="btn" id="next-btn" style="display:none;padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>
+    </div>
+  </div>`;
   c.innerHTML = html;
 
   step.words.forEach((item, idx) => {
@@ -402,10 +418,18 @@ function renderSpell(c, step) {
 
 /* ── Activity 4: Match (drag & drop) ───────────────────────── */
 function renderMatch(c, step) {
-  const items = step.items;
+  const items     = step.items;
+  const isLast    = isLastMatchStep();
+  const isFirst   = currentStepIdx === 0;
+
   dndState    = {};
   items.forEach(it => { dndState[it.word] = null; });
   dndDragging = null;
+
+  // Right-hand button: home on last match, hidden forward arrow on others
+  const rightBtn = isLast
+    ? `<button class="icon-only-btn" onclick="goHome()">${SVG.home()}</button>`
+    : `<button class="btn" id="match-next" style="display:none;padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>`;
 
   c.innerHTML = `<div class="card">
     <div class="dnd-grid">
@@ -413,11 +437,8 @@ function renderMatch(c, step) {
       <div class="dnd-drop-col" id="drop-col"></div>
     </div>
     <div class="nav-row" style="margin-top:1rem;">
-      <button class="icon-only-btn" onclick="goBack()" ${currentStepIdx === 0 ? "disabled" : ""}>${SVG.arrowLeft()}</button>
-      <div style="display:flex;gap:8px;align-items:center;">
-        <button class="icon-only-btn" onclick="goHome()">${SVG.home()}</button>
-        <button class="btn" id="match-next" style="display:none;padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>
-      </div>
+      <button class="icon-only-btn" onclick="goBack()" ${isFirst ? "disabled" : ""}>${SVG.arrowLeft()}</button>
+      ${rightBtn}
     </div>
   </div>`;
 
@@ -506,9 +527,20 @@ function renderMatch(c, step) {
         }, 900);
       }
 
+      // Show forward arrow (or trigger fireworks on last match) when all correct
       if (items.every(x => dndState[x.word] === x.word)) {
-        const nb = document.getElementById("match-next");
-        if (nb) nb.style.display = "inline-flex";
+        if (isLast) {
+          // Trigger fireworks after short delay
+          setTimeout(() => {
+            markStep(currentSet.id, currentStepIdx);
+            renderSetHeader();
+            const nextSet = CURRICULUM.find(c => c.id !== currentSet.id && c.steps.length > 0 && !isSetComplete(c));
+            launchFireworks(currentSet.homeLabel, nextSet ? nextSet.homeLabel : null);
+          }, 600);
+        } else {
+          const nb = document.getElementById("match-next");
+          if (nb) nb.style.display = "inline-flex";
+        }
       }
     });
 
