@@ -92,12 +92,12 @@ const CURRICULUM = [
       ]},
       { type: "spell", label: "4", group: "it", words: [
         { word: "sit",  display: "sit",  image: "images/sit.png",  audio: "audio/sit.mp3",  emoji: "🪑" },
-        { word: "pit",  display: "pit",  image: "images/pit.png",  audio: "audio/pit.mp3",  emoji: "🕳️" },
+        { word: "pit",  display: "pit",  image: "images/pit.jpg",  audio: "audio/pit.mp3",  emoji: "🕳️" },
         { word: "nits", display: "nits", image: "images/nits.png", audio: "audio/nits.mp3", emoji: "🔍" },
       ]},
       { type: "match", label: "4", group: "it", items: [
         { word: "sit",  display: "sit",  image: "images/sit.png",  emoji: "🪑" },
-        { word: "pit",  display: "pit",  image: "images/pit.png",  emoji: "🕳️" },
+        { word: "pit",  display: "pit",  image: "images/pit.jpg",  emoji: "🕳️" },
         { word: "nits", display: "nits", image: "images/nits.png", emoji: "🔍" },
       ]},
       /* 1.2 group ip */
@@ -111,13 +111,13 @@ const CURRICULUM = [
         { word: "tip", display: "tip", image: "images/tip.png", audio: "audio/tip.mp3", emoji: "💡" },
         { word: "pip", display: "pip", image: "images/pip.png", audio: "audio/pip.mp3", emoji: "🍎" },
         { word: "nip", display: "nip", image: "images/nip.png", audio: "audio/nip.mp3", emoji: "🤏" },
-        { word: "sip", display: "sip", image: "images/sip.png", audio: "audio/sip.mp3", emoji: "🥤" },
+        { word: "sip", display: "sip", image: "images/sip.jpg", audio: "audio/sip.mp3", emoji: "🥤" },
       ]},
       { type: "match", label: "5", group: "ip", items: [
         { word: "tip", display: "tip", image: "images/tip.png", emoji: "💡" },
         { word: "pip", display: "pip", image: "images/pip.png", emoji: "🍎" },
         { word: "nip", display: "nip", image: "images/nip.png", emoji: "🤏" },
-        { word: "sip", display: "sip", image: "images/sip.png", emoji: "🥤" },
+        { word: "sip", display: "sip", image: "images/sip.jpg", emoji: "🥤" },
       ]},
       /* 1.2 group ant */
       { type: "say",   label: "6", group: "ant", rows: [
@@ -127,13 +127,13 @@ const CURRICULUM = [
       ]},
       { type: "spell", label: "6", group: "ant", words: [
         { word: "ant",   display: "ant",   image: "images/ant.png",   audio: "audio/ant.mp3",   emoji: "🐜" },
-        { word: "pants", display: "pants", image: "images/pants.png", audio: "audio/pants.mp3", emoji: "👖" },
-        { word: "snap",  display: "snap",  image: "images/snap.png",  audio: "audio/snap.mp3",  emoji: "📸" },
+        { word: "pants", display: "pants", image: "images/pants.jpg", audio: "audio/pants.mp3", emoji: "👖" },
+        { word: "snap",  display: "snap",  image: "images/snap.jpg",  audio: "audio/snap.mp3",  emoji: "📸" },
       ]},
       { type: "match", label: "6", group: "ant", items: [
         { word: "ant",   display: "ant",   image: "images/ant.png",   emoji: "🐜" },
-        { word: "pants", display: "pants", image: "images/pants.png", emoji: "👖" },
-        { word: "snap",  display: "snap",  image: "images/snap.png",  emoji: "📸" },
+        { word: "pants", display: "pants", image: "images/pants.jpg", emoji: "👖" },
+        { word: "snap",  display: "snap",  image: "images/snap.jpg",  emoji: "📸" },
       ]},
     ],
   },
