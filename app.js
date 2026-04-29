@@ -142,11 +142,11 @@ function showScreen(id) {
 
 function goHome() {
   stopFireworks();
-  // Clear set screen content so it doesn't bleed through
   document.getElementById("activity-container").innerHTML = "";
   document.getElementById("step-indicator").innerHTML = "";
   showScreen("screen-home");
   renderHome();
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function goBack() {
