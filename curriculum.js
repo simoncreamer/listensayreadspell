@@ -160,9 +160,9 @@ const CURRICULUM = [
       },
       /* 2.1 group hat */
       { type: "say",   label: "1", group: "hat", rows: [
-        { phonemes: "h · a · t", display: "hat", word: "hat", audio: "audio/hat.mp3", phonemeAudio: "audio/hat.mp3" },
-        { phonemes: "m · a · t", display: "mat", word: "mat", audio: "audio/mat.mp3", phonemeAudio: "audio/mat.mp3" },
-        { phonemes: "c · a · t", display: "cat", word: "cat", audio: "audio/cat.mp3", phonemeAudio: "audio/cat.mp3" },
+        { phonemes: "h · a · t", display: "hat", word: "hat", audio: "audio/hat.mp3", phonemeAudio: "audio/h...a...t.mp3" },
+        { phonemes: "m · a · t", display: "mat", word: "mat", audio: "audio/mat.mp3", phonemeAudio: "audio/m...a...t.mp3" },
+        { phonemes: "c · a · t", display: "cat", word: "cat", audio: "audio/cat.mp3", phonemeAudio: "audio/c...a...t.mp3" },
       ]},
       { type: "spell", label: "1", group: "hat", words: [
         { word: "hat", display: "hat", image: "images/hat.png", audio: "audio/hat.mp3", emoji: "🎩" },
@@ -176,10 +176,10 @@ const CURRICULUM = [
       ]},
       /* 2.1 group pen */
       { type: "say",   label: "2", group: "pen", rows: [
-        { phonemes: "p · e · n", display: "pen", word: "pen", audio: "audio/pen.mp3", phonemeAudio: "audio/pen.mp3" },
-        { phonemes: "h · e · n", display: "hen", word: "hen", audio: "audio/hen.mp3", phonemeAudio: "audio/hen.mp3" },
-        { phonemes: "t · e · n", display: "ten", word: "ten", audio: "audio/ten.mp3", phonemeAudio: "audio/ten.mp3" },
-        { phonemes: "r · e · d", display: "red", word: "red", audio: "audio/red.mp3", phonemeAudio: "audio/red.mp3" },
+        { phonemes: "p · e · n", display: "pen", word: "pen", audio: "audio/pen.mp3", phonemeAudio: "audio/p...e...n.mp3" },
+        { phonemes: "h · e · n", display: "hen", word: "hen", audio: "audio/hen.mp3", phonemeAudio: "audio/h...e...n.mp3" },
+        { phonemes: "t · e · n", display: "ten", word: "ten", audio: "audio/ten.mp3", phonemeAudio: "audio/t...e...n.mp3" },
+        { phonemes: "r · e · d", display: "red", word: "red", audio: "audio/red.mp3", phonemeAudio: "audio/r...e...d.mp3" },
       ]},
       { type: "spell", label: "2", group: "pen", words: [
         { word: "pen", display: "pen", image: "images/pen.png", audio: "audio/pen.mp3", emoji: "🖊️" },
@@ -195,10 +195,10 @@ const CURRICULUM = [
       ]},
       /* 2.1 group tent */
       { type: "say",   label: "3", group: "tent", rows: [
-        { phonemes: "t · e · n · t",   display: "tent",            word: "tent", audio: "audio/tent.mp3", phonemeAudio: "audio/tent.mp3" },
-        { phonemes: "d · e · s · k",   display: "desk",            word: "desk", audio: "audio/desk.mp3", phonemeAudio: "audio/desk.mp3" },
-        { phonemes: "h · a · n · d",   display: "hand",            word: "hand", audio: "audio/hand.mp3", phonemeAudio: "audio/hand.mp3" },
-        { phonemes: "n · e · ck",      display: "ne<u>ck</u>",     word: "neck", audio: "audio/neck.mp3", phonemeAudio: "audio/neck.mp3" },
+        { phonemes: "t · e · n · t",   display: "tent",            word: "tent", audio: "audio/tent.mp3", phonemeAudio: "audio/t...e...n...t.mp3" },
+        { phonemes: "d · e · s · k",   display: "desk",            word: "desk", audio: "audio/desk.mp3", phonemeAudio: "audio/d...e...s...k.mp3" },
+        { phonemes: "h · a · n · d",   display: "hand",            word: "hand", audio: "audio/hand.mp3", phonemeAudio: "audio/h...a...n...d.mp3" },
+        { phonemes: "n · e · ck",      display: "ne<u>ck</u>",     word: "neck", audio: "audio/neck.mp3", phonemeAudio: "audio/n...e...ck.mp3" },
       ]},
       { type: "spell", label: "3", group: "tent", words: [
         { word: "tent", display: "tent",        image: "images/tent.png", audio: "audio/tent.mp3", emoji: "⛺" },
@@ -214,9 +214,9 @@ const CURRICULUM = [
       ]},
       /* 2.2 group hip */
       { type: "say",   label: "4", group: "hip", rows: [
-        { phonemes: "h · i · p", display: "hip", word: "hip", audio: "audio/hip.mp3", phonemeAudio: "audio/hip.mp3" },
-        { phonemes: "r · i · p", display: "rip", word: "rip", audio: "audio/rip.mp3", phonemeAudio: "audio/rip.mp3" },
-        { phonemes: "n · e · t", display: "net", word: "net", audio: "audio/net.mp3", phonemeAudio: "audio/net.mp3" },
+        { phonemes: "h · i · p", display: "hip", word: "hip", audio: "audio/hip.mp3", phonemeAudio: "audio/h...i...p.mp3" },
+        { phonemes: "r · i · p", display: "rip", word: "rip", audio: "audio/rip.mp3", phonemeAudio: "audio/r...i...p.mp3" },
+        { phonemes: "n · e · t", display: "net", word: "net", audio: "audio/net.mp3", phonemeAudio: "audio/n...e...t.mp3" },
       ]},
       { type: "spell", label: "4", group: "hip", words: [
         { word: "hip", display: "hip", image: "images/hip.png", audio: "audio/hip.mp3", emoji: "🦴" },
@@ -230,9 +230,9 @@ const CURRICULUM = [
       ]},
       /* 2.2 group sad */
       { type: "say",   label: "5", group: "sad", rows: [
-        { phonemes: "s · a · d", display: "sad", word: "sad", audio: "audio/sad.mp3", phonemeAudio: "audio/sad.mp3" },
-        { phonemes: "m · a · n", display: "man", word: "man", audio: "audio/man.mp3", phonemeAudio: "audio/man.mp3" },
-        { phonemes: "m · a · d", display: "mad", word: "mad", audio: "audio/mad.mp3", phonemeAudio: "audio/mad.mp3" },
+        { phonemes: "s · a · d", display: "sad", word: "sad", audio: "audio/sad.mp3", phonemeAudio: "audio/s...a...d.mp3" },
+        { phonemes: "m · a · n", display: "man", word: "man", audio: "audio/man.mp3", phonemeAudio: "audio/m...a...n.mp3" },
+        { phonemes: "m · a · d", display: "mad", word: "mad", audio: "audio/mad.mp3", phonemeAudio: "audio/m...a...d.mp3" },
       ]},
       { type: "spell", label: "5", group: "sad", words: [
         { word: "sad", display: "sad", image: "images/sad.jpg", audio: "audio/sad.mp3", emoji: "😢" },
@@ -246,10 +246,10 @@ const CURRICULUM = [
       ]},
       /* 2.2 group sick */
       { type: "say",   label: "6", group: "sick", rows: [
-        { phonemes: "s · i · ck",   display: "si<u>ck</u>",   word: "sick",  audio: "audio/sick.mp3",  phonemeAudio: "audio/sick.mp3" },
-        { phonemes: "k · i · ck",   display: "ki<u>ck</u>",   word: "kick",  audio: "audio/kick.mp3",  phonemeAudio: "audio/kick.mp3" },
-        { phonemes: "s · t · i · ck", display: "sti<u>ck</u>", word: "stick", audio: "audio/stick.mp3", phonemeAudio: "audio/stick.mp3" },
-        { phonemes: "s · n · a · ck", display: "sna<u>ck</u>", word: "snack", audio: "audio/snack.mp3", phonemeAudio: "audio/snack.mp3" },
+        { phonemes: "s · i · ck",   display: "si<u>ck</u>",   word: "sick",  audio: "audio/sick.mp3",  phonemeAudio: "audio/s...i...ck.mp3" },
+        { phonemes: "k · i · ck",   display: "ki<u>ck</u>",   word: "kick",  audio: "audio/kick.mp3",  phonemeAudio: "audio/k...i...ck.mp3" },
+        { phonemes: "s · t · i · ck", display: "sti<u>ck</u>", word: "stick", audio: "audio/stick.mp3", phonemeAudio: "audio/s...t...i...ck.mp3" },
+        { phonemes: "s · n · a · ck", display: "sna<u>ck</u>", word: "snack", audio: "audio/snack.mp3", phonemeAudio: "audio/s...n...a...ck.mp3" },
       ]},
       { type: "spell", label: "6", group: "sick", words: [
         { word: "sick",  display: "si<u>ck</u>",   image: "images/sick.jpg",  audio: "audio/sick.mp3",  emoji: "🤒" },
@@ -288,9 +288,9 @@ const CURRICULUM = [
       },
       /* 3.1 group fit */
       { type: "say",   label: "1", group: "fit", rows: [
-        { phonemes: "f · i · t", display: "fit", word: "fit", audio: "audio/fit.mp3", phonemeAudio: "audio/fit.mp3" },
-        { phonemes: "g · a · p", display: "gap", word: "gap", audio: "audio/gap.mp3", phonemeAudio: "audio/gap.mp3" },
-        { phonemes: "b · i · t", display: "bit", word: "bit", audio: "audio/bit.mp3", phonemeAudio: "audio/bit.mp3" },
+        { phonemes: "f · i · t", display: "fit", word: "fit", audio: "audio/fit.mp3", phonemeAudio: "audio/f...i...t.mp3" },
+        { phonemes: "g · a · p", display: "gap", word: "gap", audio: "audio/gap.mp3", phonemeAudio: "audio/g...a...p.mp3" },
+        { phonemes: "b · i · t", display: "bit", word: "bit", audio: "audio/bit.mp3", phonemeAudio: "audio/b...i...t.mp3" },
       ]},
       { type: "spell", label: "1", group: "fit", words: [
         { word: "fit", display: "fit", image: "images/fit.png", audio: "audio/fit.mp3", emoji: "💪" },
@@ -304,10 +304,10 @@ const CURRICULUM = [
       ]},
       /* 3.1 group bun */
       { type: "say",   label: "2", group: "bun", rows: [
-        { phonemes: "b · u · n", display: "bun", word: "bun", audio: "audio/bun.mp3", phonemeAudio: "audio/bun.mp3" },
-        { phonemes: "g · u · m", display: "gum", word: "gum", audio: "audio/gum.mp3", phonemeAudio: "audio/gum.mp3" },
-        { phonemes: "f · o · g", display: "fog", word: "fog", audio: "audio/fog.mp3", phonemeAudio: "audio/fog.mp3" },
-        { phonemes: "b · u · m", display: "bum", word: "bum", audio: "audio/bum.mp3", phonemeAudio: "audio/bum.mp3" },
+        { phonemes: "b · u · n", display: "bun", word: "bun", audio: "audio/bun.mp3", phonemeAudio: "audio/b...u...n.mp3" },
+        { phonemes: "g · u · m", display: "gum", word: "gum", audio: "audio/gum.mp3", phonemeAudio: "audio/g...u...m.mp3" },
+        { phonemes: "f · o · g", display: "fog", word: "fog", audio: "audio/fog.mp3", phonemeAudio: "audio/f...o...g.mp3" },
+        { phonemes: "b · u · m", display: "bum", word: "bum", audio: "audio/bum.mp3", phonemeAudio: "audio/b...u...m.mp3" },
       ]},
       { type: "spell", label: "2", group: "bun", words: [
         { word: "bun", display: "bun", image: "images/bun.png", audio: "audio/bun.mp3", emoji: "🍞" },
@@ -323,9 +323,9 @@ const CURRICULUM = [
       ]},
       /* 3.1 group bug */
       { type: "say",   label: "3", group: "bug", rows: [
-        { phonemes: "b · u · g",     display: "bug",  word: "bug",  audio: "audio/bug.mp3",  phonemeAudio: "audio/bug.mp3" },
-        { phonemes: "f · r · o · g", display: "frog", word: "frog", audio: "audio/frog.mp3", phonemeAudio: "audio/frog.mp3" },
-        { phonemes: "f · l · a · g", display: "flag", word: "flag", audio: "audio/flag.mp3", phonemeAudio: "audio/flag.mp3" },
+        { phonemes: "b · u · g",     display: "bug",  word: "bug",  audio: "audio/bug.mp3",  phonemeAudio: "audio/b...u...g.mp3" },
+        { phonemes: "f · r · o · g", display: "frog", word: "frog", audio: "audio/frog.mp3", phonemeAudio: "audio/f...r...o...g.mp3" },
+        { phonemes: "f · l · a · g", display: "flag", word: "flag", audio: "audio/flag.mp3", phonemeAudio: "audio/f...l...a...g.mp3" },
       ]},
       { type: "spell", label: "3", group: "bug", words: [
         { word: "bug",  display: "bug",  image: "images/bug.png",  audio: "audio/bug.mp3",  emoji: "🐛" },
@@ -339,9 +339,9 @@ const CURRICULUM = [
       ]},
       /* 3.2 group dog */
       { type: "say",   label: "4", group: "dog", rows: [
-        { phonemes: "d · o · g", display: "dog", word: "dog", audio: "audio/dog.mp3", phonemeAudio: "audio/dog.mp3" },
-        { phonemes: "f · u · n", display: "fun", word: "fun", audio: "audio/fun.mp3", phonemeAudio: "audio/fun.mp3" },
-        { phonemes: "g · u · t", display: "gut", word: "gut", audio: "audio/gut.mp3", phonemeAudio: "audio/gut.mp3" },
+        { phonemes: "d · o · g", display: "dog", word: "dog", audio: "audio/dog.mp3", phonemeAudio: "audio/d...o...g.mp3" },
+        { phonemes: "f · u · n", display: "fun", word: "fun", audio: "audio/fun.mp3", phonemeAudio: "audio/f...u...n.mp3" },
+        { phonemes: "g · u · t", display: "gut", word: "gut", audio: "audio/gut.mp3", phonemeAudio: "audio/g...u...t.mp3" },
       ]},
       { type: "spell", label: "4", group: "dog", words: [
         { word: "dog", display: "dog", image: "images/dog.png", audio: "audio/dog.mp3", emoji: "🐶" },
@@ -355,10 +355,10 @@ const CURRICULUM = [
       ]},
       /* 3.2 group leg */
       { type: "say",   label: "5", group: "leg", rows: [
-        { phonemes: "l · e · g", display: "leg", word: "leg", audio: "audio/leg.mp3", phonemeAudio: "audio/leg.mp3" },
-        { phonemes: "b · a · g", display: "bag", word: "bag", audio: "audio/bag.mp3", phonemeAudio: "audio/bag.mp3" },
-        { phonemes: "c · u · p", display: "cup", word: "cup", audio: "audio/cup.mp3", phonemeAudio: "audio/cup.mp3" },
-        { phonemes: "l · o · g", display: "log", word: "log", audio: "audio/log.mp3", phonemeAudio: "audio/log.mp3" },
+        { phonemes: "l · e · g", display: "leg", word: "leg", audio: "audio/leg.mp3", phonemeAudio: "audio/l...e...g.mp3" },
+        { phonemes: "b · a · g", display: "bag", word: "bag", audio: "audio/bag.mp3", phonemeAudio: "audio/b...a...g.mp3" },
+        { phonemes: "c · u · p", display: "cup", word: "cup", audio: "audio/cup.mp3", phonemeAudio: "audio/c...u...p.mp3" },
+        { phonemes: "l · o · g", display: "log", word: "log", audio: "audio/log.mp3", phonemeAudio: "audio/l...o...g.mp3" },
       ]},
       { type: "spell", label: "5", group: "leg", words: [
         { word: "leg", display: "leg", image: "images/leg.png", audio: "audio/leg.mp3", emoji: "🦵" },
@@ -374,9 +374,9 @@ const CURRICULUM = [
       ]},
       /* 3.2 group gold */
       { type: "say",   label: "6", group: "gold", rows: [
-        { phonemes: "g · o · l · d", display: "gold", word: "gold", audio: "audio/gold.mp3", phonemeAudio: "audio/gold.mp3" },
-        { phonemes: "f · o · l · d", display: "fold", word: "fold", audio: "audio/fold.mp3", phonemeAudio: "audio/fold.mp3" },
-        { phonemes: "g · o · l · f", display: "golf", word: "golf", audio: "audio/golf.mp3", phonemeAudio: "audio/golf.mp3" },
+        { phonemes: "g · o · l · d", display: "gold", word: "gold", audio: "audio/gold.mp3", phonemeAudio: "audio/g...o...l...d.mp3" },
+        { phonemes: "f · o · l · d", display: "fold", word: "fold", audio: "audio/fold.mp3", phonemeAudio: "audio/f...o...l...d.mp3" },
+        { phonemes: "g · o · l · f", display: "golf", word: "golf", audio: "audio/golf.mp3", phonemeAudio: "audio/g...o...l...f.mp3" },
       ]},
       { type: "spell", label: "6", group: "gold", words: [
         { word: "gold", display: "gold", image: "images/gold.png", audio: "audio/gold.mp3", emoji: "🥇" },
