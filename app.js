@@ -288,7 +288,7 @@ function renderListen(c, step) {
   step.sounds.forEach(s => {
     html += `<div class="sound-btn" id="sb-${s.letter}">
       <span>${renderDisplay(s.display || s.letter)}</span>
-      <span onclick="playSound('${s.audio}','${encodeURIComponent(s.letter)}')" style="display:inline-flex;cursor:pointer;">${SVG.audio(36, "#378ADD")}</span>
+      <span onclick="playSound('${s.audio}','${encodeURIComponent(s.letter)}')" style="display:inline-flex;cursor:pointer;">${SVG.audio(60, "#378ADD")}</span>
     </div>`;
   });
   html += `</div>${navRow(false)}</div>`;
