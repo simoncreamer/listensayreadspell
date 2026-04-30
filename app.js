@@ -286,8 +286,9 @@ function renderCurrentStep() {
 function renderListen(c, step) {
   let html = `<div class="card"><h2 style="margin-bottom:1rem;color:#185FA5;">Listen</h2><div class="sound-grid">`;
   step.sounds.forEach(s => {
-    html += `<button class="sound-btn" id="sb-${s.letter}" onclick="playSound('${s.audio}','${encodeURIComponent(s.letter)}')">
-      <span>${renderDisplay(s.display || s.letter)}</span>${SVG.audio(22, "#378ADD")}
+   html += `<button class="sound-btn" id="sb-${s.letter}">
+      <span>${renderDisplay(s.display || s.letter)}</span>
+      <span onclick="playSound('${s.audio}','${encodeURIComponent(s.letter)}')" style="display:inline-flex;cursor:pointer;">${SVG.audio(36, "#378ADD")}</span>
     </button>`;
   });
   html += `</div>${navRow(false)}</div>`;
