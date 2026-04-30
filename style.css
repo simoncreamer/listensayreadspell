@@ -215,7 +215,7 @@ p.sub {
   border: 0.5px solid #ccc;
   border-radius: 12px;
   background: #f5f5f5;
-  cursor: pointer;
+  cursor: default;
   color: #185FA5;
   transition: all 0.15s;
   display: flex;
@@ -224,8 +224,6 @@ p.sub {
   gap: 10px;
   font-family: 'Comic Sans MS', cursive;
 }
-.sound-btn:hover { background: #E1F5EE; border-color: #5DCAA5; }
-.sound-btn.playing { background: #E1F5EE; border-color: #1D9E75; }
 
 /* ── Activity 2: Say ── */
 .blend-table {
