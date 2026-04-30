@@ -166,12 +166,12 @@ const CURRICULUM = [
       ]},
       { type: "spell", label: "1", group: "hat", words: [
         { word: "hat", display: "hat", image: "images/hat.png", audio: "audio/hat.mp3", emoji: "🎩" },
-        { word: "mat", display: "mat", image: "images/mat.png", audio: "audio/mat.mp3", emoji: "🟫" },
+        { word: "mat", display: "mat", image: "images/mat.jpg", audio: "audio/mat.mp3", emoji: "🟫" },
         { word: "cat", display: "cat", image: "images/cat.png", audio: "audio/cat.mp3", emoji: "🐱" },
       ]},
       { type: "match", label: "1", group: "hat", items: [
         { word: "hat", display: "hat", image: "images/hat.png", emoji: "🎩" },
-        { word: "mat", display: "mat", image: "images/mat.png", emoji: "🟫" },
+        { word: "mat", display: "mat", image: "images/mat.jpg", emoji: "🟫" },
         { word: "cat", display: "cat", image: "images/cat.png", emoji: "🐱" },
       ]},
       /* 2.1 group pen */
@@ -184,13 +184,13 @@ const CURRICULUM = [
       { type: "spell", label: "2", group: "pen", words: [
         { word: "pen", display: "pen", image: "images/pen.png", audio: "audio/pen.mp3", emoji: "🖊️" },
         { word: "hen", display: "hen", image: "images/hen.png", audio: "audio/hen.mp3", emoji: "🐔" },
-        { word: "ten", display: "ten", image: "images/ten.png", audio: "audio/ten.mp3", emoji: "🔟" },
+        { word: "ten", display: "ten", image: "images/ten.jpg", audio: "audio/ten.mp3", emoji: "🔟" },
         { word: "red", display: "red", image: "images/red.png", audio: "audio/red.mp3", emoji: "🔴" },
       ]},
       { type: "match", label: "2", group: "pen", items: [
         { word: "pen", display: "pen", image: "images/pen.png", emoji: "🖊️" },
         { word: "hen", display: "hen", image: "images/hen.png", emoji: "🐔" },
-        { word: "ten", display: "ten", image: "images/ten.png", emoji: "🔟" },
+        { word: "ten", display: "ten", image: "images/ten.jpg", emoji: "🔟" },
         { word: "red", display: "red", image: "images/red.png", emoji: "🔴" },
       ]},
       /* 2.1 group tent */
@@ -235,14 +235,14 @@ const CURRICULUM = [
         { phonemes: "m · a · d", display: "mad", word: "mad", audio: "audio/mad.mp3", phonemeAudio: "audio/mad.mp3" },
       ]},
       { type: "spell", label: "5", group: "sad", words: [
-        { word: "sad", display: "sad", image: "images/sad.png", audio: "audio/sad.mp3", emoji: "😢" },
+        { word: "sad", display: "sad", image: "images/sad.jpg", audio: "audio/sad.mp3", emoji: "😢" },
         { word: "man", display: "man", image: "images/man.png", audio: "audio/man.mp3", emoji: "👨" },
-        { word: "mad", display: "mad", image: "images/mad.png", audio: "audio/mad.mp3", emoji: "😡" },
+        { word: "mad", display: "mad", image: "images/mad.jpg", audio: "audio/mad.mp3", emoji: "😡" },
       ]},
       { type: "match", label: "5", group: "sad", items: [
-        { word: "sad", display: "sad", image: "images/sad.png", emoji: "😢" },
+        { word: "sad", display: "sad", image: "images/sad.jpg", emoji: "😢" },
         { word: "man", display: "man", image: "images/man.png", emoji: "👨" },
-        { word: "mad", display: "mad", image: "images/mad.png", emoji: "😡" },
+        { word: "mad", display: "mad", image: "images/mad.jpg", emoji: "😡" },
       ]},
       /* 2.2 group sick */
       { type: "say",   label: "6", group: "sick", rows: [
@@ -252,16 +252,16 @@ const CURRICULUM = [
         { phonemes: "s · n · a · ck", display: "sna<u>ck</u>", word: "snack", audio: "audio/snack.mp3", phonemeAudio: "audio/snack.mp3" },
       ]},
       { type: "spell", label: "6", group: "sick", words: [
-        { word: "sick",  display: "si<u>ck</u>",   image: "images/sick.png",  audio: "audio/sick.mp3",  emoji: "🤒" },
+        { word: "sick",  display: "si<u>ck</u>",   image: "images/sick.jpg",  audio: "audio/sick.mp3",  emoji: "🤒" },
         { word: "kick",  display: "ki<u>ck</u>",   image: "images/kick.png",  audio: "audio/kick.mp3",  emoji: "🦵" },
         { word: "stick", display: "sti<u>ck</u>",  image: "images/stick.png", audio: "audio/stick.mp3", emoji: "🪵" },
-        { word: "snack", display: "sna<u>ck</u>",  image: "images/snack.png", audio: "audio/snack.mp3", emoji: "🍎" },
+        { word: "snack", display: "sna<u>ck</u>",  image: "images/snack.jpg", audio: "audio/snack.mp3", emoji: "🍎" },
       ]},
       { type: "match", label: "6", group: "sick", items: [
-        { word: "sick",  display: "si<u>ck</u>",  image: "images/sick.png",  emoji: "🤒" },
+        { word: "sick",  display: "si<u>ck</u>",  image: "images/sick.jpg",  emoji: "🤒" },
         { word: "kick",  display: "ki<u>ck</u>",  image: "images/kick.png",  emoji: "🦵" },
         { word: "stick", display: "sti<u>ck</u>", image: "images/stick.png", emoji: "🪵" },
-        { word: "snack", display: "sna<u>ck</u>", image: "images/snack.png", emoji: "🍎" },
+        { word: "snack", display: "sna<u>ck</u>", image: "images/snack.jpg", emoji: "🍎" },
       ]},
     ],
   },
