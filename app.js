@@ -289,7 +289,7 @@ function renderListen(c, step) {
    html += `<div class="sound-btn" id="sb-${s.letter}">
       <span>${renderDisplay(s.display || s.letter)}</span>
       <span onclick="playSound('${s.audio}','${encodeURIComponent(s.letter)}')" style="display:inline-flex;cursor:pointer;">${SVG.audio(48, "#378ADD")}</span>
-    </button>`;
+    </div>`;
   });
   html += `</div>${navRow(false)}</div>`;
   c.innerHTML = html;
