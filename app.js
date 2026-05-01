@@ -207,70 +207,43 @@ function renderSetHeader() {
   document.getElementById("set-progress").style.width = pct;
 }
 
-/* ── Step indicator ─────────────────────────────────────────── */
+/* ── Step indicator (simplified: number + two dots) ────────── */
 function renderStepIndicator() {
   const ind = document.getElementById("step-indicator");
   ind.innerHTML = "";
-  ind.style.cssText = "display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-bottom:1.25rem;";
+  ind.style.cssText =
+    "display:flex;flex-wrap:wrap;gap:10px 14px;margin-bottom:1.25rem;align-items:center;";
 
-  const typeLabels = { listen: "Listen", say: "Listen/Say", spell: "Spell", match: "Match" };
-  const seen = new Map();
-  currentSet.steps.forEach((s, i) => { if (!seen.has(s.label)) seen.set(s.label, i); });
+  // Get unique group labels in order (1,2,3,...)
+  const labels = [...new Set(currentSet.steps.map(s => s.label))];
 
-  seen.forEach((firstIdx, label) => {
-    const matching = currentSet.steps.map((s, i) => ({ ...s, i })).filter(s => s.label === label);
-
-    // Single-step groups (e.g. satpin) — standalone pill spanning both columns
-    if (matching.length === 1) {
-      const step     = matching[0];
-      const isActive = step.i === currentStepIdx;
-      const isDone   = isStepDone(currentSet.id, step.i);
-      const pill     = document.createElement("span");
-      pill.className = "step-pill" + (isActive ? " active" : isDone ? " done" : "");
-      pill.textContent = label;
-      pill.style.cssText = "grid-column: 1 / -1; text-align:center; justify-self:center;";
-      pill.onclick = () => {
-        if (isDone || isActive) {
-          currentStepIdx = step.i;
-          renderStepIndicator();
-          renderCurrentStep();
-        }
-      };
-      ind.appendChild(pill);
-      return;
-    }
-
-    // Row: number label + pills
-    const row = document.createElement("div");
-    row.style.cssText = "display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:4px 0;";
-
+  labels.forEach(label => {
+    // --- Number (clickable jump to Listen/Say) ---
     const num = document.createElement("span");
-    num.style.cssText = "font-size:14px;font-weight:600;color:#185FA5;min-width:18px;font-family:'Comic Sans MS',cursive;";
+    num.className = "step-number";
     num.textContent = label;
-    row.appendChild(num);
 
-    matching.forEach((step) => {
-      const pillLabel = typeLabels[step.type] || step.type;
-      const isActive  = step.i === currentStepIdx;
-      const isDone    = isStepDone(currentSet.id, step.i);
-      const isLocked  = !isDone && !isActive && step.i > 0 && !isStepDone(currentSet.id, step.i - 1);
-
-      const pill = document.createElement("span");
-      pill.className = "step-pill" + (isActive ? " active" : isDone ? " done" : isLocked ? " locked" : "");
-      pill.textContent = pillLabel;
-      if (!isLocked) {
-        pill.onclick = () => {
-          if (isDone || isActive) {
-            currentStepIdx = step.i;
-            renderStepIndicator();
-            renderCurrentStep();
-          }
-        };
+    num.onclick = () => {
+      const idx = currentSet.steps.findIndex(
+        s => s.label === label && (s.type === "say" || s.type === "listen")
+      );
+      if (idx !== -1) {
+        currentStepIdx = idx;
+        renderSetHeader();
+        renderStepIndicator();
+        renderCurrentStep();
       }
-      row.appendChild(pill);
-    });
+    };
 
-    ind.appendChild(row);
+    ind.appendChild(num);
+
+    // --- Two dots: Spell + Match ---
+    for (let i = 0; i < 2; i++) {
+      const dot = document.createElement("span");
+      dot.className = "step-dot";
+      dot.textContent = "•";
+      ind.appendChild(dot);
+    }
   });
 }
 
