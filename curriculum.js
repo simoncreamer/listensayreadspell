@@ -221,12 +221,12 @@ const CURRICULUM = [
       { type: "spell", label: "4", group: "hip", words: [
         { word: "hip", display: "hip", image: "images/hip.png", audio: "audio/hip.mp3", emoji: "🦴" },
         { word: "rip", display: "rip", image: "images/rip.png", audio: "audio/rip.mp3", emoji: "😬" },
-        { word: "net", display: "net", image: "images/net.png", audio: "audio/net.mp3", emoji: "🥅" },
+        { word: "net", display: "net", image: "images/net.jpg", audio: "audio/net.mp3", emoji: "🥅" },
       ]},
       { type: "match", label: "4", group: "hip", items: [
         { word: "hip", display: "hip", image: "images/hip.png", emoji: "🦴" },
         { word: "rip", display: "rip", image: "images/rip.png", emoji: "😬" },
-        { word: "net", display: "net", image: "images/net.png", emoji: "🥅" },
+        { word: "net", display: "net", image: "images/net.jpg", emoji: "🥅" },
       ]},
       /* 2.2 group sad */
       { type: "say",   label: "5", group: "sad", rows: [
