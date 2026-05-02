@@ -331,6 +331,10 @@ p.sub {
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  flex: 1;        /* 🔴 fill card space */
+  min-height: 0;  /* 🔴 allow shrinking */
+  overflow-y: auto; /* 🔴 scroll instead of expand */
 }
 .spell-item {
   display: flex;
