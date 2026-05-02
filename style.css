@@ -476,10 +476,6 @@ p.sub {
   min-height: 100vh;
 }
 
-#activity-container {
-  flex: 1;
-}
-
 .step-indicator {
   position: sticky;
   bottom: 0;
