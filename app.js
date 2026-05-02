@@ -142,7 +142,7 @@ function showScreen(id) {
 
 function goHome() {
   stopFireworks();
-  document.getElementById("activity-container").innerHTML = "";
+  document.getElementById("activity-stage").innerHTML = "";
   document.getElementById("step-indicator").innerHTML = "";
   showScreen("screen-home");
   renderHome();
@@ -289,9 +289,14 @@ function renderStepIndicator() {
 /* ── Activity router ────────────────────────────────────────── */
 function renderCurrentStep() {
   const step = currentSet.steps[currentStepIdx];
-  const container = document.getElementById("activity-container");
+  const stage = document.getElementById("activity-stage");
+
+  // Wrap every activity in a fixed-size pane
+  stage.innerHTML = `<div class="activity-pane" id="activity-pane"></div>`;
+  const pane = document.getElementById("activity-pane");
+
   const map = { listen: renderListen, say: renderSay, spell: renderSpell, match: renderMatch };
-  if (map[step.type]) map[step.type](container, step);
+  if (map[step.type]) map[step.type](pane, step);
 }
 
 /* ── Activity 1: Listen ─────────────────────────────────────── */
