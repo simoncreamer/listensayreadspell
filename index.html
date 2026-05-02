@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Listen. Say. Read. Spell.</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Listen. Say. Read. Spell.</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <div class="app">
 
-  <!-- HOME SCREEN -->
-  <div id="screen-home" class="screen active">
-    <h1>Listen.  Say.  Read.  Spell.  </h1>
-    <p class="sub">Choose a set to begin.</p>
-    <div class="set-grid" id="set-grid"></div>
-  </div>
+<!-- HOME SCREEN -->
+<div id="screen-home" class="screen active">
+<h1>Listen.  Say.  Read.  Spell.  </h1>
+<p class="sub">Choose a set to begin.</p>
+<div class="set-grid" id="set-grid"></div>
+</div>
 
-  <!-- SET SCREEN -->
-  <div id="screen-set" class="screen">
-    <button class="nav-back" id="nav-home-btn" onclick="goHome()">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M3 9.5L10 3L17 9.5V17H13V13H7V17H3V9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" fill="none"/>
-      </svg>
-    </button>
-    <h1 id="set-title"></h1>
-    <p class="sub" id="set-subtitle"></p>
-    <div class="progress-bar"><div class="progress-fill" id="set-progress"></div></div>
-    <div id="activity-container"></div>
-    <div class="step-indicator" id="step-indicator"></div>
-  </div>
+<!-- SET SCREEN -->
+<div id="screen-set" class="screen">
+<button class="nav-back" id="nav-home-btn" onclick="goHome()">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+<path d="M3 9.5L10 3L17 9.5V17H13V13H7V17H3V9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" fill="none"/>
+</svg>
+</button>
+<h1 id="set-title"></h1>
+<p class="sub" id="set-subtitle"></p>
+<div class="progress-bar"><div class="progress-fill" id="set-progress"></div></div>
+<div id="activity-container"></div>
+<div class="step-indicator" id="step-indicator"></div>
+</div>
 
 </div>
 
 <!-- FIREWORKS OVERLAY -->
 <div id="fw-overlay"><canvas id="fw-canvas"></canvas></div>
 <div id="fw-message">
-  <h2 id="fw-title">Set 1 complete!</h2>
-  <p id="fw-subtitle">Amazing work!</p>
-  <button class="btn primary" id="fw-btn" onclick="dismissFireworks()">Next</button>
+<h2 id="fw-title">Set 1 complete!</h2>
+<p id="fw-subtitle">👍</p>
+<button class="btn primary" id="fw-btn" onclick="dismissFireworks()">Next</button>
 </div>
 
 <script src="curriculum.js"></script>
