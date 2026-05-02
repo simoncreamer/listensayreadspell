@@ -53,11 +53,6 @@ p.sub {
   margin: 0;
 }
 
-/* Optional: push sounds to right */
-#set-subtitle {
-  margin-left: auto;
-}
-
 /* ── Progress bar ── */
 .progress-bar {
   height: 4px;
