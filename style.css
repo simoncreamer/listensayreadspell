@@ -37,6 +37,27 @@ p.sub {
   margin-bottom: 1rem;
 }
 
+/* ── Set Header (home + title + sounds) ── */
+.set-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.set-header h1 {
+  margin: 0;
+}
+
+.set-header .sub {
+  margin: 0;
+}
+
+/* Optional: push sounds to right */
+#set-subtitle {
+  margin-left: auto;
+}
+
 /* ── Progress bar ── */
 .progress-bar {
   height: 4px;
