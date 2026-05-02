@@ -63,8 +63,6 @@ p.sub {
   flex-direction: column;  /* 🔴 */
 
   margin-bottom: 0;        /* 🔴 remove shifting */
-}
-.card {
   min-height: 0;   /* 🔴 critical for flex children */
 }
 .card > *:not(.nav-row) {
@@ -144,7 +142,7 @@ p.sub {
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
-    flex-shrink: 0;   /* 🔴 prevents compression */
+  flex-shrink: 0;   /* 🔴 prevents compression */
 }
 
 /* ── Home screen ── */
