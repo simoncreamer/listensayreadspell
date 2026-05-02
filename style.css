@@ -53,21 +53,7 @@ p.sub {
   margin: 0;
 }
 
-/* 🔴 Fix icon alignment + size */
-.set-header .nav-back {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 32px;        /* match text height */
-  width: 32px;
-  margin-bottom: 0;    /* remove old spacing */
-}
 
-.set-header .nav-back svg {
-  width: 20px;
-  height: 20px;
-  display: block;
-}
 
 /* ── Progress bar ── */
 .progress-bar {
