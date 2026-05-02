@@ -211,69 +211,81 @@ function renderSetHeader() {
 function renderStepIndicator() {
   const ind = document.getElementById("step-indicator");
   ind.innerHTML = "";
-  ind.style.cssText = "display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-bottom:1.25rem;";
+  ind.style.cssText = "display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;padding:10px 0 6px;border-top:0.5px solid #e0e0e0;";
 
-  const typeLabels = { listen: "Listen", say: "Listen/Say", spell: "Spell", match: "Match" };
   const seen = new Map();
   currentSet.steps.forEach((s, i) => { if (!seen.has(s.label)) seen.set(s.label, i); });
 
   seen.forEach((firstIdx, label) => {
     const matching = currentSet.steps.map((s, i) => ({ ...s, i })).filter(s => s.label === label);
 
-    // Single-step groups (e.g. satpin) — standalone pill spanning both columns
-    if (matching.length === 1) {
-      const step     = matching[0];
-      const isActive = step.i === currentStepIdx;
-      const isDone   = isStepDone(currentSet.id, step.i);
-      const pill     = document.createElement("span");
-      pill.className = "step-pill" + (isActive ? " active" : isDone ? " done" : "");
-      pill.textContent = label;
-      pill.style.cssText = "grid-column: 1 / -1; text-align:center; justify-self:center;";
-      pill.onclick = () => {
-        if (isDone || isActive) {
-          currentStepIdx = step.i;
-          renderStepIndicator();
-          renderCurrentStep();
-        }
-      };
-      ind.appendChild(pill);
-      return;
-    }
+    // Skip the single-step listen tab (satpin etc) — not shown in strip
+    if (matching.length === 1) return;
 
-    // Row: number label + pills
-    const row = document.createElement("div");
-    row.style.cssText = "display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:4px 0;";
-
-    const num = document.createElement("span");
-    num.style.cssText = "font-size:14px;font-weight:600;color:#185FA5;min-width:18px;font-family:'Comic Sans MS',cursive;";
-    num.textContent = label;
-    row.appendChild(num);
+    // Group container
+    const group = document.createElement("div");
+    group.style.cssText = "display:flex;align-items:center;gap:5px;";
 
     matching.forEach((step) => {
-      const pillLabel = typeLabels[step.type] || step.type;
-      const isActive  = step.i === currentStepIdx;
-      const isDone    = isStepDone(currentSet.id, step.i);
-      const isLocked  = !isDone && !isActive && step.i > 0 && !isStepDone(currentSet.id, step.i - 1);
+      const isDone   = isStepDone(currentSet.id, step.i);
+      const isActive = step.i === currentStepIdx;
+      const isLocked = !isDone && !isActive && step.i > 0 && !isStepDone(currentSet.id, step.i - 1);
 
-      const pill = document.createElement("span");
-      pill.className = "step-pill" + (isActive ? " active" : isDone ? " done" : isLocked ? " locked" : "");
-      pill.textContent = pillLabel;
-      if (!isLocked) {
-        pill.onclick = () => {
-          if (isDone || isActive) {
-            currentStepIdx = step.i;
-            renderStepIndicator();
-            renderCurrentStep();
-          }
-        };
+      if (step.type === "say") {
+        // Number circle — clickable when unlocked
+        const num = document.createElement("div");
+        const size = "34px";
+        num.style.cssText = `
+          width:${size}; height:${size};
+          border-radius:50%;
+          display:flex; align-items:center; justify-content:center;
+          font-family:'Patrick Hand',cursive;
+          font-size:16px; font-weight:600;
+          cursor:${isLocked ? "default" : "pointer"};
+          transition:all 0.2s;
+          border:2px solid ${isActive ? "#185FA5" : isDone ? "#1D9E75" : isLocked ? "#ccc" : "#999"};
+          background:${isActive ? "#E6F1FB" : isDone ? "#1D9E75" : "transparent"};
+          color:${isActive ? "#185FA5" : isDone ? "#fff" : isLocked ? "#ccc" : "#555"};
+        `;
+        num.textContent = label;
+        if (!isLocked) {
+          num.onclick = () => {
+            if (isDone || isActive) {
+              currentStepIdx = step.i;
+              renderStepIndicator();
+              renderCurrentStep();
+            }
+          };
+        }
+        group.appendChild(num);
+
+      } else {
+        // Dot for Spell and Match
+        const dot = document.createElement("div");
+        const size = "14px";
+        dot.style.cssText = `
+          width:${size}; height:${size};
+          border-radius:50%;
+          transition:all 0.2s;
+          background:${isDone ? "#1D9E75" : isActive ? "#378ADD" : "#ccc"};
+          cursor:${isLocked ? "default" : "pointer"};
+        `;
+        if (!isLocked) {
+          dot.onclick = () => {
+            if (isDone || isActive) {
+              currentStepIdx = step.i;
+              renderStepIndicator();
+              renderCurrentStep();
+            }
+          };
+        }
+        group.appendChild(dot);
       }
-      row.appendChild(pill);
     });
 
-    ind.appendChild(row);
+    ind.appendChild(group);
   });
 }
-
 /* ── Activity router ────────────────────────────────────────── */
 function renderCurrentStep() {
   const step = currentSet.steps[currentStepIdx];
