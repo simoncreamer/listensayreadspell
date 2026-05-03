@@ -336,7 +336,8 @@ function renderListen(c, step) {
 
 /* ── Activity 2: Say ────────────────────────────────────────── */
 function renderSay(c, step) {
-  let html = `<div class="card">
+let html = `<div class="card">
+  <h2 style="margin-bottom:1rem;color:#1a1a1a;">Say</h2>
   <table class="blend-table">
     <colgroup>
       <col style="width:36%"/>
