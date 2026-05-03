@@ -224,7 +224,7 @@ function renderStepIndicator() {
       const btn = document.createElement("button");
       btn.style.cssText = `
         font-family:'Patrick Hand',cursive;
-        font-size:13px;
+        font-size:18px;
         font-weight:600;
         padding:5px 10px;
         border-radius:20px;
