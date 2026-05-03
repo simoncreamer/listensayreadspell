@@ -114,6 +114,8 @@ p.sub {
 }
 
 .nav-back svg {
+  width: 28px;
+  height: 28px;
   display: block;   /* removes inline baseline offset */
 }
 
