@@ -548,11 +548,6 @@ c.innerHTML = `<div class="card">
           if (chip) chip.classList.remove("used");
         }, 900);
       }
-
-      if (items.every(x => dndState[x.word] === x.word)) {
-        const nb = document.getElementById("match-next");
-        if (nb) nb.style.display = "inline-flex";
-      }
     });
 
     dropCol.appendChild(el);
