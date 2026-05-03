@@ -497,9 +497,12 @@ p.sub {
 }
 
 #screen-set {
-  display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+#screen-set.active {
+  display: flex;
 }
 
 .step-indicator {
