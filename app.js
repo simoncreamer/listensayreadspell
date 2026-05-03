@@ -427,18 +427,12 @@ function renderSpell(c, step) {
 
 /* ── Activity 4: Match (drag & drop) ───────────────────────── */
 function renderMatch(c, step) {
-  const items     = step.items;
-  const isLast    = isLastMatchStep();
-  const isFirst   = currentStepIdx === 0;
+  const items   = step.items;
+  const isFirst = currentStepIdx === 0;
 
   dndState    = {};
   items.forEach(it => { dndState[it.word] = null; });
   dndDragging = null;
-
-  // Right-hand button: home on last match, hidden forward arrow on others
-  const rightBtn = isLast
-    ? `<button class="icon-only-btn" onclick="goHome()">${SVG.home()}</button>`
-    : `<button class="btn" id="match-next" style="display:none;padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>`;
 
   c.innerHTML = `<div class="card">
     <div class="dnd-grid">
@@ -447,7 +441,7 @@ function renderMatch(c, step) {
     </div>
     <div class="nav-row" style="margin-top:1rem;">
       <button class="icon-only-btn" onclick="goBack()" ${isFirst ? "disabled" : ""}>${SVG.arrowLeft()}</button>
-      ${rightBtn}
+      <button class="btn" id="match-next" style="display:none;padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>
     </div>
   </div>`;
 
@@ -536,20 +530,9 @@ function renderMatch(c, step) {
         }, 900);
       }
 
-      // Show forward arrow (or trigger fireworks on last match) when all correct
       if (items.every(x => dndState[x.word] === x.word)) {
-        if (isLast) {
-          // Trigger fireworks after short delay
-          setTimeout(() => {
-            markStep(currentSet.id, currentStepIdx);
-            renderSetHeader();
-            const nextSet = CURRICULUM.find(c => c.id !== currentSet.id && c.steps.length > 0 && !isSetComplete(c));
-            launchFireworks(currentSet.homeLabel, nextSet ? nextSet.homeLabel : null);
-          }, 600);
-        } else {
-          const nb = document.getElementById("match-next");
-          if (nb) nb.style.display = "inline-flex";
-        }
+        const nb = document.getElementById("match-next");
+        if (nb) nb.style.display = "inline-flex";
       }
     });
 
