@@ -436,7 +436,6 @@ function renderSpell(c, step) {
         const el = document.getElementById("sp-" + i);
         return el && el.classList.contains("correct-input");
       });
-      }
     }
 
     inp.addEventListener("blur", checkSpelling);
