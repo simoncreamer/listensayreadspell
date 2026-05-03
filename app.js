@@ -180,7 +180,7 @@ function renderHome() {
   CURRICULUM.forEach((c, ci) => {
     const done   = isSetComplete(c);
     const prevOk = ci === 0 || isSetComplete(CURRICULUM[ci - 1]);
-    const locked = c.locked && !prevOk;
+    const locked = false;
     const el     = document.createElement("div");
     el.className = "set-card" + (locked ? " locked-card" : "");
     el.innerHTML = `<div class="set-number">${c.homeLabel}${done ? " ✓" : ""}</div>
