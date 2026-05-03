@@ -219,8 +219,30 @@ function renderStepIndicator() {
   seen.forEach((firstIdx, label) => {
     const matching = currentSet.steps.map((s, i) => ({ ...s, i })).filter(s => s.label === label);
 
-    // Skip the single-step listen tab (satpin etc) — not shown in strip
-    if (matching.length === 1) return;
+   // Single-step = Listen tab — show as a labelled button
+    if (matching.length === 1) {
+      const btn = document.createElement("button");
+      btn.style.cssText = `
+        font-family:'Patrick Hand',cursive;
+        font-size:13px;
+        font-weight:600;
+        padding:5px 10px;
+        border-radius:20px;
+        border:2px solid ${matching[0].i === currentStepIdx ? "#185FA5" : isStepDone(currentSet.id, matching[0].i) ? "#1D9E75" : "#ccc"};
+        background:${matching[0].i === currentStepIdx ? "#E6F1FB" : isStepDone(currentSet.id, matching[0].i) ? "#E1F5EE" : "#f5f5f5"};
+        color:${matching[0].i === currentStepIdx ? "#185FA5" : isStepDone(currentSet.id, matching[0].i) ? "#0F6E56" : "#888"};
+        cursor:pointer;
+        white-space:nowrap;
+      `;
+      btn.innerHTML = renderDisplay(currentSet.homeSounds);
+      btn.onclick = () => {
+        currentStepIdx = matching[0].i;
+        renderStepIndicator();
+        renderCurrentStep();
+      };
+      ind.appendChild(btn);
+      return;
+    }
 
     // Group container
     const group = document.createElement("div");
