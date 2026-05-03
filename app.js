@@ -323,7 +323,7 @@ const stage = document.getElementById("activity-container");
 
 /* ── Activity 1: Listen ─────────────────────────────────────── */
 function renderListen(c, step) {
-  let html = `<div class="card"><h2 style="margin-bottom:1rem;color:#185FA5;">Listen</h2><div class="sound-grid">`;
+  let html = `<div class="card"><h2 style="margin-bottom:1rem;color:#1a1a1a;">Listen</h2><div class="sound-grid">`;
   step.sounds.forEach(s => {
     html += `<div class="sound-btn" id="sb-${s.letter}">
       <span>${renderDisplay(s.display || s.letter)}</span>
