@@ -308,14 +308,9 @@ function renderListen(c, step) {
       <span onclick="playSound('${s.audio}','${encodeURIComponent(s.letter)}')" style="display:inline-flex;cursor:pointer;">${SVG.audio(60, "#378ADD")}</span>
     </div>`;
   });
-  html += `</div>
-    <div class="nav-row">
-      <button class="icon-only-btn" onclick="goBack()" ${currentStepIdx === 0 ? "disabled" : ""}>${SVG.arrowLeft()}</button>
-      <button class="btn" id="next-btn" style="display:none;padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>
-    </div>
-  </div>`;
+  html += `</div>${navRow(false)}</div>`;
   c.innerHTML = html;
-
+}
   // Track which sounds have been played
   const played = new Set();
   const total = step.sounds.length;
