@@ -308,8 +308,31 @@ function renderListen(c, step) {
       <span onclick="playSound('${s.audio}','${encodeURIComponent(s.letter)}')" style="display:inline-flex;cursor:pointer;">${SVG.audio(60, "#378ADD")}</span>
     </div>`;
   });
-  html += `</div>${navRow(false)}</div>`;
+  html += `</div>
+    <div class="nav-row">
+      <button class="icon-only-btn" onclick="goBack()" ${currentStepIdx === 0 ? "disabled" : ""}>${SVG.arrowLeft()}</button>
+      <button class="btn" id="next-btn" style="display:none;padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>
+    </div>
+  </div>`;
   c.innerHTML = html;
+
+  // Track which sounds have been played
+  const played = new Set();
+  const total = step.sounds.length;
+
+  // Override playSound to track plays
+  step.sounds.forEach(s => {
+    const btn = c.querySelector(`#sb-${s.letter} span:last-child`);
+    if (!btn) return;
+    btn.onclick = () => {
+      playSound(s.audio, encodeURIComponent(s.letter));
+      played.add(s.letter);
+      if (played.size >= total) {
+        const nb = document.getElementById("next-btn");
+        if (nb) nb.style.display = "inline-flex";
+      }
+    };
+  });
 }
 
 function playSound(audioSrc, encodedLetter) {
