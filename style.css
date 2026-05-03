@@ -385,7 +385,7 @@ p.sub {
   gap: 8px;
 }
 .drag-chip {
-  height: 100px;
+  height: 80px;
   background: #f5f5f5;
   border: 0.5px solid #ccc;
   border-radius: 8px;
@@ -409,7 +409,7 @@ p.sub {
 .drag-chip.dragging { opacity: 0.4; }
 .drag-chip.used { opacity: 0.2; pointer-events: none; }
 .drop-slot {
-  height: 108px;
+  height: 80px;
   padding: 0 14px;
   border: 1.5px dashed #ccc;
   border-radius: 8px;
