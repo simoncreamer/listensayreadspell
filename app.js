@@ -440,8 +440,7 @@ function renderMatch(c, step) {
     </div>
     <div class="nav-row" style="margin-top:1rem;">
       <button class="icon-only-btn" onclick="goBack()" ${isFirst ? "disabled" : ""}>${SVG.arrowLeft()}</button>
-      <button class="btn" id="match-next" style="display:none;padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>
-    </div>
+      <button class="btn" style="padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>    </div>
   </div>`;
 
   const shuffledPics  = [...items].sort(() => Math.random() - 0.5);
