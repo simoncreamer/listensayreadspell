@@ -435,9 +435,6 @@ function renderSpell(c, step) {
         const el = document.getElementById("sp-" + i);
         return el && el.classList.contains("correct-input");
       });
-      if (allOk) {
-        const nb = document.getElementById("next-btn");
-        if (nb) nb.style.display = "inline-flex";
       }
     }
 
