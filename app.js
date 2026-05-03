@@ -379,12 +379,11 @@ function renderSpell(c, step) {
     </div>`;
   });
 
-  // Always show back button; next arrow hidden until all words correct
   const isFirst = currentStepIdx === 0;
-  html += `</div>
+ html += `</div>
     <div class="nav-row" style="margin-top:0.75rem;">
       <button class="icon-only-btn" onclick="goBack()" ${isFirst ? "disabled" : ""}>${SVG.arrowLeft()}</button>
-      <button class="btn" id="next-btn" style="display:none;padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>
+      <button class="btn" style="padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>
     </div>
   </div>`;
   c.innerHTML = html;
