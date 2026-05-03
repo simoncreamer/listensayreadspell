@@ -382,7 +382,7 @@ function renderSay(c, step) {
 
 /* ── Activity 3: Spell ──────────────────────────────────────── */
 function renderSpell(c, step) {
-  let html = `<div class="card"><div class="spell-container">`;
+  let html = `<div class="card"><h2 style="margin-bottom:1rem;color:#1a1a1a;">Spell</h2><div class="spell-container">`;
 
   step.words.forEach((item, idx) => {
     const pic = item.image
@@ -455,7 +455,8 @@ function renderMatch(c, step) {
   items.forEach(it => { dndState[it.word] = null; });
   dndDragging = null;
 
-  c.innerHTML = `<div class="card">
+c.innerHTML = `<div class="card">
+    <h2 style="margin-bottom:1rem;color:#1a1a1a;">Match</h2>
     <div class="dnd-grid">
       <div class="dnd-drag-col" id="drag-col"></div>
       <div class="dnd-drop-col" id="drop-col"></div>
