@@ -102,7 +102,7 @@ const SVG = {
   arrowLeft: () => `<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
     <path d="M16 10H4M9 5L4 10L9 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`,
-  home: () => `<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+  home: () => `<svg width="32" height="32" viewBox="0 0 20 20" fill="none">
     <path d="M3 9.5L10 3L17 9.5V17H13V13H7V17H3V9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" fill="none"/>
   </svg>`,
   tick: (s) => { const n = s || 28; return `<svg width="${n}" height="${n}" viewBox="0 0 28 28">
