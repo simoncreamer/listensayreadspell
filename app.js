@@ -362,13 +362,13 @@ function renderSay(c, step) {
     </tr></thead>
     <tbody>`;
 
-  step.rows.forEach((row) => {
+  step.rows.forEach((row, idx) => {
     const safePhoneme = row.phonemeAudio.replace(/'/g, "\\'");
     html += `<tr>
       <td>
         <div class="blend-listen-cell">
           <span class="phoneme-text">${renderDisplay(row.phonemes)}</span>
-          <button class="icon-btn-round" onclick="playAudioFile('${safePhoneme}')">
+          <button class="icon-btn-round" onclick="playSayAudio('${safePhoneme}', ${idx}, 'p')">
             ${SVG.audio(22, "#378ADD")}
           </button>
         </div>
@@ -377,7 +377,7 @@ function renderSay(c, step) {
       <td class="col-divider">
         <div class="blend-listen-cell">
           <span class="word-text">${renderDisplay(row.display || row.word)}</span>
-          <button class="icon-btn-round" onclick="playAudioFile('${row.audio}')">
+          <button class="icon-btn-round" onclick="playSayAudio('${row.audio}', ${idx}, 'w')">
             ${SVG.audio(22, "#378ADD")}
           </button>
         </div>
@@ -386,8 +386,26 @@ function renderSay(c, step) {
     </tr>`;
   });
 
-  html += `</tbody></table>${navRow(false)}</div>`;
+  html += `</tbody></table>
+    <div class="nav-row">
+      <button class="icon-only-btn" onclick="goBack()" ${currentStepIdx === 0 ? "disabled" : ""}>${SVG.arrowLeft()}</button>
+      <button class="btn" id="next-btn" style="display:none;padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>
+    </div>
+  </div>`;
   c.innerHTML = html;
+
+  // Track which rows have been listened to
+  const played = new Set();
+  const total = step.rows.length;
+
+  window.playSayAudio = (src, idx, type) => {
+    playAudioFile(src);
+    played.add(idx);
+    if (played.size >= total) {
+      const nb = document.getElementById("next-btn");
+      if (nb) nb.style.display = "inline-flex";
+    }
+  };
 }
 
 /* ── Activity 3: Spell ──────────────────────────────────────── */
