@@ -311,33 +311,6 @@ function renderListen(c, step) {
   html += `</div>${navRow(false)}</div>`;
   c.innerHTML = html;
 }
-  // Track which sounds have been played
-  const played = new Set();
-  const total = step.sounds.length;
-
-  // Override playSound to track plays
-  step.sounds.forEach(s => {
-    const btn = c.querySelector(`#sb-${s.letter} span:last-child`);
-    if (!btn) return;
-    btn.onclick = () => {
-      playSound(s.audio, encodeURIComponent(s.letter));
-      played.add(s.letter);
-      if (played.size >= total) {
-        const nb = document.getElementById("next-btn");
-        if (nb) nb.style.display = "inline-flex";
-      }
-    };
-  });
-}
-
-function playSound(audioSrc, encodedLetter) {
-  const letter = decodeURIComponent(encodedLetter);
-  document.querySelectorAll(".sound-btn").forEach(b => b.classList.remove("playing"));
-  const btn = document.getElementById("sb-" + letter);
-  if (btn) btn.classList.add("playing");
-  playAudioFile(audioSrc, () => { if (btn) btn.classList.remove("playing"); });
-  setTimeout(() => { if (btn) btn.classList.remove("playing"); }, 1200);
-}
 
 /* ── Activity 2: Say ────────────────────────────────────────── */
 function renderSay(c, step) {
@@ -357,13 +330,13 @@ function renderSay(c, step) {
     </tr></thead>
     <tbody>`;
 
-  step.rows.forEach((row, idx) => {
+  step.rows.forEach((row) => {
     const safePhoneme = row.phonemeAudio.replace(/'/g, "\\'");
     html += `<tr>
       <td>
         <div class="blend-listen-cell">
           <span class="phoneme-text">${renderDisplay(row.phonemes)}</span>
-          <button class="icon-btn-round" onclick="playSayAudio('${safePhoneme}', ${idx}, 'p')">
+          <button class="icon-btn-round" onclick="playAudioFile('${safePhoneme}')">
             ${SVG.audio(22, "#378ADD")}
           </button>
         </div>
@@ -372,7 +345,7 @@ function renderSay(c, step) {
       <td class="col-divider">
         <div class="blend-listen-cell">
           <span class="word-text">${renderDisplay(row.display || row.word)}</span>
-          <button class="icon-btn-round" onclick="playSayAudio('${row.audio}', ${idx}, 'w')">
+          <button class="icon-btn-round" onclick="playAudioFile('${row.audio}')">
             ${SVG.audio(22, "#378ADD")}
           </button>
         </div>
@@ -381,26 +354,8 @@ function renderSay(c, step) {
     </tr>`;
   });
 
-  html += `</tbody></table>
-    <div class="nav-row">
-      <button class="icon-only-btn" onclick="goBack()" ${currentStepIdx === 0 ? "disabled" : ""}>${SVG.arrowLeft()}</button>
-      <button class="btn" id="next-btn" style="display:none;padding:10px 14px;" onclick="advanceStep()">${SVG.arrowRight()}</button>
-    </div>
-  </div>`;
+  html += `</tbody></table>${navRow(false)}</div>`;
   c.innerHTML = html;
-
-  // Track which rows have been listened to
-  const played = new Set();
-  const total = step.rows.length;
-
-  window.playSayAudio = (src, idx, type) => {
-    playAudioFile(src);
-    played.add(idx);
-    if (played.size >= total) {
-      const nb = document.getElementById("next-btn");
-      if (nb) nb.style.display = "inline-flex";
-    }
-  };
 }
 
 /* ── Activity 3: Spell ──────────────────────────────────────── */
