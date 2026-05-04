@@ -347,7 +347,7 @@ function renderListen(c, step) {
 function renderSay(c, step) {
   let html = `<div class="card">
   <h2 style="margin-bottom:1rem;color:#1a1a1a;">Say</h2>
-  <table class="blend-table" style="width:50%;margin:0 auto;">
+  <table class="blend-table" style="width:60%;margin:0 auto;">
     <colgroup>
       <col style="width:60%"/>
       <col style="width:20%"/>
