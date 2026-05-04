@@ -363,7 +363,7 @@ function renderSay(c, step) {
     </colgroup>
     <thead><tr>
       <th></th>
-      <th class="listen-h" style="text-align:center;">Listen</th>
+      <th class="listen-h">Listen</th>
       <th class="say-h">Say</th>
     </tr></thead>
     <tbody>`;
@@ -373,27 +373,20 @@ function renderSay(c, step) {
     html += `
       <tr>
         <td><span class="word-text">${renderDisplay(row.phonemes)}</span></td>
-      
-      <td>
-  <div style="display:flex; justify-content:center; align-items:center;">
-    <button class="icon-btn-round" onclick="playAudioFile('${safePhoneme}')">
-      ${SVG.audio(24, "#378ADD")}
-    </button>
-  </
-        
+        <td style="text-align:center;">
+          <button class="icon-btn-round" onclick="playAudioFile('${safePhoneme}')">
+            ${SVG.audio(24, "#378ADD")}
+          </button>
+        </td>
         <td style="text-align:center;"><div class="blend-say-cell">${SVG.bubble()}</div></td>
       </tr>
       <tr>
         <td><span class="word-text">${renderDisplay(row.display || row.word)}</span></td>
-        
-      <td>
-  <div style="display:flex; justify-content:center; align-items:center;">
-    <button class="icon-btn-round" onclick="playAudioFile('${row.audio}')">
-      ${SVG.audio(24, "#378ADD")}
-    </button>
-  </div>
-</td>
-        
+        <td style="text-align:center;">
+          <button class="icon-btn-round" onclick="playAudioFile('${row.audio}')">
+            ${SVG.audio(24, "#378ADD")}
+          </button>
+        </td>
         <td style="text-align:center;"><div class="blend-say-cell">${SVG.bubble()}</div></td>
       </tr>
       ${idx < step.rows.length - 1 ? `<tr><td colspan="3" style="padding:66px 0;"></td></tr>` : ""}`;
@@ -401,7 +394,7 @@ function renderSay(c, step) {
 
   html += `</tbody></table>${navRow(false)}</div>`;
   c.innerHTML = html;
-}
+
 
 /* ── Activity 3: Spell ──────────────────────────────────────── */
 function renderSpell(c, step) {
