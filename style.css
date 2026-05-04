@@ -237,12 +237,13 @@ p.sub {
   padding: 10px 6px;
   font-size: 32px;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 400;
   border: 0.5px solid #ccc;
   border-radius: 12px;
   background: #f5f5f5;
   cursor: default;
-  color: #185FA5;
+  color: #1a1a1a;
+  
   transition: all 0.15s;
   display: flex;
   flex-direction: column;
@@ -304,8 +305,8 @@ p.sub {
 }
 .word-text {
   font-size: 32px;
-  font-weight: 600;
-  color: #185FA5;
+  font-weight: 400;
+  color: #1a1a1a;
   font-family: 'Patrick Hand', cursive;
   flex: 1;
   text-align: left;
