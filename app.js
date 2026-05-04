@@ -576,7 +576,6 @@ function launchFireworks(setLabel, nextLabel) {
   const ctx     = canvas.getContext("2d");
 
   document.getElementById("fw-title").textContent    = setLabel + " ✓";
-  document.getElementById("fw-subtitle").textContent = "👍";
   document.getElementById("fw-btn").textContent      = nextLabel ? nextLabel + " →" : "Back to sets";
 
   overlay.classList.add("active");
