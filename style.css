@@ -423,7 +423,7 @@ p.sub {
 .drop-slot.wrong-slot { background: #FAECE7; border-color: #D85A30; border-style: solid; }
 .slot-word {
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 400;
   color: #1a1a1a;
   min-width: 50px;
   font-family: 'Patrick Hand', cursive;
