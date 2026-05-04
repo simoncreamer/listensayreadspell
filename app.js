@@ -354,17 +354,17 @@ function renderSay(c, step) {
       <col style="width:20%"/>
     </colgroup>
     <thead><tr>
-      <th class="listen-h" style="text-align:left;">Phonemes → Word</th>
+      <th></th>
       <th class="listen-h">Listen</th>
       <th class="say-h">Say</th>
     </tr></thead>
     <tbody>`;
 
-  step.rows.forEach((row) => {
+  step.rows.forEach((row, idx) => {
     const safePhoneme = row.phonemeAudio.replace(/'/g, "\\'");
     html += `
       <tr>
-        <td><span class="phoneme-text">${renderDisplay(row.phonemes)}</span></td>
+        <td><span class="word-text">${renderDisplay(row.phonemes)}</span></td>
         <td style="text-align:center;">
           <button class="icon-btn-round" onclick="playAudioFile('${safePhoneme}')">
             ${SVG.audio(24, "#378ADD")}
@@ -373,20 +373,20 @@ function renderSay(c, step) {
         <td style="text-align:center;"><div class="blend-say-cell">${SVG.bubble()}</div></td>
       </tr>
       <tr>
-        <td><span class="word-text" style="font-size:22px;">${renderDisplay(row.display || row.word)}</span></td>
+        <td><span class="word-text">${renderDisplay(row.display || row.word)}</span></td>
         <td style="text-align:center;">
           <button class="icon-btn-round" onclick="playAudioFile('${row.audio}')">
             ${SVG.audio(24, "#378ADD")}
           </button>
         </td>
         <td style="text-align:center;"><div class="blend-say-cell">${SVG.bubble()}</div></td>
-      </tr>`;
+      </tr>
+      ${idx < step.rows.length - 1 ? `<tr><td colspan="3" style="padding:6px 0;"></td></tr>` : ""}`;
   });
 
   html += `</tbody></table>${navRow(false)}</div>`;
   c.innerHTML = html;
 }
-
 /* ── Activity 3: Spell ──────────────────────────────────────── */
 function renderSpell(c, step) {
   let html = `<div class="card"><h2 style="margin-bottom:1rem;color:#1a1a1a;">Spell</h2><div class="spell-container">`;
