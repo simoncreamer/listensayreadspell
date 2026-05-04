@@ -517,7 +517,7 @@ p.sub {
 @media (max-width: 480px) {
   .sound-grid { grid-template-columns: repeat(2, 1fr); }
   .dnd-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
-  .slot-word { font-size: 15px; min-width: 36px; }
+  .slot-word { font-size: 22px; min-width: 36px; }
   .blend-table th, .blend-table td { padding: 7px 4px; }
-  .phoneme-text, .word-text { font-size: 14px; }
+  .phoneme-text, .word-text { font-size: 32px; }
 }
