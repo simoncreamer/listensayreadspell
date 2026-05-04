@@ -387,6 +387,7 @@ function renderSay(c, step) {
   html += `</tbody></table>${navRow(false)}</div>`;
   c.innerHTML = html;
 }
+
 /* ── Activity 3: Spell ──────────────────────────────────────── */
 function renderSpell(c, step) {
   let html = `<div class="card"><h2 style="margin-bottom:1rem;color:#1a1a1a;">Spell</h2><div class="spell-container">`;
