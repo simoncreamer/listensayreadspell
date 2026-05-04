@@ -345,45 +345,42 @@ function renderListen(c, step) {
 
 /* ── Activity 2: Say ────────────────────────────────────────── */
 function renderSay(c, step) {
-let html = `<div class="card">
+  let html = `<div class="card">
   <h2 style="margin-bottom:1rem;color:#1a1a1a;">Say</h2>
   <table class="blend-table">
     <colgroup>
-      <col style="width:36%"/>
-      <col style="width:14%"/>
-      <col style="width:36%"/>
-      <col style="width:14%"/>
+      <col style="width:60%"/>
+      <col style="width:20%"/>
+      <col style="width:20%"/>
     </colgroup>
     <thead><tr>
+      <th class="listen-h" style="text-align:left;">Phonemes → Word</th>
       <th class="listen-h">Listen</th>
-      <th class="say-h">Say</th>
-      <th class="listen-h col-divider">Listen</th>
       <th class="say-h">Say</th>
     </tr></thead>
     <tbody>`;
 
   step.rows.forEach((row) => {
     const safePhoneme = row.phonemeAudio.replace(/'/g, "\\'");
-    html += `<tr>
-      <td>
-        <div class="blend-listen-cell">
-          <span class="phoneme-text">${renderDisplay(row.phonemes)}</span>
+    html += `
+      <tr>
+        <td><span class="phoneme-text">${renderDisplay(row.phonemes)}</span></td>
+        <td style="text-align:center;">
           <button class="icon-btn-round" onclick="playAudioFile('${safePhoneme}')">
-            ${SVG.audio(22, "#378ADD")}
+            ${SVG.audio(24, "#378ADD")}
           </button>
-        </div>
-      </td>
-      <td><div class="blend-say-cell">${SVG.bubble()}</div></td>
-      <td class="col-divider">
-        <div class="blend-listen-cell">
-          <span class="word-text">${renderDisplay(row.display || row.word)}</span>
+        </td>
+        <td style="text-align:center;"><div class="blend-say-cell">${SVG.bubble()}</div></td>
+      </tr>
+      <tr>
+        <td><span class="word-text" style="font-size:22px;">${renderDisplay(row.display || row.word)}</span></td>
+        <td style="text-align:center;">
           <button class="icon-btn-round" onclick="playAudioFile('${row.audio}')">
-            ${SVG.audio(22, "#378ADD")}
+            ${SVG.audio(24, "#378ADD")}
           </button>
-        </div>
-      </td>
-      <td><div class="blend-say-cell">${SVG.bubble()}</div></td>
-    </tr>`;
+        </td>
+        <td style="text-align:center;"><div class="blend-say-cell">${SVG.bubble()}</div></td>
+      </tr>`;
   });
 
   html += `</tbody></table>${navRow(false)}</div>`;
