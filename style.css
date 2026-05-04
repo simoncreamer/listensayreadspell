@@ -303,7 +303,7 @@ p.sub {
   text-align: left;
 }
 .word-text {
-  font-size: 17px;
+  font-size: 32px;
   font-weight: 600;
   color: #185FA5;
   font-family: 'Patrick Hand', cursive;
@@ -348,7 +348,7 @@ p.sub {
 .spell-input {
   flex: 1;
   padding: 9px 12px;
-  font-size: 17px;
+  font-size: 28px;
   border: 0.5px solid #ccc;
   border-radius: 8px;
   background: #fff;
@@ -422,7 +422,7 @@ p.sub {
 .drop-slot.correct-slot { background: #E1F5EE; border-color: #1D9E75; border-style: solid; }
 .drop-slot.wrong-slot { background: #FAECE7; border-color: #D85A30; border-style: solid; }
 .slot-word {
-  font-size: 18px;
+  font-size: 32px;
   font-weight: 600;
   color: #1a1a1a;
   min-width: 50px;
