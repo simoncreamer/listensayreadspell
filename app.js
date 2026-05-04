@@ -394,7 +394,7 @@ function renderSay(c, step) {
 
   html += `</tbody></table>${navRow(false)}</div>`;
   c.innerHTML = html;
-
+}
 
 /* ── Activity 3: Spell ──────────────────────────────────────── */
 function renderSpell(c, step) {
