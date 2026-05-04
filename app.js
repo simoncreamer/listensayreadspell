@@ -381,7 +381,7 @@ function renderSay(c, step) {
         </td>
         <td style="text-align:center;"><div class="blend-say-cell">${SVG.bubble()}</div></td>
       </tr>
-      ${idx < step.rows.length - 1 ? `<tr><td colspan="3" style="padding:6px 0;"></td></tr>` : ""}`;
+      ${idx < step.rows.length - 1 ? `<tr><td colspan="3" style="padding:10px 0;"></td></tr>` : ""}`;
   });
 
   html += `</tbody></table>${navRow(false)}</div>`;
