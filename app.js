@@ -357,9 +357,9 @@ function renderSay(c, step) {
   <h2 style="margin-bottom:1rem;color:#1a1a1a;">Say</h2>
   <table class="blend-table" style="width:70%;margin:0 auto;">
     <colgroup>
-      <col style="width:60%"/>
-      <col style="width:20%"/>
-      <col style="width:20%"/>
+      <col style="width:50%"/>
+      <col style="width:25%"/>
+      <col style="width:25%"/>
     </colgroup>
     <thead><tr>
       <th></th>
