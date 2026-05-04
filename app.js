@@ -164,6 +164,8 @@ function goBack() {
     renderSetHeader();
     renderStepIndicator();
     renderCurrentStep();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
   }
 }
 
@@ -179,6 +181,8 @@ function advanceStep() {
     renderSetHeader();
     renderStepIndicator();
     renderCurrentStep();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
   }
 }
 
@@ -215,6 +219,8 @@ function openSet(id, stepIdx) {
   renderSetHeader();
   renderStepIndicator();
   renderCurrentStep();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
 }
 
 function renderSetHeader() {
