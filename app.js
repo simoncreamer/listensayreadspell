@@ -203,6 +203,14 @@ function renderHome() {
 function openSet(id, stepIdx) {
   currentSet     = CURRICULUM.find(c => c.id === id);
   currentStepIdx = stepIdx || 0;
+  // Preload all audio in this set
+  currentSet.steps.forEach(step => {
+    const srcs = [];
+    if (step.sounds) step.sounds.forEach(s => srcs.push(s.audio));
+    if (step.rows)   step.rows.forEach(r => { srcs.push(r.audio); srcs.push(r.phonemeAudio); });
+    if (step.words)  step.words.forEach(w => srcs.push(w.audio));
+    srcs.forEach(src => { const a = new Audio(); a.preload = "auto"; a.src = src; });
+  });
   showScreen("screen-set");
   renderSetHeader();
   renderStepIndicator();
@@ -336,7 +344,7 @@ function renderListen(c, step) {
   step.sounds.forEach(s => {
     html += `<div class="sound-btn" id="sb-${s.letter}">
       <span>${renderDisplay(s.display || s.letter)}</span>
-      <span onclick="playSound('${s.audio}','${encodeURIComponent(s.letter)}')" style="display:inline-flex;cursor:pointer;">${SVG.audio(60, "#378ADD")}</span>
+      <span onclick="playSound('${s.audio}','${encodeURIComponent(s.letter)}')" style="display:inline-flex;cursor:pointer;">${SVG.audio(22, "#378ADD")}</span>
     </div>`;
   });
   html += `</div>${navRow(false)}</div>`;
