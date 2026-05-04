@@ -76,6 +76,15 @@ function playPhonemeSequence(audioFiles, index) {
   });
 }
 
+
+// Compatibility for Listen (Sounds) page
+function playSound(src) {
+  playAudioFile(src);
+}
+
+
+
+
 /* ── Image helper ───────────────────────────────────────────── */
 function imgOrEmoji(src, emoji, cls) {
   if (!src) return `<span>${emoji}</span>`;
