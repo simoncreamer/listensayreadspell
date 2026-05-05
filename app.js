@@ -339,9 +339,16 @@ const stage = document.getElementById("activity-container");
   // Wrap every activity in a fixed-size pane
   stage.innerHTML = `<div class="activity-pane" id="activity-pane"></div>`;
   const pane = document.getElementById("activity-pane");
-
-  const map = { listen: renderListen, say: renderSay, spell: renderSpell, match: renderMatch };
-  if (map[step.type]) map[step.type](pane, step);
+    const map = {
+       listen:          renderListen,
+       say:             renderSay,
+       sayPaired:       renderSayPaired,
+       alphabetNames:   renderAlphabetNames,
+       alphabetSounds:  renderAlphabetSounds,
+       patterns:        renderPatterns,
+       spell:           renderSpell,
+       match:           renderMatch,
+      if (map[step.type]) map[step.type](pane, step);
 }
 
 /* ── Activity 1: Listen ─────────────────────────────────────── */
@@ -573,6 +580,238 @@ c.innerHTML = `<div class="card">
     dropCol.appendChild(el);
   });
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   SET 8 — NEW ACTIVITY TYPES
+   Add these functions to app.js, before the Fireworks section.
+   Also update the activity router map (shown at bottom of this file).
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Activity 5: Alphabet Names ─────────────────────────────── */
+function renderAlphabetNames(c, step) {
+  const VOWELS = ["A","E","I","O","U"];
+  const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+  function row(letters, highlightVowels) {
+    return letters.map(l => {
+      const isVowel = VOWELS.includes(l.toUpperCase());
+      const active  = highlightVowels ? isVowel : !isVowel;
+      return `<span style="
+        font-size:26px;
+        font-weight:${active ? "700" : "400"};
+        color:${active ? "#1a1a1a" : "#bbb"};
+        margin:0 3px;
+        font-family:'Patrick Hand',cursive;
+      ">${l}</span>`;
+    }).join("");
+  }
+
+  const safeAudio1 = step.audio1.replace(/'/g, "\\'");
+  const safeAudio2 = step.audio2.replace(/'/g, "\\'");
+  const safeAudio3 = step.audio3.replace(/'/g, "\\'");
+
+  c.innerHTML = `<div class="card">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.2rem;">
+      <h2 style="color:#1a1a1a;margin:0;">The Alphabet</h2>
+      <button class="icon-btn-round" onclick="playAudioFile('${safeAudio1}')">${SVG.audio(24,"#378ADD")}</button>
+    </div>
+
+    <div style="margin-bottom:1.2rem;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+        <p style="font-size:18px;margin:0;color:#1a1a1a;">
+          <strong>Vowels</strong> (V) — names
+        </p>
+        <button class="icon-btn-round" onclick="playAudioFile('${safeAudio2}')">${SVG.audio(24,"#378ADD")}</button>
+      </div>
+      <div style="line-height:2;flex-wrap:wrap;">
+        ${row(LETTERS, true)}
+      </div>
+    </div>
+
+    <div style="margin-bottom:1.2rem;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+        <p style="font-size:18px;margin:0;color:#1a1a1a;">
+          <strong>Consonants</strong> (C) — names
+        </p>
+        <button class="icon-btn-round" onclick="playAudioFile('${safeAudio3}')">${SVG.audio(24,"#378ADD")}</button>
+      </div>
+      <div style="line-height:2;flex-wrap:wrap;">
+        ${row(LETTERS, false)}
+      </div>
+    </div>
+
+    ${navRow(false)}
+  </div>`;
+}
+
+/* ── Activity 6: Alphabet Sounds ────────────────────────────── */
+function renderAlphabetSounds(c, step) {
+  const VOWELS  = ["a","e","i","o","u"];
+  const LETTERS = "abcdefghijklmnopqrstuvwxyz".split("");
+
+  function row(letters, highlightVowels) {
+    return letters.map(l => {
+      const isVowel = VOWELS.includes(l);
+      const active  = highlightVowels ? isVowel : !isVowel;
+      return `<span style="
+        font-size:26px;
+        font-weight:${active ? "700" : "400"};
+        color:${active ? "#1a1a1a" : "#bbb"};
+        margin:0 3px;
+        font-family:'Patrick Hand',cursive;
+      ">${l}</span>`;
+    }).join("");
+  }
+
+  const safeAudio1 = step.audio1.replace(/'/g, "\\'");
+  const safeAudio2 = step.audio2.replace(/'/g, "\\'");
+
+  c.innerHTML = `<div class="card">
+    <h2 style="color:#1a1a1a;margin-bottom:1.2rem;">The Alphabet</h2>
+
+    <div style="margin-bottom:1.2rem;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+        <p style="font-size:18px;margin:0;color:#1a1a1a;">
+          <strong>Vowels</strong> (V) — sounds
+        </p>
+        <button class="icon-btn-round" onclick="playAudioFile('${safeAudio1}')">${SVG.audio(24,"#378ADD")}</button>
+      </div>
+      <div style="line-height:2;flex-wrap:wrap;">
+        ${row(LETTERS, true)}
+      </div>
+    </div>
+
+    <div style="margin-bottom:1.2rem;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+        <p style="font-size:18px;margin:0;color:#1a1a1a;">
+          <strong>Consonants</strong> (C) — sounds
+        </p>
+        <button class="icon-btn-round" onclick="playAudioFile('${safeAudio2}')">${SVG.audio(24,"#378ADD")}</button>
+      </div>
+      <div style="line-height:2;flex-wrap:wrap;">
+        ${row(LETTERS, false)}
+      </div>
+    </div>
+
+    ${navRow(false)}
+  </div>`;
+}
+
+/* ── Activity 7: Patterns (CVC vs CVCe) ─────────────────────── */
+function renderPatterns(c, step) {
+  const safeAudio1 = step.audio1.replace(/'/g, "\\'");
+  const safeAudio2 = step.audio2.replace(/'/g, "\\'");
+
+  // Helper to build a labelled letter diagram
+  function letterDiagram(letters) {
+    // letters is array of { char, label, color }
+    return `<div style="display:inline-flex;align-items:flex-end;gap:0;margin:0.5rem 0;">
+      ${letters.map(l => `
+        <div style="display:flex;flex-direction:column;align-items:center;margin:0 4px;">
+          <span style="
+            font-size:11px;
+            color:#666;
+            font-family:'Patrick Hand',cursive;
+            white-space:nowrap;
+            margin-bottom:4px;
+            border-bottom:1.5px solid #aaa;
+            padding-bottom:2px;
+          ">${l.label}</span>
+          <span style="
+            font-size:32px;
+            font-weight:600;
+            font-family:'Patrick Hand',cursive;
+            color:${l.color || "#1a1a1a"};
+          ">${l.char}</span>
+        </div>`).join("")}
+    </div>`;
+  }
+
+  const tapDiagram = letterDiagram([
+    { char: "t", label: "consonant", color: "#1a1a1a" },
+    { char: "a", label: "vowel sound", color: "#1a1a1a" },
+    { char: "p", label: "consonant", color: "#1a1a1a" },
+  ]);
+
+  const tapeDiagram = letterDiagram([
+    { char: "t",  label: "consonant", color: "#1a1a1a" },
+    { char: "a",  label: "vowel name", color: "#1D9E75" },
+    { char: "p",  label: "consonant", color: "#1a1a1a" },
+    { char: "e",  label: "silent E",  color: "#D85A30" },
+  ]);
+
+  c.innerHTML = `<div class="card">
+    <h2 style="color:#1a1a1a;margin-bottom:1.2rem;">Reading Patterns</h2>
+
+    <div style="display:flex;gap:2rem;margin-bottom:1rem;flex-wrap:wrap;">
+      <div style="background:#f5f5f5;border-radius:8px;padding:0.5rem 1rem;">
+        <span style="font-size:16px;font-family:'Patrick Hand',cursive;font-weight:600;color:#185FA5;">C – V – C</span>
+      </div>
+      <div style="background:#f5f5f5;border-radius:8px;padding:0.5rem 1rem;">
+        <span style="font-size:16px;font-family:'Patrick Hand',cursive;font-weight:600;color:#185FA5;">C – V – C – silent E</span>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:1.5rem;flex-wrap:wrap;">
+      ${tapDiagram}
+      <button class="icon-btn-round" onclick="playAudioFile('${safeAudio1}')">${SVG.audio(26,"#378ADD")}</button>
+      <div class="blend-say-cell">${SVG.bubble()}</div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:1rem;flex-wrap:wrap;">
+      ${tapeDiagram}
+      <button class="icon-btn-round" onclick="playAudioFile('${safeAudio2}')">${SVG.audio(26,"#378ADD")}</button>
+      <div class="blend-say-cell">${SVG.bubble()}</div>
+    </div>
+
+    ${navRow(false)}
+  </div>`;
+}
+
+/* ── Activity 8: Say (paired CVC/CVCe format) ───────────────── */
+function renderSayPaired(c, step) {
+  let html = `<div class="card">
+  <h2 style="margin-bottom:1rem;color:#1a1a1a;">Say</h2>
+  <table class="blend-table" style="width:90%;margin:0 auto;">
+    <colgroup>
+      <col style="width:60%"/>
+      <col style="width:20%"/>
+      <col style="width:20%"/>
+    </colgroup>
+    <thead><tr>
+      <th></th>
+      <th class="listen-h">Listen</th>
+      <th class="say-h">Say</th>
+    </tr></thead>
+    <tbody>`;
+
+  step.rows.forEach((row, idx) => {
+    const safeAudio = row.audio.replace(/'/g, "\\'");
+    // Each row is a single word/phoneme line
+    html += `
+      <tr>
+        <td><span class="word-text">${renderDisplay(row.display || row.word)}</span></td>
+        <td style="text-align:center;">
+          <button class="icon-btn-round" onclick="playAudioFile('${safeAudio}')">
+            ${SVG.audio(24,"#378ADD")}
+          </button>
+        </td>
+        <td style="text-align:center;"><div class="blend-say-cell">${SVG.bubble()}</div></td>
+      </tr>`;
+
+    // After every even-indexed row (0,2,4...) add the 66px gap UNLESS it's the last pair
+    const isEvenRow   = idx % 2 === 1; // after the second of each pair
+    const isLastRow   = idx === step.rows.length - 1;
+    if (isEvenRow && !isLastRow) {
+      html += `<tr><td colspan="3" style="padding:33px 0;"></td></tr>`;
+    }
+  });
+
+  html += `</tbody></table>${navRow(false)}</div>`;
+  c.innerHTML = html;
+}
+
+
 
 /* ── Fireworks ──────────────────────────────────────────────── */
 function launchFireworks(setLabel, nextLabel) {
