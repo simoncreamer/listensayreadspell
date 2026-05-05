@@ -498,12 +498,12 @@ const CURRICULUM = [
       ]},
       { type: "spell", label: "4", group: "ai", words: [
         { word: "train", display: "tr<u>ai</u>n", image: "images/train.png", audio: "audio/train.mp3", emoji: "🚂" },
-        { word: "hail",  display: "h<u>ai</u>l",  image: "images/hail.png",  audio: "audio/hail.mp3",  emoji: "🌨️" },
+        { word: "hail",  display: "h<u>ai</u>l",  image: "images/hail.jpg",  audio: "audio/hail.mp3",  emoji: "🌨️" },
         { word: "paint", display: "p<u>ai</u>nt", image: "images/paint.png", audio: "audio/paint.mp3", emoji: "🎨" },
       ]},
       { type: "match", label: "4", group: "ai", items: [
         { word: "train", display: "tr<u>ai</u>n", image: "images/train.png", emoji: "🚂" },
-        { word: "hail",  display: "h<u>ai</u>l",  image: "images/hail.png",  emoji: "🌨️" },
+        { word: "hail",  display: "h<u>ai</u>l",  image: "images/hail.jpg",  emoji: "🌨️" },
         { word: "paint", display: "p<u>ai</u>nt", image: "images/paint.png", emoji: "🎨" },
       ]},
       { type: "say", label: "5", group: "oa", rows: [
@@ -513,13 +513,13 @@ const CURRICULUM = [
         { phonemes: "b · oa · t", display: "b<u>oa</u>t", word: "boat", audio: "audio/boat.mp3", phonemeAudio: "audio/boat.mp3" },
       ]},
       { type: "spell", label: "5", group: "oa", words: [
-        { word: "soap", display: "s<u>oa</u>p", image: "images/soap.png", audio: "audio/soap.mp3", emoji: "🧼" },
+        { word: "soap", display: "s<u>oa</u>p", image: "images/soap.jpg", audio: "audio/soap.mp3", emoji: "🧼" },
         { word: "road", display: "r<u>oa</u>d", image: "images/road.png", audio: "audio/road.mp3", emoji: "🛣️" },
         { word: "loaf", display: "l<u>oa</u>f", image: "images/loaf.png", audio: "audio/loaf.mp3", emoji: "🍞" },
         { word: "boat", display: "b<u>oa</u>t", image: "images/boat.png", audio: "audio/boat.mp3", emoji: "⛵" },
       ]},
       { type: "match", label: "5", group: "oa", items: [
-        { word: "soap", display: "s<u>oa</u>p", image: "images/soap.png", emoji: "🧼" },
+        { word: "soap", display: "s<u>oa</u>p", image: "images/soap.jpg", emoji: "🧼" },
         { word: "road", display: "r<u>oa</u>d", image: "images/road.png", emoji: "🛣️" },
         { word: "loaf", display: "l<u>oa</u>f", image: "images/loaf.png", emoji: "🍞" },
         { word: "boat", display: "b<u>oa</u>t", image: "images/boat.png", emoji: "⛵" },
