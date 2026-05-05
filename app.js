@@ -276,7 +276,7 @@ function renderStepIndicator() {
       const isActive = step.i === currentStepIdx;
       const isLocked = !isDone && !isActive && step.i > 0 && !isStepDone(currentSet.id, step.i - 1);
 
-      if (step.type === "say") {
+      if (step.type === "say" || step.type === "sayPaired") {
         // Number circle — clickable when unlocked
         const num = document.createElement("div");
         const size = "34px";
@@ -703,30 +703,53 @@ function renderPatterns(c, step) {
   const safeAudio1 = step.audio1.replace(/'/g, "\\'");
   const safeAudio2 = step.audio2.replace(/'/g, "\\'");
 
-  // Helper to build a labelled letter diagram
   function letterDiagram(letters) {
-    // letters is array of { char, label, color }
     return `<div style="display:inline-flex;align-items:flex-end;gap:0;margin:0.5rem 0;">
       ${letters.map(l => `
         <div style="display:flex;flex-direction:column;align-items:center;margin:0 4px;">
-          <span style="
-            font-size:11px;
-            color:#666;
-            font-family:'Patrick Hand',cursive;
-            white-space:nowrap;
-            margin-bottom:4px;
-            border-bottom:1.5px solid #aaa;
-            padding-bottom:2px;
-          ">${l.label}</span>
-          <span style="
-            font-size:32px;
-            font-weight:600;
-            font-family:'Patrick Hand',cursive;
-            color:${l.color || "#1a1a1a"};
-          ">${l.char}</span>
+          <span style="font-size:11px;color:#666;font-family:'Patrick Hand',cursive;white-space:nowrap;margin-bottom:4px;border-bottom:1.5px solid #aaa;padding-bottom:2px;">${l.label}</span>
+          <span style="font-size:32px;font-weight:600;font-family:'Patrick Hand',cursive;color:${l.color || "#1a1a1a"};">${l.char}</span>
         </div>`).join("")}
     </div>`;
   }
+
+  const tapDiagram = letterDiagram([
+    { char: "t", label: "consonant",  color: "#1a1a1a" },
+    { char: "a", label: "vowel sound",color: "#1a1a1a" },
+    { char: "p", label: "consonant",  color: "#1a1a1a" },
+  ]);
+
+  const tapeDiagram = letterDiagram([
+    { char: "t", label: "consonant",  color: "#1a1a1a" },
+    { char: "a", label: "vowel name", color: "#1D9E75" },
+    { char: "p", label: "consonant",  color: "#1a1a1a" },
+    { char: "e", label: "silent E",   color: "#D85A30" },
+  ]);
+
+  c.innerHTML = `<div class="card">
+    <h2 style="color:#1a1a1a;margin-bottom:1.5rem;">Reading Patterns</h2>
+
+    <div style="background:#f5f5f5;border-radius:8px;padding:0.5rem 1rem;display:inline-block;margin-bottom:0.75rem;">
+      <span style="font-size:16px;font-family:'Patrick Hand',cursive;font-weight:600;color:#185FA5;">C – V – C</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:2.5rem;flex-wrap:wrap;">
+      ${tapDiagram}
+      <button class="icon-btn-round" onclick="playAudioFile('${safeAudio1}')">${SVG.audio(26,"#378ADD")}</button>
+    </div>
+
+    <div style="background:#f5f5f5;border-radius:8px;padding:0.5rem 1rem;display:inline-block;margin-bottom:0.75rem;">
+      <span style="font-size:16px;font-family:'Patrick Hand',cursive;font-weight:600;color:#185FA5;">C – V – C – silent E</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:1rem;flex-wrap:wrap;">
+      ${tapeDiagram}
+      <button class="icon-btn-round" onclick="playAudioFile('${safeAudio2}')">${SVG.audio(26,"#378ADD")}</button>
+    </div>
+
+    ${navRow(false)}
+  </div>`;
+}
 
   const tapDiagram = letterDiagram([
     { char: "t", label: "consonant", color: "#1a1a1a" },
