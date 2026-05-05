@@ -166,6 +166,11 @@ p.sub {
   gap: 12px;
   margin-top: 1.5rem;
 }
+@media (min-width: 520px) {
+  .set-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 .set-card {
   padding: 1.25rem 1rem;
   background: #fff;
