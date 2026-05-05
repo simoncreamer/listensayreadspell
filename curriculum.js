@@ -943,8 +943,8 @@ const CURRICULUM = [
 
       /* Step 1 — Listen (standard) */
       { type: "listen", label: "sounds", sounds: [
-        { letter: "a_e", display: "<g>a</g>_<r>e</r>", audio: "audio/a_e.mp3" },
-        { letter: "i_e", display: "<g>i</g>_<r>e</r>", audio: "audio/i_e.mp3" },
+        { letter: "a_e", display: "a_e", audio: "audio/a_e.mp3" },
+        { letter: "i_e", display: "i_e", audio: "audio/i_e.mp3" },
       ]},
 
       /* Step 2 — Alphabet Names */
@@ -1041,8 +1041,8 @@ const CURRICULUM = [
 
       /* Step 1 — Listen (standard) */
       { type: "listen", label: "sounds", sounds: [
-        { letter: "o_e", display: "<g>o</g>_<r>e</r>", audio: "audio/o_e.mp3" },
-        { letter: "u_e", display: "<g>u</g>_<r>e</r>", audio: "audio/u_e.mp3" },
+        { letter: "o_e", display: "o_e", audio: "audio/o_e.mp3" },
+        { letter: "u_e", display: "u_e", audio: "audio/u_e.mp3" },
       ]},
 
       /* Step 2 — Say: hop/hope, not/note (paired) */
