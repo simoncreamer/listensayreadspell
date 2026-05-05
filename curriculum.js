@@ -938,7 +938,7 @@ const CURRICULUM = [
   {
     id: "set8-1",
     homeLabel: "Set 8.1",
-    homeSounds: "<g>a</g>_<r>e</r> · <g>i</g>_<r>e</r>",
+    homeSounds: "a_e · i_e",
     steps: [
 
       /* Step 1 — Listen (standard) */
@@ -1037,8 +1037,7 @@ const CURRICULUM = [
   {
     id: "set8-2",
     homeLabel: "Set 8.2",
-    homeSounds: "<g>o</g>_<r>e</r> · <g>u</g>_<r>e</r>",
-    steps: [
+    homeSounds: "o_e · u_e",    steps: [
 
       /* Step 1 — Listen (standard) */
       { type: "listen", label: "sounds", sounds: [
