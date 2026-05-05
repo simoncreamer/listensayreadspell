@@ -348,7 +348,6 @@ const stage = document.getElementById("activity-container");
        patterns:        renderPatterns,
        spell:           renderSpell,
        match:           renderMatch,
-      if (map[step.type]) map[step.type](pane, step);
 }
 
 /* ── Activity 1: Listen ─────────────────────────────────────── */
