@@ -620,7 +620,7 @@ function renderAlphabetNames(c, step) {
     <div style="margin-bottom:1.2rem;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
         <p style="font-size:18px;margin:0;color:#1a1a1a;">
-          <strong>Vowels</strong> (V) — names
+          Vowels (V) — <strong>names</strong>
         </p>
         <button class="icon-btn-round" onclick="playAudioFile('${safeAudio2}')">${SVG.audio(24,"#378ADD")}</button>
       </div>
@@ -632,7 +632,7 @@ function renderAlphabetNames(c, step) {
     <div style="margin-bottom:1.2rem;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
         <p style="font-size:18px;margin:0;color:#1a1a1a;">
-          <strong>Consonants</strong> (C) — names
+          Consonants (C) — <strong>names</strong>
         </p>
         <button class="icon-btn-round" onclick="playAudioFile('${safeAudio3}')">${SVG.audio(24,"#378ADD")}</button>
       </div>
@@ -673,7 +673,7 @@ function renderAlphabetSounds(c, step) {
     <div style="margin-bottom:1.2rem;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
         <p style="font-size:18px;margin:0;color:#1a1a1a;">
-          <strong>Vowels</strong> (V) — sounds
+          Vowels (V) — <strong>sounds</strong>
         </p>
         <button class="icon-btn-round" onclick="playAudioFile('${safeAudio1}')">${SVG.audio(24,"#378ADD")}</button>
       </div>
@@ -685,7 +685,7 @@ function renderAlphabetSounds(c, step) {
     <div style="margin-bottom:1.2rem;">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
         <p style="font-size:18px;margin:0;color:#1a1a1a;">
-          <strong>Consonants</strong> (C) — sounds
+          Consonants (C) — <strong>sounds</strong>
         </p>
         <button class="icon-btn-round" onclick="playAudioFile('${safeAudio2}')">${SVG.audio(24,"#378ADD")}</button>
       </div>
