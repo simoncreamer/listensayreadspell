@@ -940,95 +940,129 @@ const CURRICULUM = [
     homeLabel: "Set 8.1",
     homeSounds: "a_e · i_e",
     steps: [
+  /* Listen */
+  { type: "listen", label: "sounds", sounds: [
+    { letter: "a_e", display: "a_e", audio: "audio/a_e.mp3" },
+    { letter: "i_e", display: "i_e", audio: "audio/i_e.mp3" },
+  ]},
 
-      /* Step 1 — Listen (standard) */
-      { type: "listen", label: "sounds", sounds: [
-        { letter: "a_e", display: "a_e", audio: "audio/a_e.mp3" },
-        { letter: "i_e", display: "i_e", audio: "audio/i_e.mp3" },
-      ]},
+  /* Alphabet Names */
+  { type: "alphabetNames", label: "alphabet-names",
+    audio1: "audio/spelling rules 1.mp3",
+    audio2: "audio/spelling rules 2.mp3",
+    audio3: "audio/spelling rules 3.mp3",
+  },
 
-      /* Step 2 — Alphabet Names */
-      {
-        type: "alphabetNames", label: "alphabet-names",
-        audio1: "audio/spelling rules 1.mp3",
-        audio2: "audio/spelling rules 2.mp3",
-        audio3: "audio/spelling rules 3.mp3",
-      },
+  /* Alphabet Sounds */
+  { type: "alphabetSounds", label: "alphabet-sounds",
+    audio1: "audio/spelling rules 2.mp3",
+    audio2: "audio/spelling rules 3.mp3",
+  },
 
-      /* Step 3 — Alphabet Sounds */
-      {
-        type: "alphabetSounds", label: "alphabet-sounds",
-        audio1: "audio/spelling rules 2.mp3",
-        audio2: "audio/spelling rules 3.mp3",
-      },
+  /* Patterns */
+  { type: "patterns", label: "patterns",
+    audio1: "audio/tap.mp3",
+    audio2: "audio/tape.mp3",
+  },
 
-      /* Step 4 — Patterns (CVC vs CVCe) */
-      {
-        type: "patterns", label: "patterns",
-        audio1: "audio/tap.mp3",
-        audio2: "audio/tape.mp3",
-      },
-
-      /* Step 5 — Say: tap/tape, mat/mate (paired) */
-      {
-        type: "sayPaired", label: "1", group: "a_e-pairs",
-        rows: [
-          { word: "tap",  display: "tap",                 audio: "audio/tap.mp3" },
-          { word: "tape", display: "t<g>a</g>p<r>e</r>",  audio: "audio/tape.mp3" },
-          { word: "mat",  display: "mat",                 audio: "audio/mat.mp3" },
-          { word: "mate", display: "m<g>a</g>t<r>e</r>",  audio: "audio/mate.mp3" },
-        ],
-      },
-
-      /* Step 6 — Spell: tape, plate, cake */
-      { type: "spell", label: "1", group: "a_e-spell", words: [
-        { word: "tape",  display: "t<g>a</g>p<r>e</r>",  image: "images/tape.png",  audio: "audio/tape.mp3",  emoji: "🧲" },
-        { word: "plate", display: "pl<g>a</g>t<r>e</r>", image: "images/plate.png", audio: "audio/plate.mp3", emoji: "🍽️" },
-        { word: "cake",  display: "c<g>a</g>k<r>e</r>",  image: "images/cake.png",  audio: "audio/cake.mp3",  emoji: "🎂" },
-      ]},
-
-      /* Step 7 — Match: tape, plate, cake */
-      { type: "match", label: "1", group: "a_e-match", items: [
-        { word: "tape",  display: "t<g>a</g>p<r>e</r>",  image: "images/tape.png",  emoji: "🧲" },
-        { word: "plate", display: "pl<g>a</g>t<r>e</r>", image: "images/plate.png", emoji: "🍽️" },
-        { word: "cake",  display: "c<g>a</g>k<r>e</r>",  image: "images/cake.png",  emoji: "🎂" },
-      ]},
-
-      /* Step 8 — Say: plate, wave (more a_e words — paired format) */
-      {
-        type: "sayPaired", label: "2", group: "a_e-pairs2",
-        rows: [
-          { word: "plate", display: "pl<g>a</g>t<r>e</r>", audio: "audio/plate.mp3" },
-          { word: "cake",  display: "c<g>a</g>k<r>e</r>",  audio: "audio/cake.mp3" },
-          { word: "wave",  display: "w<g>a</g>v<r>e</r>",  audio: "audio/wave.mp3" },
-        ],
-      },
-
-      /* Step 9 — Say: rip/ripe, pin/pine (paired) */
-      {
-        type: "sayPaired", label: "3", group: "i_e-pairs",
-        rows: [
-          { word: "rip",  display: "rip",                 audio: "audio/rip.mp3" },
-          { word: "ripe", display: "r<g>i</g>p<r>e</r>",  audio: "audio/ripe.mp3" },
-          { word: "pin",  display: "pin",                 audio: "audio/pin.mp3" },
-          { word: "pine", display: "p<g>i</g>n<r>e</r>",  audio: "audio/pine.mp3" },
-        ],
-      },
-
-      /* Step 10 — Spell: like, ride, smile */
-      { type: "spell", label: "3", group: "i_e-spell", words: [
-        { word: "like",  display: "l<g>i</g>k<r>e</r>",  image: "images/like.png",  audio: "audio/like.mp3",  emoji: "👍" },
-        { word: "ride",  display: "r<g>i</g>d<r>e</r>",  image: "images/ride.png",  audio: "audio/ride.mp3",  emoji: "🚴" },
-        { word: "smile", display: "sm<g>i</g>l<r>e</r>", image: "images/smile.png", audio: "audio/smile.mp3", emoji: "😊" },
-      ]},
-
-      /* Step 11 — Match: like, ride, smile */
-      { type: "match", label: "3", group: "i_e-match", items: [
-        { word: "like",  display: "l<g>i</g>k<r>e</r>",  image: "images/like.png",  emoji: "👍" },
-        { word: "ride",  display: "r<g>i</g>d<r>e</r>",  image: "images/ride.png",  emoji: "🚴" },
-        { word: "smile", display: "sm<g>i</g>l<r>e</r>", image: "images/smile.png", emoji: "😊" },
-      ]},
+  /* Say 1: tap/tape, mat/mate */
+  { type: "sayPaired", label: "1", group: "a_e-1",
+    rows: [
+      { word: "tap",  display: "tap",                audio: "audio/tap.mp3" },
+      { word: "tape", display: "t<g>a</g>p<r>e</r>", audio: "audio/tape.mp3" },
+      { word: "mat",  display: "mat",                audio: "audio/mat.mp3" },
+      { word: "mate", display: "m<g>a</g>t<r>e</r>", audio: "audio/mate.mp3" },
     ],
+  },
+
+  /* Spell 1: tap, tape, mat, mate */
+  { type: "spell", label: "1", group: "a_e-1-spell", words: [
+    { word: "tap",  display: "tap",                image: "images/tap.png",  audio: "audio/tap.mp3",  emoji: "🚰" },
+    { word: "tape", display: "t<g>a</g>p<r>e</r>", image: "images/tape.png", audio: "audio/tape.mp3", emoji: "🧲" },
+    { word: "mat",  display: "mat",                image: "images/mat.jpg",  audio: "audio/mat.mp3",  emoji: "🟫" },
+    { word: "mate", display: "m<g>a</g>t<r>e</r>", image: "images/mate.png", audio: "audio/mate.mp3", emoji: "🤝" },
+  ]},
+
+  /* Match 1: tap, tape, mat, mate */
+  { type: "match", label: "1", group: "a_e-1-match", items: [
+    { word: "tap",  display: "tap",                image: "images/tap.png",  emoji: "🚰" },
+    { word: "tape", display: "t<g>a</g>p<r>e</r>", image: "images/tape.png", emoji: "🧲" },
+    { word: "mat",  display: "mat",                image: "images/mat.jpg",  emoji: "🟫" },
+    { word: "mate", display: "m<g>a</g>t<r>e</r>", image: "images/mate.png", emoji: "🤝" },
+  ]},
+
+  /* Say 2: plate, cake, wave */
+  { type: "sayPaired", label: "2", group: "a_e-2",
+    rows: [
+      { word: "plate", display: "pl<g>a</g>t<r>e</r>", audio: "audio/plate.mp3" },
+      { word: "cake",  display: "c<g>a</g>k<r>e</r>",  audio: "audio/cake.mp3" },
+      { word: "wave",  display: "w<g>a</g>v<r>e</r>",  audio: "audio/wave.mp3" },
+    ],
+  },
+
+  /* Spell 2: plate, cake, wave */
+  { type: "spell", label: "2", group: "a_e-2-spell", words: [
+    { word: "plate", display: "pl<g>a</g>t<r>e</r>", image: "images/plate.png", audio: "audio/plate.mp3", emoji: "🍽️" },
+    { word: "cake",  display: "c<g>a</g>k<r>e</r>",  image: "images/cake.png",  audio: "audio/cake.mp3",  emoji: "🎂" },
+    { word: "wave",  display: "w<g>a</g>v<r>e</r>",  image: "images/wave.png",  audio: "audio/wave.mp3",  emoji: "🌊" },
+  ]},
+
+  /* Match 2: plate, cake, wave */
+  { type: "match", label: "2", group: "a_e-2-match", items: [
+    { word: "plate", display: "pl<g>a</g>t<r>e</r>", image: "images/plate.png", emoji: "🍽️" },
+    { word: "cake",  display: "c<g>a</g>k<r>e</r>",  image: "images/cake.png",  emoji: "🎂" },
+    { word: "wave",  display: "w<g>a</g>v<r>e</r>",  image: "images/wave.png",  emoji: "🌊" },
+  ]},
+
+  /* Say 3: rip/ripe, pin/pine */
+  { type: "sayPaired", label: "3", group: "i_e-1",
+    rows: [
+      { word: "rip",  display: "rip",                audio: "audio/rip.mp3" },
+      { word: "ripe", display: "r<g>i</g>p<r>e</r>", audio: "audio/ripe.mp3" },
+      { word: "pin",  display: "pin",                audio: "audio/pin.mp3" },
+      { word: "pine", display: "p<g>i</g>n<r>e</r>", audio: "audio/pine.mp3" },
+    ],
+  },
+
+  /* Spell 3: rip, ripe, pin, pine */
+  { type: "spell", label: "3", group: "i_e-1-spell", words: [
+    { word: "rip",  display: "rip",                image: "images/rip.png",  audio: "audio/rip.mp3",  emoji: "😬" },
+    { word: "ripe", display: "r<g>i</g>p<r>e</r>", image: "images/ripe.png", audio: "audio/ripe.mp3", emoji: "🍑" },
+    { word: "pin",  display: "pin",                image: "images/pin.png",  audio: "audio/pin.mp3",  emoji: "📌" },
+    { word: "pine", display: "p<g>i</g>n<r>e</r>", image: "images/pine.png", audio: "audio/pine.mp3", emoji: "🌲" },
+  ]},
+
+  /* Match 3: rip, ripe, pin, pine */
+  { type: "match", label: "3", group: "i_e-1-match", items: [
+    { word: "rip",  display: "rip",                image: "images/rip.png",  emoji: "😬" },
+    { word: "ripe", display: "r<g>i</g>p<r>e</r>", image: "images/ripe.png", emoji: "🍑" },
+    { word: "pin",  display: "pin",                image: "images/pin.png",  emoji: "📌" },
+    { word: "pine", display: "p<g>i</g>n<r>e</r>", image: "images/pine.png", emoji: "🌲" },
+  ]},
+
+  /* Say 4: like, ride, smile */
+  { type: "sayPaired", label: "4", group: "i_e-2",
+    rows: [
+      { word: "like",  display: "l<g>i</g>k<r>e</r>",  audio: "audio/like.mp3" },
+      { word: "ride",  display: "r<g>i</g>d<r>e</r>",  audio: "audio/ride.mp3" },
+      { word: "smile", display: "sm<g>i</g>l<r>e</r>", audio: "audio/smile.mp3" },
+    ],
+  },
+
+  /* Spell 4: like, ride, smile */
+  { type: "spell", label: "4", group: "i_e-2-spell", words: [
+    { word: "like",  display: "l<g>i</g>k<r>e</r>",  image: "images/like.png",  audio: "audio/like.mp3",  emoji: "👍" },
+    { word: "ride",  display: "r<g>i</g>d<r>e</r>",  image: "images/ride.png",  audio: "audio/ride.mp3",  emoji: "🚴" },
+    { word: "smile", display: "sm<g>i</g>l<r>e</r>", image: "images/smile.png", audio: "audio/smile.mp3", emoji: "😊" },
+  ]},
+
+  /* Match 4: like, ride, smile */
+  { type: "match", label: "4", group: "i_e-2-match", items: [
+    { word: "like",  display: "l<g>i</g>k<r>e</r>",  image: "images/like.png",  emoji: "👍" },
+    { word: "ride",  display: "r<g>i</g>d<r>e</r>",  image: "images/ride.png",  emoji: "🚴" },
+    { word: "smile", display: "sm<g>i</g>l<r>e</r>", image: "images/smile.png", emoji: "😊" },
+  ]},
+],
   },
 
   /* ═══════════════════════════════════════════════════════════
@@ -1037,66 +1071,115 @@ const CURRICULUM = [
   {
     id: "set8-2",
     homeLabel: "Set 8.2",
-    homeSounds: "o_e · u_e",    steps: [
+    homeSounds: "o_e · u_e",    
+    steps: [
+  /* Listen */
+  { type: "listen", label: "sounds", sounds: [
+    { letter: "o_e", display: "o_e", audio: "audio/o_e.mp3" },
+    { letter: "u_e", display: "u_e", audio: "audio/u_e.mp3" },
+  ]},
 
-      /* Step 1 — Listen (standard) */
-      { type: "listen", label: "sounds", sounds: [
-        { letter: "o_e", display: "o_e", audio: "audio/o_e.mp3" },
-        { letter: "u_e", display: "u_e", audio: "audio/u_e.mp3" },
-      ]},
-
-      /* Step 2 — Say: hop/hope, not/note (paired) */
-      {
-        type: "sayPaired", label: "1", group: "o_e-pairs",
-        rows: [
-          { word: "hop",  display: "hop",                 audio: "audio/hop.mp3" },
-          { word: "hope", display: "h<g>o</g>p<r>e</r>",  audio: "audio/hope.mp3" },
-          { word: "not",  display: "not",                 audio: "audio/not.mp3" },
-          { word: "note", display: "n<g>o</g>t<r>e</r>",  audio: "audio/note.mp3" },
-        ],
-      },
-
-      /* Step 3 — Spell: stove, home, bone */
-      { type: "spell", label: "1", group: "o_e-spell", words: [
-        { word: "stove", display: "st<g>o</g>v<r>e</r>", image: "images/stove.png", audio: "audio/stove.mp3", emoji: "🔥" },
-        { word: "home",  display: "h<g>o</g>m<r>e</r>",  image: "images/home.png",  audio: "audio/home.mp3",  emoji: "🏠" },
-        { word: "bone",  display: "b<g>o</g>n<r>e</r>",  image: "images/bone.png",  audio: "audio/bone.mp3",  emoji: "🦴" },
-      ]},
-
-      /* Step 4 — Match: stove, home, bone */
-      { type: "match", label: "1", group: "o_e-match", items: [
-        { word: "stove", display: "st<g>o</g>v<r>e</r>", image: "images/stove.png", emoji: "🔥" },
-        { word: "home",  display: "h<g>o</g>m<r>e</r>",  image: "images/home.png",  emoji: "🏠" },
-        { word: "bone",  display: "b<g>o</g>n<r>e</r>",  image: "images/bone.png",  emoji: "🦴" },
-      ]},
-
-      /* Step 5 — Say: cut/cute, tub/tube (paired) */
-      {
-        type: "sayPaired", label: "2", group: "u_e-pairs",
-        rows: [
-          { word: "cut",  display: "cut",                 audio: "audio/cut.mp3" },
-          { word: "cute", display: "c<g>u</g>t<r>e</r>",  audio: "audio/cute.mp3" },
-          { word: "tub",  display: "tub",                 audio: "audio/tub.mp3" },
-          { word: "tube", display: "t<g>u</g>b<r>e</r>",  audio: "audio/tube.mp3" },
-        ],
-      },
-
-      /* Step 6 — Spell: June, cube, mute, tune */
-      { type: "spell", label: "2", group: "u_e-spell", words: [
-        { word: "June", display: "J<g>u</g>n<r>e</r>", image: "images/june.png", audio: "audio/june.mp3", emoji: "📅" },
-        { word: "cube", display: "c<g>u</g>b<r>e</r>", image: "images/cube.png", audio: "audio/cube.mp3", emoji: "🧊" },
-        { word: "mute", display: "m<g>u</g>t<r>e</r>", image: "images/mute.png", audio: "audio/mute.mp3", emoji: "🔇" },
-        { word: "tune", display: "t<g>u</g>n<r>e</r>", image: "images/tune.png", audio: "audio/tune.mp3", emoji: "🎵" },
-      ]},
-
-      /* Step 7 — Match: June, cube, mute, tune */
-      { type: "match", label: "2", group: "u_e-match", items: [
-        { word: "June", display: "J<g>u</g>n<r>e</r>", image: "images/june.png", emoji: "📅" },
-        { word: "cube", display: "c<g>u</g>b<r>e</r>", image: "images/cube.png", emoji: "🧊" },
-        { word: "mute", display: "m<g>u</g>t<r>e</r>", image: "images/mute.png", emoji: "🔇" },
-        { word: "tune", display: "t<g>u</g>n<r>e</r>", image: "images/tune.png", emoji: "🎵" },
-      ]},
+  /* Say 1: hop/hope, not/note */
+  { type: "sayPaired", label: "1", group: "o_e-1",
+    rows: [
+      { word: "hop",  display: "hop",                audio: "audio/hop.mp3" },
+      { word: "hope", display: "h<g>o</g>p<r>e</r>", audio: "audio/hope.mp3" },
+      { word: "not",  display: "not",                audio: "audio/not.mp3" },
+      { word: "note", display: "n<g>o</g>t<r>e</r>", audio: "audio/note.mp3" },
     ],
+  },
+
+  /* Spell 1: hop, hope, not, note */
+  { type: "spell", label: "1", group: "o_e-1-spell", words: [
+    { word: "hop",  display: "hop",                image: "images/hop.png",  audio: "audio/hop.mp3",  emoji: "🐇" },
+    { word: "hope", display: "h<g>o</g>p<r>e</r>", image: "images/hope.png", audio: "audio/hope.mp3", emoji: "🌟" },
+    { word: "not",  display: "not",                image: "images/not.png",  audio: "audio/not.mp3",  emoji: "❌" },
+    { word: "note", display: "n<g>o</g>t<r>e</r>", image: "images/note.png", audio: "audio/note.mp3", emoji: "📝" },
+  ]},
+
+  /* Match 1: hop, hope, not, note */
+  { type: "match", label: "1", group: "o_e-1-match", items: [
+    { word: "hop",  display: "hop",                image: "images/hop.png",  emoji: "🐇" },
+    { word: "hope", display: "h<g>o</g>p<r>e</r>", image: "images/hope.png", emoji: "🌟" },
+    { word: "not",  display: "not",                image: "images/not.png",  emoji: "❌" },
+    { word: "note", display: "n<g>o</g>t<r>e</r>", image: "images/note.png", emoji: "📝" },
+  ]},
+
+  /* Say 2: stove, home, bone */
+  { type: "sayPaired", label: "2", group: "o_e-2",
+    rows: [
+      { word: "stove", display: "st<g>o</g>v<r>e</r>", audio: "audio/stove.mp3" },
+      { word: "home",  display: "h<g>o</g>m<r>e</r>",  audio: "audio/home.mp3" },
+      { word: "bone",  display: "b<g>o</g>n<r>e</r>",  audio: "audio/bone.mp3" },
+    ],
+  },
+
+  /* Spell 2: stove, home, bone */
+  { type: "spell", label: "2", group: "o_e-2-spell", words: [
+    { word: "stove", display: "st<g>o</g>v<r>e</r>", image: "images/stove.png", audio: "audio/stove.mp3", emoji: "🔥" },
+    { word: "home",  display: "h<g>o</g>m<r>e</r>",  image: "images/home.png",  audio: "audio/home.mp3",  emoji: "🏠" },
+    { word: "bone",  display: "b<g>o</g>n<r>e</r>",  image: "images/bone.png",  audio: "audio/bone.mp3",  emoji: "🦴" },
+  ]},
+
+  /* Match 2: stove, home, bone */
+  { type: "match", label: "2", group: "o_e-2-match", items: [
+    { word: "stove", display: "st<g>o</g>v<r>e</r>", image: "images/stove.png", emoji: "🔥" },
+    { word: "home",  display: "h<g>o</g>m<r>e</r>",  image: "images/home.png",  emoji: "🏠" },
+    { word: "bone",  display: "b<g>o</g>n<r>e</r>",  image: "images/bone.png",  emoji: "🦴" },
+  ]},
+
+  /* Say 3: cut/cute, tub/tube */
+  { type: "sayPaired", label: "3", group: "u_e-1",
+    rows: [
+      { word: "cut",  display: "cut",                audio: "audio/cut.mp3" },
+      { word: "cute", display: "c<g>u</g>t<r>e</r>", audio: "audio/cute.mp3" },
+      { word: "tub",  display: "tub",                audio: "audio/tub.mp3" },
+      { word: "tube", display: "t<g>u</g>b<r>e</r>", audio: "audio/tube.mp3" },
+    ],
+  },
+
+  /* Spell 3: cut, cute, tub, tube */
+  { type: "spell", label: "3", group: "u_e-1-spell", words: [
+    { word: "cut",  display: "cut",                image: "images/cut.png",  audio: "audio/cut.mp3",  emoji: "✂️" },
+    { word: "cute", display: "c<g>u</g>t<r>e</r>", image: "images/cute.png", audio: "audio/cute.mp3", emoji: "🥰" },
+    { word: "tub",  display: "tub",                image: "images/tub.png",  audio: "audio/tub.mp3",  emoji: "🛁" },
+    { word: "tube", display: "t<g>u</g>b<r>e</r>", image: "images/tube.png", audio: "audio/tube.mp3", emoji: "🎨" },
+  ]},
+
+  /* Match 3: cut, cute, tub, tube */
+  { type: "match", label: "3", group: "u_e-1-match", items: [
+    { word: "cut",  display: "cut",                image: "images/cut.png",  emoji: "✂️" },
+    { word: "cute", display: "c<g>u</g>t<r>e</r>", image: "images/cute.png", emoji: "🥰" },
+    { word: "tub",  display: "tub",                image: "images/tub.png",  emoji: "🛁" },
+    { word: "tube", display: "t<g>u</g>b<r>e</r>", image: "images/tube.png", emoji: "🎨" },
+  ]},
+
+  /* Say 4: June, cube, mute, tune */
+  { type: "sayPaired", label: "4", group: "u_e-2",
+    rows: [
+      { word: "June", display: "J<g>u</g>n<r>e</r>", audio: "audio/june.mp3" },
+      { word: "cube", display: "c<g>u</g>b<r>e</r>", audio: "audio/cube.mp3" },
+      { word: "mute", display: "m<g>u</g>t<r>e</r>", audio: "audio/mute.mp3" },
+      { word: "tune", display: "t<g>u</g>n<r>e</r>", audio: "audio/tune.mp3" },
+    ],
+  },
+
+  /* Spell 4: June, cube, mute, tune */
+  { type: "spell", label: "4", group: "u_e-2-spell", words: [
+    { word: "June", display: "J<g>u</g>n<r>e</r>", image: "images/june.png", audio: "audio/june.mp3", emoji: "📅" },
+    { word: "cube", display: "c<g>u</g>b<r>e</r>", image: "images/cube.png", audio: "audio/cube.mp3", emoji: "🧊" },
+    { word: "mute", display: "m<g>u</g>t<r>e</r>", image: "images/mute.png", audio: "audio/mute.mp3", emoji: "🔇" },
+    { word: "tune", display: "t<g>u</g>n<r>e</r>", image: "images/tune.png", audio: "audio/tune.mp3", emoji: "🎵" },
+  ]},
+
+  /* Match 4: June, cube, mute, tune */
+  { type: "match", label: "4", group: "u_e-2-match", items: [
+    { word: "June", display: "J<g>u</g>n<r>e</r>", image: "images/june.png", emoji: "📅" },
+    { word: "cube", display: "c<g>u</g>b<r>e</r>", image: "images/cube.png", emoji: "🧊" },
+    { word: "mute", display: "m<g>u</g>t<r>e</r>", image: "images/mute.png", emoji: "🔇" },
+    { word: "tune", display: "t<g>u</g>n<r>e</r>", image: "images/tune.png", emoji: "🎵" },
+  ]},
+],
   },
 
   /* ═══════════════════════════════════════════════════════════
