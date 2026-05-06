@@ -526,3 +526,13 @@ p.sub {
   .blend-table th, .blend-table td { padding: 7px 4px; }
   .phoneme-text, .word-text { font-size: 32px; }
 }
+
+.grid-placeholder {
+  visibility: hidden;
+}
+
+@media (max-width: 480px) {
+  .grid-placeholder {
+    display: none;
+  }
+}
