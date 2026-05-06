@@ -204,7 +204,7 @@ function renderHome() {
     const twoOnly = ["set1-2","set2-2","set3-2","set4-2","set5-2","set6-2","set7-2"];
     if (twoOnly.includes(c.id)) {
       const ph = document.createElement("div");
-      ph.style.cssText = "visibility:hidden;";
+      ph.className = "grid-placeholder";
       g.appendChild(ph);
     }
   });
