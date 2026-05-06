@@ -192,14 +192,19 @@ function renderHome() {
   g.innerHTML = "";
   CURRICULUM.forEach((c, ci) => {
     const done   = isSetComplete(c);
-    const prevOk = ci === 0 || isSetComplete(CURRICULUM[ci - 1]);
-    const locked = false;
     const el     = document.createElement("div");
-    el.className = "set-card" + (locked ? " locked-card" : "");
+    el.className = "set-card";
     el.innerHTML = `<div class="set-number">${c.homeLabel}${done ? " ✓" : ""}</div>
                     <div class="set-sounds">${renderDisplay(c.homeSounds)}</div>`;
-    if (!locked) el.onclick = () => openSet(c.id, 0);
+    el.onclick = () => openSet(c.id, 0);
     g.appendChild(el);
+
+    // After Set 7.2 (index 13), add an empty placeholder to push Set 8 to a new row
+    if (c.id === "set7-2") {
+      const placeholder = document.createElement("div");
+      placeholder.style.cssText = "visibility:hidden;";
+      g.appendChild(placeholder);
+    }
   });
 }
 
