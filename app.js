@@ -890,7 +890,6 @@ ffunction dismissFireworks() {
   if (nextSet) openSet(nextSet.id, 0);
   else goHome();
 }
-}
 
 /* ── Boot ───────────────────────────────────────────────────── */
 renderHome();
