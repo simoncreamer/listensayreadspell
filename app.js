@@ -883,9 +883,10 @@ function stopFireworks() {
   document.getElementById("fw-message").classList.remove("active");
 }
 
-function dismissFireworks() {
+ffunction dismissFireworks() {
   stopFireworks();
-  const nextSet = CURRICULUM.find(c => c.id !== currentSet.id && c.steps.length > 0 && !isSetComplete(c));
+  const currentIdx = CURRICULUM.findIndex(c => c.id === currentSet.id);
+  const nextSet = CURRICULUM.find((c, i) => i > currentIdx && c.steps.length > 0 && !isSetComplete(c));
   if (nextSet) openSet(nextSet.id, 0);
   else goHome();
 }
