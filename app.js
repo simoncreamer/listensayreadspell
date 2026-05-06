@@ -883,7 +883,7 @@ function stopFireworks() {
   document.getElementById("fw-message").classList.remove("active");
 }
 
-ffunction dismissFireworks() {
+function dismissFireworks() {
   stopFireworks();
   const currentIdx = CURRICULUM.findIndex(c => c.id === currentSet.id);
   const nextSet = CURRICULUM.find((c, i) => i > currentIdx && c.steps.length > 0 && !isSetComplete(c));
