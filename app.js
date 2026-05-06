@@ -191,19 +191,21 @@ function renderHome() {
   const g = document.getElementById("set-grid");
   g.innerHTML = "";
   CURRICULUM.forEach((c, ci) => {
-    const done   = isSetComplete(c);
-    const el     = document.createElement("div");
+    const done = isSetComplete(c);
+    const el   = document.createElement("div");
     el.className = "set-card";
     el.innerHTML = `<div class="set-number">${c.homeLabel}${done ? " ✓" : ""}</div>
                     <div class="set-sounds">${renderDisplay(c.homeSounds)}</div>`;
     el.onclick = () => openSet(c.id, 0);
     g.appendChild(el);
 
-    // After Set 7.2 (index 13), add an empty placeholder to push Set 8 to a new row
-    if (c.id === "set7-2") {
-      const placeholder = document.createElement("div");
-      placeholder.style.cssText = "visibility:hidden;";
-      g.appendChild(placeholder);
+    // For sets that come in pairs (.1 and .2 only, no .3),
+    // add a placeholder after the .2 to fill the third column
+    const twoOnly = ["set1-2","set2-2","set3-2","set4-2","set5-2","set6-2","set7-2"];
+    if (twoOnly.includes(c.id)) {
+      const ph = document.createElement("div");
+      ph.style.cssText = "visibility:hidden;";
+      g.appendChild(ph);
     }
   });
 }
