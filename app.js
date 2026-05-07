@@ -19,13 +19,19 @@ let dndState       = {};
 let fwAnimId       = null;
 
 /* ── Persistence ────────────────────────────────────────────── */
-function saveProgress() {
-  localStorage.setItem("phonics_progress", JSON.stringify(progress));
+async function saveProgress() {
+  // saving happens in markStep directly
 }
-function markStep(setId, idx) {
+async function markStep(setId, idx) {
   if (!progress[setId]) progress[setId] = {};
   progress[setId][idx] = true;
-  saveProgress();
+  if (currentStudent) {
+    await dbUpsert("progress", {
+      student_id: currentStudent.id,
+      set_id: setId,
+      step_idx: idx,
+    });
+  }
 }
 function isStepDone(setId, idx) {
   return !!(progress[setId] && progress[setId][idx]);
