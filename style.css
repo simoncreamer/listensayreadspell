@@ -43,6 +43,7 @@ p.sub {
   align-items: center;
   gap: 12px;
   margin-bottom: 0.5rem;
+  justify-content: space-between;
 }
 
 .set-header h1 {
