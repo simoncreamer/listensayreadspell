@@ -899,4 +899,4 @@ function dismissFireworks() {
 }
 
 /* ── Boot ───────────────────────────────────────────────────── */
-renderHome();
+showLoginScreen();
