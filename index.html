@@ -33,9 +33,11 @@
       <path d="M3 9.5L10 3L17 9.5V17H13V13H7V17H3V9.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" fill="none"/>
     </svg>
   </button>
-  <h1 id="set-title"></h1>
-  <p class="sub" id="set-subtitle"></p>
-  <button class="btn" onclick="logout()" style="font-size:13px;padding:6px 12px;margin-left:auto;">Sign out</button>
+  <div style="flex:1;">
+    <h1 id="set-title" style="margin:0;"></h1>
+    <p class="sub" id="set-subtitle" style="margin:0;"></p>
+  </div>
+  <button class="btn" onclick="logout()" style="font-size:13px;padding:6px 12px;">Sign out</button>
 </div>
 <div class="progress-bar"><div class="progress-fill" id="set-progress"></div></div>
 <div id="activity-container"></div>
